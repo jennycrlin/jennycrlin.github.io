@@ -11,7 +11,7 @@ export function Nav() {
       <div className="nav-links">
         <ProjectsLink />
         <Link href="/about">About</Link>
-        <a href="https://drive.google.com/file/d/10brzKZLYGmxjmsqCTo2dTDlT-JusIe7o/view" target="_blank" rel="noopener noreferrer">Resume</a>
+        <a href="/images/resume/Jenny_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
       </div>
       <div className="nav-right">
         <ThemeToggle />

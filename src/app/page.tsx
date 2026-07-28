@@ -105,7 +105,7 @@ export default function Home() {
 
           <Link href="/projects/dashboard" className="proj-card">
             <div className="card-cover">
-              <Image src="/images/projects/dashboard/att-cover.png" alt="AT&T Portal Dashboard" width={5760} height={2880} sizes="(max-width: 768px) 100vw, 50vw" />
+              <Image src="/images/projects/dashboard/att-cover.svg" alt="AT&T Portal Dashboard" width={1200} height={600} sizes="(max-width: 768px) 100vw, 50vw" />
             </div>
             <div className="card-info">
               <h4>Dashboard Redesign</h4>
@@ -124,14 +124,14 @@ export default function Home() {
           </Link>
 
           <Link href="/projects/healthcare" className="proj-card">
-            <div className="card-cover card-cover--top">
-              <Image src="/images/projects/healthcare/wcwch-cover.png" alt="Healthcare Mobile App" width={1643} height={1691} sizes="(max-width: 768px) 100vw, 50vw" />
+            <div className="card-cover">
+              <Image src="/images/projects/healthcare/healthcare-cover.svg" alt="Healthcare Mobile App" width={1200} height={600} sizes="(max-width: 768px) 100vw, 50vw" />
             </div>
             <div className="card-info">
               <h4>Healthcare Mobile App</h4>
               <p>
-                0-to-1 design transforming health data into an intuitive mobile
-                app.
+                0-to-1 design transforming health data into an intuitive
+                mobile app.
               </p>
               <div className="tags">
                 <span className="tag">Mobile</span>
@@ -144,8 +144,8 @@ export default function Home() {
           </Link>
 
           <Link href="/projects/ai-agent" className="proj-card">
-            <div className="card-cover card-cover--contain">
-              <Image src="/images/projects/ai-agent/teachingAI-cover.png" alt="Teaching AI Agent" width={1924} height={2000} sizes="(max-width: 768px) 100vw, 50vw" />
+            <div className="card-cover">
+              <Image src="/images/projects/ai-agent/ai-agent-cover.svg" alt="Teaching AI Agent" width={1200} height={600} sizes="(max-width: 768px) 100vw, 50vw" />
             </div>
             <div className="card-info">
               <h4>Teaching AI Agent</h4>

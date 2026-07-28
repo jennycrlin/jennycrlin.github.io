@@ -1,138 +1,152 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { ProjectSidebar } from "@/components/ProjectSidebar";
 import { ScrollReveal } from "@/components/ScrollReveal";
-import { Collapsible } from "@/components/Collapsible";
 import { Carousel } from "@/components/Carousel";
-import { ShowcaseReveal } from "@/components/ShowcaseReveal";
 
 export const metadata: Metadata = {
-  title: "MeetEat — Jenny Lin",
+  title: "Meet & Eat — Jenny Lin",
 };
-
-const TOC_SECTIONS = [
-  {
-    title: "Overview",
-    href: "#sec-overview",
-    children: [{ label: "Context", href: "#sec-overview" }],
-  },
-  {
-    title: "Impact",
-    href: "#sec-impact",
-    children: [{ label: "Key Metrics", href: "#sec-impact" }],
-  },
-  {
-    title: "Design",
-    href: "#sec-design",
-    children: [
-      { label: "Profile & Groups", href: "#sec-profile" },
-      { label: "Events", href: "#sec-events" },
-      { label: "Home & Nav", href: "#sec-home" },
-    ],
-  },
-  {
-    title: "Prototype",
-    href: "#sec-prototype",
-    children: [{ label: "Interactive Demo", href: "#sec-prototype" }],
-  },
-  {
-    title: "Research",
-    href: "#sec-research",
-    children: [{ label: "Methods", href: "#sec-research" }],
-  },
-];
 
 export default function MeetEatPage() {
   return (
     <>
       <div className="proj-hero">
-        <h1>MeetEat — Social Dining App</h1>
+        <h1>Meet &amp; Eat</h1>
         <p className="desc">
-          Accessibility-driven redesign of a social dining app, reducing
-          cognitive load and improving usability across core interactions.
+          A social dining app building community and creating connections.
         </p>
         <div className="meta-grid">
           <div className="meta-item">
-            <label>My Role</label>
-            <span>UX Research Designer</span>
+            <label>Role</label>
+            <span>UX Researcher, UI Designer, Accessibility Auditor</span>
           </div>
           <div className="meta-item">
-            <label>Type</label>
-            <span>Class Project</span>
+            <label>Team</label>
+            <span>4 Members</span>
           </div>
           <div className="meta-item">
             <label>Timeline</label>
-            <span>4 Months</span>
+            <span>12 Weeks Sprint</span>
           </div>
-          <div className="meta-item">
-            <label>Platform</label>
-            <span>iOS Mobile</span>
-          </div>
-        </div>
-
-        <div className="proj-hero-image">
-          <Image
-            src="/images/projects/meeteat/DESIGN3.png"
-            alt="MeetEat redesign — simplified home with clearer navigation"
-            width={7680}
-            height={4320}
-            sizes="(max-width: 768px) 100vw, 1100px"
-            priority
-          />
         </div>
       </div>
 
       <div className="proj-body-wrap">
-        <ProjectSidebar sections={TOC_SECTIONS} />
-
         <main className="proj-content">
-          {/* Overview */}
+          {/* Problem */}
           <ScrollReveal>
-            <div className="section" id="sec-overview">
-              <h2>Overview</h2>
+            <div className="section" id="sec-problem">
+              <h2>Problem</h2>
+              <h3>Personalization Deficiency &amp; Lack of Community Connection</h3>
               <p>
-                MeetEat helps people connect through shared meals. The original
-                design suffered from cluttered interfaces, confusing icons, and
-                high cognitive load. Through accessibility auditing and
-                iterative usability testing, I redesigned the core experience
-                to simplify workflows and reduce confusion.
+                Food has become a way to connect, but no platform exists for food
+                lovers to befriend others through shared dining and restaurant
+                recommendations. A market survey revealed demand for a platform
+                enabling meaningful conversations with like-minded individuals.
               </p>
             </div>
           </ScrollReveal>
 
-          {/* Impact */}
+          {/* Solution */}
           <ScrollReveal>
-            <div className="section" id="sec-impact">
-              <h2>Impact</h2>
+            <div className="section" id="sec-solution">
+              <h2>Solution</h2>
+              <h3>Prioritize Customized Features &amp; Enhance User Engagement</h3>
+              <p>
+                Based on surveys, story mapping, and user testing, the app
+                tailors content to individual preferences and behaviors while
+                gathering user feedback for iterative refinement.
+              </p>
             </div>
           </ScrollReveal>
-          <div className="cs-stats cs-stats--two">
-            <ScrollReveal delay={0}>
-              <div className="cs-stat-card">
-                <div className="cs-stat-number">12%</div>
-                <div className="cs-stat-title">User Satisfaction</div>
-                <p>Increase after redesign.</p>
-              </div>
-            </ScrollReveal>
-            <ScrollReveal delay={150}>
-              <div className="cs-stat-card">
-                <div className="cs-stat-number">26%</div>
-                <div className="cs-stat-title">Error Rate Reduction</div>
-                <p>Decrease across key tasks.</p>
-              </div>
-            </ScrollReveal>
-          </div>
 
+          {/* Methodology — tabs */}
           <ScrollReveal>
-            <div className="cs-image-full cs-image-full--medium">
-              <Image
-                src="/images/projects/meeteat/SuS.png"
-                alt="SUS Score: 82.3% — Grade A, Excellent"
-                width={2697}
-                height={1577}
-                sizes="(max-width: 768px) 100vw, 700px"
-              />
+            <div className="section" id="sec-methodology">
+              <h2>Methodology</h2>
+              <Carousel
+                labels={[
+                  "Affinity Diagrams",
+                  "Story Mapping",
+                  "Wireframe",
+                  "Usability Testing",
+                ]}
+              >
+                {[
+                  <div key="affinity" className="carousel-content-panel">
+                    <h3>01 Affinity Diagrams</h3>
+                    <p>
+                      I led brainstorming using an affinity diagram to understand
+                      user needs. Items were organized into four categories:
+                      restaurant interactions, groups, hosts, and personal.
+                    </p>
+                    <div className="cs-image-full">
+                      <Image
+                        src="/images/projects/meeteat/affinity diagram.png"
+                        alt="Affinity diagram"
+                        width={1872}
+                        height={1584}
+                        sizes="(max-width: 768px) 100vw, 800px"
+                      />
+                    </div>
+                  </div>,
+
+                  <div key="storymap" className="carousel-content-panel">
+                    <h3>02 Story Mapping</h3>
+                    <p>
+                      User journeys and feature interactions were visualized to
+                      support planning, prioritization, and organization of features
+                      along a timeline.
+                    </p>
+                    <div className="cs-image-full">
+                      <Image
+                        src="/images/projects/meeteat/StoryMap.png"
+                        alt="User story map"
+                        width={16900}
+                        height={13228}
+                        sizes="(max-width: 768px) 100vw, 800px"
+                      />
+                    </div>
+                  </div>,
+
+                  <div key="wireframe" className="carousel-content-panel">
+                    <h3>03 Wireframe</h3>
+                    <div className="cs-image-full">
+                      <Image
+                        src="/images/projects/meeteat/low-fi.png"
+                        alt="Low-fidelity wireframes"
+                        width={21184}
+                        height={13512}
+                        sizes="(max-width: 768px) 100vw, 800px"
+                      />
+                    </div>
+                  </div>,
+
+                  <div key="usability" className="carousel-content-panel">
+                    <h3>04 Usability Testing</h3>
+                    <p>
+                      We interviewed 10 users in person. I conducted 3 interviews
+                      to assess usability and navigation across 7 tasks.
+                    </p>
+                    <p className="cs-metrics-label"><strong>Key Metrics:</strong></p>
+                    <ul className="cs-metrics-list">
+                      <li><strong>Test Success Rate:</strong> Evaluate usability and ensure the design meets user needs and goals.</li>
+                      <li><strong>Time on Task:</strong> Identify usability issues during tasks.</li>
+                      <li><strong>System Usability Scale:</strong> Measure how users find the app valuable.</li>
+                    </ul>
+                    <div className="cs-image-full cs-image-blend">
+                      <Image
+                        src="/images/projects/meeteat/SuS.png"
+                        alt="SUS Score: 82.3% — Grade A, Excellent"
+                        width={2697}
+                        height={1577}
+                        sizes="(max-width: 768px) 100vw, 800px"
+                      />
+                    </div>
+                  </div>,
+                ]}
+              </Carousel>
             </div>
           </ScrollReveal>
 
@@ -140,143 +154,117 @@ export default function MeetEatPage() {
           <ScrollReveal>
             <div className="section" id="sec-design">
               <h2>Design</h2>
+              <p>
+                A Heuristic Evaluation and WCAG assessment were conducted,
+                with iterative improvements. Key issues included unclear icons
+                and descriptions, redundant content, a cluttered layout, and
+                color and size choices that didn&rsquo;t meet WCAG standards.
+              </p>
             </div>
           </ScrollReveal>
 
-          <ShowcaseReveal>
-            <div className="cs-showcase" id="sec-profile">
-              <div className="cs-showcase-sticky">
-                <h3>
-                  Reducing Cognitive Load
-                </h3>
-                <p>
-                  Three before-and-after redesigns across
-                  the core user experience.
-                </p>
-              </div>
-
-              <div className="cs-showcase-scroll">
-                <div className="cs-showcase-item">
-                  <div className="cs-showcase-num">01</div>
-                  <h4>Reduce Cognitive Load</h4>
-                  <p>
-                    Streamlined profile and groups with improved chip
-                    readability and clearer separation between personal
-                    and identity group browsing.
-                  </p>
-                  <div className="cs-image-full">
-                    <Image
-                      src="/images/projects/meeteat/DESIGN1.png"
-                      alt="Before & After: Profile and groups"
-                      width={7680}
-                      height={4320}
-                      sizes="(max-width: 1024px) 100vw, 500px"
-                    />
-                  </div>
-                </div>
-
-                <div className="cs-showcase-item" id="sec-events">
-                  <div className="cs-showcase-num">02</div>
-                  <h4>Reduce Confusion</h4>
-                  <p>
-                    Clearer event cards with Invite/Cancel actions, better
-                    date highlighting, and improved information density.
-                  </p>
-                  <div className="cs-image-full">
-                    <Image
-                      src="/images/projects/meeteat/DESIGN2.png"
-                      alt="Before & After: Events calendar"
-                      width={7680}
-                      height={4320}
-                      sizes="(max-width: 1024px) 100vw, 500px"
-                    />
-                  </div>
-                </div>
-
-                <div className="cs-showcase-item" id="sec-home">
-                  <div className="cs-showcase-num">03</div>
-                  <h4>Simplify Wording &amp; Clarify Icons</h4>
-                  <p>
-                    Simplified wording, removed redundant map, added
-                    location details, and redesigned navigation icons.
-                  </p>
-                  <div className="cs-image-full">
-                    <Image
-                      src="/images/projects/meeteat/DESIGN3.png"
-                      alt="Before & After: Home with clearer nav"
-                      width={7680}
-                      height={4320}
-                      sizes="(max-width: 1024px) 100vw, 500px"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </ShowcaseReveal>
-
-          {/* Prototype */}
           <ScrollReveal>
-            <div className="section" id="sec-prototype">
-              <h2>Prototype</h2>
-              <div className="cs-figma-embed">
-                <iframe
-                  src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FglR1w4rkGGYasJDkaY46Z2%2FPrototype%3Fcontent-scaling%3Dfixed%26kind%3Dproto%26node-id%3D1251-59535%26page-id%3D1251%253A49790%26scaling%3Dmin-zoom%26starting-point-node-id%3D1251%253A59535"
-                  allowFullScreen
+            <div className="section" id="sec-design-1">
+              <h3>01 Navigation Clarity</h3>
+              <p>
+                Navigation bar icons lacked clarity. Using the heuristic
+                &ldquo;Match between system and the real world,&rdquo; the
+                profile and group icons were adjusted. The map was removed
+                from the homepage and relocated to a dedicated page.
+              </p>
+              <div className="cs-image-full">
+                <Image
+                  src="/images/projects/meeteat/DESIGN1.png"
+                  alt="Before & After: Navigation clarity improvements"
+                  width={7680}
+                  height={4320}
+                  sizes="(max-width: 768px) 100vw, 800px"
                 />
               </div>
             </div>
           </ScrollReveal>
 
-          {/* Research — collapsible */}
-          <div className="section" id="sec-research">
-            <Collapsible title="Research &amp; Process">
-              <ScrollReveal>
-                <h3>Affinity Diagram</h3>
-                <div className="cs-image-full">
-                  <Image
-                    src="/images/projects/meeteat/affinity diagram.png"
-                    alt="Affinity diagram"
-                    width={1872}
-                    height={1584}
-                    sizes="(max-width: 768px) 100vw, 800px"
-                  />
-                </div>
-              </ScrollReveal>
-
-              <div className="collapsible-section">
-                <ScrollReveal>
-                  <h3>Methods</h3>
-                  <Carousel
-                    labels={[
-                      "Story Map",
-                      "Low-Fi Wireframes",
-                    ]}
-                  >
-                    {[
-                      <div key="storymap">
-                        <Image
-                          src="/images/projects/meeteat/StoryMap.png"
-                          alt="User story map"
-                          width={16900}
-                          height={13228}
-                          sizes="(max-width: 768px) 100vw, 800px"
-                        />
-                      </div>,
-                      <div key="lowfi">
-                        <Image
-                          src="/images/projects/meeteat/low-fi.png"
-                          alt="Low-fidelity wireframes"
-                          width={21184}
-                          height={13512}
-                          sizes="(max-width: 768px) 100vw, 800px"
-                        />
-                      </div>,
-                    ]}
-                  </Carousel>
-                </ScrollReveal>
+          <ScrollReveal>
+            <div className="section" id="sec-design-2">
+              <h3>02 Add CTA (Call-To-Action) Feature</h3>
+              <p>
+                Two buttons were added to the calendar page: one to invite a
+                friend and one to cancel the event. This aligned with
+                &ldquo;Flexibility and Efficiency of Use&rdquo; and
+                &ldquo;Visibility of Status System.&rdquo;
+              </p>
+              <div className="cs-image-full">
+                <Image
+                  src="/images/projects/meeteat/DESIGN2.png"
+                  alt="Before & After: CTA buttons on calendar page"
+                  width={7680}
+                  height={4320}
+                  sizes="(max-width: 768px) 100vw, 800px"
+                />
               </div>
-            </Collapsible>
-          </div>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal>
+            <div className="section" id="sec-design-3">
+              <h3>03 Accessibility Issues</h3>
+              <p>
+                The original design failed the WCAG 4.5:1 contrast standard.
+                The profile&rsquo;s color scheme was adjusted, spacing was
+                increased, and the principle of &ldquo;Aesthetic and Minimalist
+                Design&rdquo; was followed.
+              </p>
+              <div className="cs-image-full">
+                <Image
+                  src="/images/projects/meeteat/DESIGN3.png"
+                  alt="Before & After: Accessibility improvements"
+                  width={7680}
+                  height={4320}
+                  sizes="(max-width: 768px) 100vw, 800px"
+                />
+              </div>
+            </div>
+          </ScrollReveal>
+
+          {/* Reflection */}
+          <ScrollReveal>
+            <div className="section" id="sec-reflection">
+              <h2>Reflection</h2>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal>
+            <div className="section" id="sec-reflection-1">
+              <h3>01 Embrace Customization</h3>
+              <p>
+                User feedback showed integrating with Google Calendar or Apple
+                Calendar makes event management easier. Customization is key to
+                improving UX.
+              </p>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal>
+            <div className="section" id="sec-reflection-2">
+              <h3>02 Accessibility for All</h3>
+              <p>
+                Good design benefits everyone. Clear navigation and easy
+                interactions make information universally accessible.
+                Accessibility should always be part of the design process.
+              </p>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal>
+            <div className="section" id="sec-reflection-3">
+              <h3>03 Adapt to Unpredictable Results</h3>
+              <p>
+                Users may deviate from expected paths, producing unexpected
+                outcomes. Understanding these variations aids in redesigning
+                with better user insight.
+              </p>
+            </div>
+          </ScrollReveal>
 
           <div className="proj-nav-bar">
             <Link href="/projects/apple-books">&larr; Apple Books</Link>

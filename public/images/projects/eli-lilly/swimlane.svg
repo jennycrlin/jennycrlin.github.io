@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#999"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#c4001d"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="520" rx="12" fill="#fafafa"/>
+
+  <!-- Title -->
+  <text x="40" y="40" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="600" fill="#999" letter-spacing="2" text-transform="uppercase">CURRENT STATE PROCESS</text>
+
+  <!-- Swim lanes -->
+  <!-- Lane: Clinical Designer -->
+  <rect x="0" y="60" width="1200" height="140" fill="#f5f5f5" opacity="0.6"/>
+  <line x1="0" y1="60" x2="1200" y2="60" stroke="#e5e5e5"/>
+  <text x="28" y="90" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600" fill="#666" letter-spacing="1">CLINICAL</text>
+  <text x="28" y="104" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600" fill="#666" letter-spacing="1">DESIGNER</text>
+
+  <!-- Lane: Medical Writer -->
+  <rect x="0" y="200" width="1200" height="140" fill="white"/>
+  <line x1="0" y1="200" x2="1200" y2="200" stroke="#e5e5e5"/>
+  <text x="28" y="230" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600" fill="#666" letter-spacing="1">MEDICAL</text>
+  <text x="28" y="244" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600" fill="#666" letter-spacing="1">WRITER</text>
+
+  <!-- Lane: Study Lead -->
+  <rect x="0" y="340" width="1200" height="140" fill="#f5f5f5" opacity="0.6"/>
+  <line x1="0" y1="340" x2="1200" y2="340" stroke="#e5e5e5"/>
+  <text x="28" y="370" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600" fill="#666" letter-spacing="1">STUDY</text>
+  <text x="28" y="384" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600" fill="#666" letter-spacing="1">LEAD</text>
+
+  <line x1="0" y1="480" x2="1200" y2="480" stroke="#e5e5e5"/>
+
+  <!-- Clinical Designer steps -->
+  <!-- Step 1: Create Draft -->
+  <rect x="120" y="100" width="130" height="56" rx="8" fill="white" stroke="#d4d4d4"/>
+  <text x="185" y="124" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="500" fill="#1a1a1a" text-anchor="middle">Create Draft</text>
+  <text x="185" y="140" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#888" text-anchor="middle">Design Studio</text>
+
+  <!-- Arrow 1→2 -->
+  <line x1="250" y1="128" x2="278" y2="128" stroke="#999" marker-end="url(#arrow)"/>
+
+  <!-- Step 2: Export to Excel -->
+  <rect x="286" y="100" width="130" height="56" rx="8" fill="#fff5f5" stroke="#c4001d" stroke-dasharray="4 3"/>
+  <text x="351" y="124" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="500" fill="#c4001d" text-anchor="middle">Export to Excel</text>
+  <text x="351" y="140" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#c4001d" opacity="0.7" text-anchor="middle">Manual step</text>
+
+  <!-- Arrow 2→3 -->
+  <line x1="416" y1="128" x2="444" y2="128" stroke="#999" marker-end="url(#arrow)"/>
+
+  <!-- Step 3: Review SoA -->
+  <rect x="452" y="100" width="130" height="56" rx="8" fill="white" stroke="#d4d4d4"/>
+  <text x="517" y="124" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="500" fill="#1a1a1a" text-anchor="middle">Review SoA</text>
+  <text x="517" y="140" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#888" text-anchor="middle">with Dev Team</text>
+
+  <!-- Arrow 3→4 -->
+  <line x1="582" y1="128" x2="610" y2="128" stroke="#999" marker-end="url(#arrow)"/>
+
+  <!-- Step 4: Design Alignment -->
+  <rect x="618" y="100" width="130" height="56" rx="8" fill="white" stroke="#d4d4d4"/>
+  <text x="683" y="124" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="500" fill="#1a1a1a" text-anchor="middle">Design Alignment</text>
+  <text x="683" y="140" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#888" text-anchor="middle">Worksheet</text>
+
+  <!-- Arrow 4→5 (cross-lane to Medical Writer) -->
+  <line x1="748" y1="156" x2="748" y2="230" stroke="#c4001d" stroke-dasharray="4 3" marker-end="url(#arrow-red)"/>
+
+  <!-- BROKEN HANDOFF label -->
+  <rect x="758" y="180" width="120" height="22" rx="4" fill="#c4001d" opacity="0.08"/>
+  <text x="818" y="195" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="600" fill="#c4001d" text-anchor="middle" letter-spacing="0.5">⚠ BROKEN HANDOFF</text>
+
+  <!-- Medical Writer steps -->
+  <!-- Step 5: Rebuild SoA in Word -->
+  <rect x="618" y="238" width="130" height="56" rx="8" fill="#fff5f5" stroke="#c4001d" stroke-dasharray="4 3"/>
+  <text x="683" y="260" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="500" fill="#c4001d" text-anchor="middle">Rebuild in Word</text>
+  <text x="683" y="276" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#c4001d" opacity="0.7" text-anchor="middle">From scratch</text>
+
+  <!-- Arrow 5→6 -->
+  <line x1="748" y1="266" x2="776" y2="266" stroke="#999" marker-end="url(#arrow)"/>
+
+  <!-- Step 6: Cross-check -->
+  <rect x="784" y="238" width="130" height="56" rx="8" fill="#fff5f5" stroke="#c4001d" stroke-dasharray="4 3"/>
+  <text x="849" y="260" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="500" fill="#c4001d" text-anchor="middle">Cross-check SoA</text>
+  <text x="849" y="276" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#c4001d" opacity="0.7" text-anchor="middle">Line-by-line</text>
+
+  <!-- Arrow 6→7 -->
+  <line x1="914" y1="266" x2="942" y2="266" stroke="#999" marker-end="url(#arrow)"/>
+
+  <!-- Step 7: Authoring -->
+  <rect x="950" y="238" width="120" height="56" rx="8" fill="white" stroke="#d4d4d4"/>
+  <text x="1010" y="260" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="500" fill="#1a1a1a" text-anchor="middle">Authoring &amp;</text>
+  <text x="1010" y="276" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#888" text-anchor="middle">Review Cycles</text>
+
+  <!-- Arrow 7→ Study Lead -->
+  <line x1="1010" y1="294" x2="1010" y2="370" stroke="#999" marker-end="url(#arrow)"/>
+
+  <!-- Study Lead steps -->
+  <!-- Step 8: Review & Approve -->
+  <rect x="880" y="375" width="140" height="56" rx="8" fill="white" stroke="#d4d4d4"/>
+  <text x="950" y="399" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="500" fill="#1a1a1a" text-anchor="middle">Review &amp; Approve</text>
+  <text x="950" y="415" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#888" text-anchor="middle">Protocol</text>
+
+  <!-- Arrow to Protocol Approval -->
+  <line x1="1020" y1="403" x2="1048" y2="403" stroke="#999" marker-end="url(#arrow)"/>
+
+  <!-- Final: Protocol Approval -->
+  <rect x="1056" y="383" width="110" height="40" rx="20" fill="#1a1a1a" opacity="0.06"/>
+  <text x="1111" y="408" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="500" fill="#1a1a1a" text-anchor="middle">Approval</text>
+
+  <!-- Pain point legend -->
+  <rect x="40" y="492" width="10" height="10" rx="2" fill="#fff5f5" stroke="#c4001d" stroke-dasharray="2 1.5"/>
+  <text x="58" y="501" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#888">Manual step — no re-import path</text>
+
+  <rect x="240" y="492" width="10" height="10" rx="2" fill="white" stroke="#d4d4d4"/>
+  <text x="258" y="501" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#888">Digital step</text>
+</svg>

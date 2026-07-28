@@ -120,7 +120,7 @@ export default function AboutPage() {
 
       <section className="about-resume">
         <a
-          href="https://drive.google.com/file/d/10brzKZLYGmxjmsqCTo2dTDlT-JusIe7o/view"
+          href="/images/resume/Jenny_Resume.pdf"
           className="about-resume-btn"
           target="_blank"
           rel="noopener noreferrer"

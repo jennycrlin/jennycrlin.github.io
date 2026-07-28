@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8f7f5;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#f0eeea;stop-opacity:1"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="600" fill="url(#bg)"/>
+
+  <!-- Background: faded chat/AI interface -->
+  <!-- Laptop frame -->
+  <rect x="100" y="30" width="440" height="300" rx="12" fill="#1a1a1a" opacity="0.03" stroke="#1a1a1a" stroke-opacity="0.04"/>
+  <!-- Nav bar -->
+  <rect x="115" y="45" width="410" height="28" rx="4" fill="#00897b" opacity="0.04"/>
+  <rect x="130" y="55" width="80" height="8" rx="4" fill="#00897b" opacity="0.08"/>
+  <circle cx="500" cy="59" r="8" fill="#1a1a1a" opacity="0.03"/>
+  <!-- Chat area -->
+  <rect x="115" y="85" width="410" height="230" rx="0" fill="#1a1a1a" opacity="0.01"/>
+  <!-- Chat prompt -->
+  <rect x="200" y="180" width="240" height="12" rx="4" fill="#1a1a1a" opacity="0.04"/>
+  <!-- Input area -->
+  <rect x="140" y="240" width="350" height="40" rx="8" fill="#ffffff" opacity="0.5" stroke="#1a1a1a" stroke-opacity="0.04"/>
+  <rect x="160" y="254" width="200" height="6" rx="3" fill="#1a1a1a" opacity="0.04"/>
+  <rect x="445" y="250" width="30" height="20" rx="6" fill="#00897b" opacity="0.08"/>
+  <rect x="230" y="295" width="180" height="8" rx="4" fill="#1a1a1a" opacity="0.03"/>
+
+  <!-- Right side: conversation bubbles -->
+  <rect x="700" y="60" width="420" height="400" rx="12" fill="#1a1a1a" opacity="0.02" stroke="#1a1a1a" stroke-opacity="0.03"/>
+  <rect x="720" y="90" width="250" height="50" rx="12" fill="#00897b" opacity="0.04"/>
+  <rect x="740" y="105" width="180" height="6" rx="3" fill="#1a1a1a" opacity="0.04"/>
+  <rect x="740" y="118" width="140" height="6" rx="3" fill="#1a1a1a" opacity="0.03"/>
+  <rect x="830" y="160" width="270" height="40" rx="12" fill="#1a1a1a" opacity="0.03"/>
+  <rect x="850" y="173" width="200" height="6" rx="3" fill="#1a1a1a" opacity="0.04"/>
+  <rect x="850" y="186" width="150" height="6" rx="3" fill="#1a1a1a" opacity="0.03"/>
+  <rect x="720" y="220" width="300" height="70" rx="12" fill="#00897b" opacity="0.04"/>
+  <rect x="740" y="235" width="240" height="6" rx="3" fill="#1a1a1a" opacity="0.04"/>
+  <rect x="740" y="248" width="200" height="6" rx="3" fill="#1a1a1a" opacity="0.03"/>
+  <rect x="740" y="261" width="260" height="6" rx="3" fill="#1a1a1a" opacity="0.03"/>
+  <rect x="860" y="310" width="240" height="40" rx="12" fill="#1a1a1a" opacity="0.03"/>
+  <rect x="880" y="323" width="180" height="6" rx="3" fill="#1a1a1a" opacity="0.04"/>
+  <rect x="720" y="370" width="280" height="50" rx="12" fill="#00897b" opacity="0.04"/>
+  <rect x="740" y="385" width="220" height="6" rx="3" fill="#1a1a1a" opacity="0.04"/>
+  <rect x="740" y="398" width="180" height="6" rx="3" fill="#1a1a1a" opacity="0.03"/>
+
+  <!-- Scattered elements -->
+  <rect x="140" y="380" width="120" height="60" rx="8" fill="#1a1a1a" opacity="0.015"/>
+  <rect x="300" y="400" width="120" height="60" rx="8" fill="#1a1a1a" opacity="0.015"/>
+  <rect x="460" y="380" width="120" height="60" rx="8" fill="#1a1a1a" opacity="0.015"/>
+
+  <!-- Central brand — text only -->
+  <text x="600" y="280" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="48" font-weight="700" fill="#00897b" opacity="0.85" letter-spacing="1">EchoLearn</text>
+  <text x="600" y="330" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="20" fill="#1a1a1a" opacity="0.55" letter-spacing="2">Designing Conversational AI Experiences</text>
+</svg>

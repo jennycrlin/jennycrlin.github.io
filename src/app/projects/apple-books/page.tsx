@@ -1,111 +1,193 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { ProjectSidebar } from "@/components/ProjectSidebar";
 import { ScrollReveal } from "@/components/ScrollReveal";
-import { Collapsible } from "@/components/Collapsible";
 import { Carousel } from "@/components/Carousel";
-import { ShowcaseReveal } from "@/components/ShowcaseReveal";
 
 export const metadata: Metadata = {
   title: "Apple Books Redesign — Jenny Lin",
 };
 
-const TOC_SECTIONS = [
-  {
-    title: "Overview",
-    href: "#sec-overview",
-    children: [{ label: "Context", href: "#sec-overview" }],
-  },
-  {
-    title: "Design",
-    href: "#sec-design",
-    children: [
-      { label: "Home & Goals", href: "#sec-home" },
-      { label: "Book Store", href: "#sec-store" },
-      { label: "Community", href: "#sec-community" },
-    ],
-  },
-  {
-    title: "Prototype",
-    href: "#sec-prototype",
-    children: [{ label: "Interactive Demo", href: "#sec-prototype" }],
-  },
-  {
-    title: "Research",
-    href: "#sec-research",
-    children: [
-      { label: "Persona", href: "#sec-research" },
-      { label: "Methods", href: "#sec-methods" },
-    ],
-  },
-];
-
 export default function AppleBooksPage() {
   return (
     <>
       <div className="proj-hero">
-        <h1>Apple Books Redesign</h1>
+        <h1>Apple Books</h1>
         <p className="desc">
-          Reimagining the reading experience with social features,
-          reading goals, and personalized recommendations.
+          Redesigned Apple Books to improve intuitiveness and streamline user flow.
         </p>
         <div className="meta-grid">
           <div className="meta-item">
-            <label>My Role</label>
-            <span>UX Research Designer</span>
+            <label>Role</label>
+            <span>UX Researcher, UI Designer</span>
           </div>
           <div className="meta-item">
-            <label>Type</label>
-            <span>Class Project</span>
+            <label>Team</label>
+            <span>4 Members</span>
           </div>
           <div className="meta-item">
             <label>Timeline</label>
-            <span>3 Months</span>
+            <span>12 Weeks Sprint</span>
           </div>
-          <div className="meta-item">
-            <label>Platform</label>
-            <span>iOS Mobile</span>
-          </div>
-        </div>
-
-        <div className="proj-hero-image">
-          <Image
-            src="/images/projects/apple-books/design3.png"
-            alt="Apple Books Community — book clubs, friend activity, and social reading features"
-            width={1749}
-            height={984}
-            sizes="(max-width: 768px) 100vw, 1100px"
-            priority
-          />
         </div>
       </div>
 
       <div className="proj-body-wrap">
-        <ProjectSidebar sections={TOC_SECTIONS} />
-
         <main className="proj-content">
-          {/* Overview */}
+          {/* Problem */}
           <ScrollReveal>
-            <div className="section" id="sec-overview">
-              <h2>Overview</h2>
+            <div className="section" id="sec-problem">
+              <h2>Problem</h2>
+              <blockquote>
+                <p>How might we enhance the functionality and make it more intuitive for users?</p>
+              </blockquote>
               <p>
-                Apple Books offers a solid reading experience, but users face
-                decision fatigue when selecting books, struggle to track reading
-                progress, and lack social features to connect with fellow readers.
-                Through user research and information architecture analysis,
-                I identified five key opportunity areas: social media integration,
-                goal setting, reviews, recommendations, and book tracking.
+                The original Apple Books app had confusing navigation due to
+                overly complex categories and disorganized content. Unnecessary
+                components further complicated things, hurting user satisfaction
+                and ease of use.
               </p>
-              <div className="cs-image-full cs-image-full--medium">
-                <Image
-                  src="/images/projects/apple-books/survey.png"
-                  alt="Five areas: Social Media, Goal Setting, Reviews, Recommendation, Book Track"
-                  width={1968}
-                  height={578}
-                  sizes="(max-width: 768px) 100vw, 700px"
-                />
-              </div>
+            </div>
+          </ScrollReveal>
+
+          {/* Solution */}
+          <ScrollReveal>
+            <div className="section" id="sec-solution">
+              <h2>Solution</h2>
+              <h3>Clear Navigation Structure &amp; Remove Unnecessary Pages</h3>
+              <p>
+                I led the team in removing redundant content, reorganizing the
+                layout, and building a more intuitive information architecture.
+                A new global navigation structure was introduced, yielding
+                a 42% increase in task success rate.
+              </p>
+            </div>
+          </ScrollReveal>
+
+          {/* Methodology — tabs */}
+          <ScrollReveal>
+            <div className="section" id="sec-methodology">
+              <h2>Methodology</h2>
+              <Carousel
+                labels={[
+                  "Survey & Interview",
+                  "Competitor Analysis",
+                  "Content Inventory",
+                  "Card Sorting",
+                  "Personas",
+                  "Journey Map",
+                ]}
+              >
+                {[
+                  <div key="survey" className="carousel-content-panel">
+                    <h3>01 Survey &amp; Interview</h3>
+                    <p>
+                      We conducted 20 surveys to gather user feedback.
+                      I oversaw 3 interviewees during 11 interviews and recommended
+                      emphasizing integration based on findings.
+                    </p>
+                    <div className="survey-grid-wrap">
+                      <div className="survey-grid">
+                        <div className="survey-box">01 Social Media</div>
+                        <div className="survey-box">04 Recommendation</div>
+                        <div className="survey-box">02 Goal Setting</div>
+                        <div className="survey-box">05 Book Track</div>
+                        <div className="survey-box">03 Reviews</div>
+                      </div>
+                    </div>
+                  </div>,
+
+                  <div key="ca" className="carousel-content-panel">
+                    <h3>02 Competitor Analysis</h3>
+                    <p>
+                      A key insight was to leverage a combination of global, local,
+                      and contextual navigation systems to improve the information
+                      architecture&rsquo;s functionality.
+                    </p>
+                    <div className="cs-image-full cs-image-blend">
+                      <Image
+                        src="/images/projects/apple-books/ca.png"
+                        alt="Competitor analysis"
+                        width={1800}
+                        height={1089}
+                        sizes="(max-width: 768px) 100vw, 800px"
+                      />
+                    </div>
+                  </div>,
+
+                  <div key="ci" className="carousel-content-panel">
+                    <h3>03 Content Inventory</h3>
+                    <p>
+                      After reviewing over 700 pages of content within Apple Books,
+                      labels of &ldquo;keep,&rdquo; &ldquo;remove,&rdquo; and
+                      &ldquo;edit&rdquo; were used. This identified numerous
+                      unnecessary or repetitive components that should be removed.
+                    </p>
+                    <div className="cs-image-full">
+                      <Image
+                        src="/images/projects/apple-books/ci.png"
+                        alt="Content inventory"
+                        width={1320}
+                        height={840}
+                        sizes="(max-width: 768px) 100vw, 800px"
+                      />
+                    </div>
+                  </div>,
+
+                  <div key="cs" className="carousel-content-panel">
+                    <h3>04 Card Sorting</h3>
+                    <p>
+                      Card sorting showed how users perceived the redesign.
+                      I identified popular placements for the page hierarchy,
+                      such as including the search function on the home page from
+                      user feedback.
+                    </p>
+                    <div className="cs-image-full">
+                      <Image
+                        src="/images/projects/apple-books/cs.png"
+                        alt="Card sorting results"
+                        width={1904}
+                        height={1329}
+                        sizes="(max-width: 768px) 100vw, 800px"
+                      />
+                    </div>
+                  </div>,
+
+                  <div key="persona" className="carousel-content-panel">
+                    <h3>05 Personas</h3>
+                    <p>
+                      A persona was created for Amanda, a business analyst who relies
+                      on book tracking to stay updated on industry trends.
+                    </p>
+                    <div className="cs-image-full cs-image-crop-edge">
+                      <Image
+                        src="/images/projects/apple-books/persona.png"
+                        alt="Persona: Amanda, 28, Business Analyst"
+                        width={1794}
+                        height={1077}
+                        sizes="(max-width: 768px) 100vw, 800px"
+                      />
+                    </div>
+                  </div>,
+
+                  <div key="journey" className="carousel-content-panel">
+                    <h3>06 Journey Map</h3>
+                    <p>
+                      A journey map was created to visualize and analyze the complete
+                      user experience with reading and tracking apps.
+                    </p>
+                    <div className="cs-image-full cs-image-crop-edge">
+                      <Image
+                        src="/images/projects/apple-books/Journey map.png"
+                        alt="User journey map"
+                        width={26368}
+                        height={13268}
+                        sizes="(max-width: 768px) 100vw, 800px"
+                      />
+                    </div>
+                  </div>,
+                ]}
+              </Carousel>
             </div>
           </ScrollReveal>
 
@@ -116,167 +198,104 @@ export default function AppleBooksPage() {
             </div>
           </ScrollReveal>
 
-          <ShowcaseReveal>
-            <div className="cs-showcase" id="sec-home">
-              <div className="cs-showcase-sticky">
-                <h3>
-                  Discovery, Tracking, and Community
-                </h3>
-                <p>
-                  Three redesigns transforming Apple Books into
-                  a complete reading companion.
-                </p>
-              </div>
-
-              <div className="cs-showcase-scroll">
-                <div className="cs-showcase-item">
-                  <div className="cs-showcase-num">01</div>
-                  <h4>Home &amp; Reading Goals</h4>
-                  <p>
-                    Redesigned from &ldquo;Reading Now&rdquo; to a
-                    goal-oriented dashboard with daily progress,
-                    streak tracking, and focused &ldquo;Continue Reading.&rdquo;
-                  </p>
-                  <div className="cs-image-full">
-                    <Image
-                      src="/images/projects/apple-books/design1.png"
-                      alt="Before & After: Reading Now → Home with Reading Goals"
-                      width={3760}
-                      height={2116}
-                      sizes="(max-width: 1024px) 100vw, 500px"
-                    />
-                  </div>
-                </div>
-
-                <div className="cs-showcase-item" id="sec-store">
-                  <div className="cs-showcase-num">02</div>
-                  <h4>Personalized Book Store</h4>
-                  <p>
-                    Added &ldquo;Recommended for you&rdquo; suggestions,
-                    genre-based browsing, and a prominent search bar to
-                    reduce decision fatigue.
-                  </p>
-                  <div className="cs-image-full">
-                    <Image
-                      src="/images/projects/apple-books/design2.png"
-                      alt="Before & After: Book Store with personalized recommendations"
-                      width={3760}
-                      height={2115}
-                      sizes="(max-width: 1024px) 100vw, 500px"
-                    />
-                  </div>
-                </div>
-
-                <div className="cs-showcase-item" id="sec-community">
-                  <div className="cs-showcase-num">03</div>
-                  <h4>Social Community</h4>
-                  <p>
-                    Introduced a Community tab with book clubs, friend
-                    recommendations, activity feeds, and group
-                    discussions.
-                  </p>
-                  <div className="cs-image-full">
-                    <Image
-                      src="/images/projects/apple-books/design3.png"
-                      alt="Community: book clubs, friend activity, group discussions"
-                      width={1749}
-                      height={984}
-                      sizes="(max-width: 1024px) 100vw, 500px"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </ShowcaseReveal>
-
-          {/* Prototype */}
           <ScrollReveal>
-            <div className="section" id="sec-prototype">
-              <h2>Prototype</h2>
-              <div className="cs-figma-embed">
-                <iframe
-                  src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FglR1w4rkGGYasJDkaY46Z2%2FPrototype%3Fcontent-scaling%3Dfixed%26kind%3Dproto%26node-id%3D1157-4723%26page-id%3D1157%253A2769%26scaling%3Dscale-down"
-                  allowFullScreen
+            <div className="section" id="sec-design-1">
+              <h3>01 Simplify Navigation and Clarify Labels</h3>
+              <p>
+                Based on survey responses and competitor features, the
+                architecture was reorganized to help users navigate more easily
+                and find what they need efficiently.
+              </p>
+              <div className="cs-image-full">
+                <Image
+                  src="/images/projects/apple-books/design1.png"
+                  alt="Before & After: Reading Now → Home with Reading Goals"
+                  width={3760}
+                  height={2116}
+                  sizes="(max-width: 768px) 100vw, 800px"
                 />
               </div>
             </div>
           </ScrollReveal>
 
-          {/* Research — collapsible */}
-          <div className="section" id="sec-research">
-            <Collapsible title="Research &amp; Process">
-              <ScrollReveal>
-                <h3>User Persona</h3>
-                <p>
-                  Amanda, 28, a business analyst who relies on book tracking
-                  apps but struggles with decision fatigue and irrelevant
-                  recommendations.
-                </p>
-                <div className="cs-image-full">
-                  <Image
-                    src="/images/projects/apple-books/persona.png"
-                    alt="Persona: Amanda, 28, Business Analyst"
-                    width={1794}
-                    height={1077}
-                    sizes="(max-width: 768px) 100vw, 800px"
-                  />
-                </div>
-              </ScrollReveal>
-
-              <div className="collapsible-section" id="sec-methods">
-                <ScrollReveal>
-                  <h3>Methods</h3>
-                  <Carousel
-                    labels={[
-                      "Competitor Analysis",
-                      "Content Inventory",
-                      "Card Sorting",
-                      "Journey Map",
-                    ]}
-                  >
-                    {[
-                      <div key="ca">
-                        <Image
-                          src="/images/projects/apple-books/ca.png"
-                          alt="Competitor analysis"
-                          width={1800}
-                          height={1089}
-                          sizes="(max-width: 768px) 100vw, 800px"
-                        />
-                      </div>,
-                      <div key="ci">
-                        <Image
-                          src="/images/projects/apple-books/ci.png"
-                          alt="Content inventory"
-                          width={1320}
-                          height={840}
-                          sizes="(max-width: 768px) 100vw, 800px"
-                        />
-                      </div>,
-                      <div key="cs">
-                        <Image
-                          src="/images/projects/apple-books/cs.png"
-                          alt="Card sorting results"
-                          width={1904}
-                          height={1329}
-                          sizes="(max-width: 768px) 100vw, 800px"
-                        />
-                      </div>,
-                      <div key="journey">
-                        <Image
-                          src="/images/projects/apple-books/Journey map.png"
-                          alt="User journey map"
-                          width={26368}
-                          height={13268}
-                          sizes="(max-width: 768px) 100vw, 800px"
-                        />
-                      </div>,
-                    ]}
-                  </Carousel>
-                </ScrollReveal>
+          <ScrollReveal>
+            <div className="section" id="sec-design-2">
+              <h3>02 Eliminate Redundant Content</h3>
+              <p>
+                The search page was streamlined by removing redundant categories
+                like &ldquo;Best Seller&rdquo; and &ldquo;Top Charts&rdquo;
+                with enhanced search functionality added.
+              </p>
+              <div className="cs-image-full">
+                <Image
+                  src="/images/projects/apple-books/design2.png"
+                  alt="Before & After: Book Store with personalized recommendations"
+                  width={3760}
+                  height={2115}
+                  sizes="(max-width: 768px) 100vw, 800px"
+                />
               </div>
-            </Collapsible>
-          </div>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal>
+            <div className="section" id="sec-design-3">
+              <h3>03 Prioritize Features and Enhance Engagement</h3>
+              <p>
+                The Community page is a new addition. Card sorting helped
+                prioritize features like adding and searching for friends,
+                viewing friends&rsquo; activities, and joining book clubs.
+                The &ldquo;My Friends&rdquo; page includes feeds and posts
+                for interaction.
+              </p>
+              <div className="cs-image-full cs-image-blue-outline">
+                <Image
+                  src="/images/projects/apple-books/design3.png"
+                  alt="Community: book clubs, friend activity, group discussions"
+                  width={1749}
+                  height={984}
+                  sizes="(max-width: 768px) 100vw, 800px"
+                />
+              </div>
+            </div>
+          </ScrollReveal>
+
+          {/* Reflection */}
+          <ScrollReveal>
+            <div className="section" id="sec-reflection">
+              <h2>Reflection</h2>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal>
+            <div className="section" id="sec-reflection-1">
+              <h3>01 Leverage Information Architecture Structure</h3>
+              <p>
+                Intuitive interfaces reduce cognitive effort, making it easier
+                for users to find information and navigate the interface.
+              </p>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal>
+            <div className="section" id="sec-reflection-2">
+              <h3>02 Enhance Visual Design Consistency and Scalability</h3>
+              <p>
+                A comprehensive design system and style guide ensured
+                consistency across various screens and interactions.
+              </p>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal>
+            <div className="section" id="sec-reflection-3">
+              <h3>03 Improve Collaboration Efficiency</h3>
+              <p>
+                Consistent font styles and alignment hierarchy enhanced
+                communication and collaboration with designers.
+              </p>
+            </div>
+          </ScrollReveal>
 
           <div className="proj-nav-bar">
             <Link href="/projects/ai-agent">&larr; Teaching AI</Link>
