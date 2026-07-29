@@ -3,10 +3,18 @@ import Link from "next/link";
 import Image from "next/image";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { Carousel } from "@/components/Carousel";
+import { SectionProgress } from "@/components/SectionProgress";
 
 export const metadata: Metadata = {
   title: "Apple Books Redesign — Jenny Lin",
 };
+
+const NAV_SECTIONS = [
+  { label: "Problem", href: "#sec-problem", childIds: ["sec-solution"] },
+  { label: "Research", href: "#sec-methodology" },
+  { label: "Design", href: "#sec-design", childIds: ["sec-design-1", "sec-design-2", "sec-design-3"] },
+  { label: "Reflection", href: "#sec-reflection", childIds: ["sec-reflection-1", "sec-reflection-2", "sec-reflection-3"] },
+];
 
 export default function AppleBooksPage() {
   return (
@@ -32,8 +40,8 @@ export default function AppleBooksPage() {
         </div>
       </div>
 
-      <div className="proj-body-wrap">
-        <main className="proj-content">
+      <div className="proj-content-full">
+        <SectionProgress sections={NAV_SECTIONS} />
           {/* Problem */}
           <ScrollReveal>
             <div className="section" id="sec-problem">
@@ -301,7 +309,6 @@ export default function AppleBooksPage() {
             <Link href="/projects/ai-agent">&larr; Teaching AI</Link>
             <Link href="/projects/meeteat">Next: MeetEat &rarr;</Link>
           </div>
-        </main>
       </div>
     </>
   );

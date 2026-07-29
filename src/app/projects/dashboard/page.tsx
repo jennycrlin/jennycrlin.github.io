@@ -1,57 +1,20 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { ProjectSidebar } from "@/components/ProjectSidebar";
 import { ScrollReveal } from "@/components/ScrollReveal";
-import { Collapsible } from "@/components/Collapsible";
+import { PasswordGate } from "@/components/PasswordGate";
+import { SectionProgress } from "@/components/SectionProgress";
 
 export const metadata: Metadata = {
   title: "Dashboard Redesign — Jenny Lin",
 };
 
-const TOC_SECTIONS = [
-  {
-    title: "Context",
-    href: "#sec-context",
-    children: [
-      { label: "Problem Space", href: "#sec-context" },
-      { label: "Overview Video", href: "#sec-context" },
-    ],
-  },
-  {
-    title: "Impact",
-    href: "#sec-impact",
-    children: [
-      { label: "Key Metrics", href: "#sec-impact" },
-    ],
-  },
-  {
-    title: "Research",
-    href: "#sec-research",
-    children: [
-      { label: "User Interviews", href: "#sec-research" },
-      { label: "Key Quotes", href: "#sec-research" },
-    ],
-  },
-  {
-    title: "Before & After",
-    href: "#sec-before",
-    children: [
-      { label: "Existing Portal", href: "#sec-before" },
-      { label: "Solution", href: "#sec-solution" },
-    ],
-  },
-  {
-    title: "Iterations",
-    href: "#sec-iterations",
-    children: [
-      { label: "Search", href: "#sec-iter-search" },
-      { label: "Navigation", href: "#sec-iter-nav" },
-      { label: "UI Consistency", href: "#sec-iter-ui" },
-      { label: "Design System", href: "#sec-iter-ds" },
-      { label: "AI Innovation", href: "#sec-iter-ai" },
-    ],
-  },
+const NAV_SECTIONS = [
+  { label: "Context", href: "#sec-context" },
+  { label: "Impact", href: "#sec-impact" },
+  { label: "Research", href: "#sec-research" },
+  { label: "Before & After", href: "#sec-before", childIds: ["sec-solution"] },
+  { label: "Iterations", href: "#sec-iterations", childIds: ["sec-iter-search", "sec-iter-nav", "sec-iter-ui", "sec-iter-ds", "sec-iter-ai"] },
 ];
 
 export default function DashboardPage() {
@@ -60,9 +23,9 @@ export default function DashboardPage() {
       <div className="proj-hero">
         <h1>AT&T Dashboard Redesign</h1>
         <p className="desc">
-          End-to-end redesign of AT&amp;T&apos;s internal portal with
-          AI-powered automation and accessible data visualization,
-          serving 500+ engineers.
+          End-to-end redesign of AT&amp;T&apos;s internal portal &mdash;
+          reducing navigation time by 30% and improving user efficiency
+          by 12% for 500+ engineers.
         </p>
         <div className="meta-grid">
           <div className="meta-item">
@@ -82,228 +45,232 @@ export default function DashboardPage() {
             <span>Web (Internal Portal)</span>
           </div>
         </div>
-        <div className="proj-hero-video">
-          <video autoPlay loop muted playsInline>
-            <source
-              src="/images/projects/dashboard/att-overview.mp4"
-              type="video/mp4"
-            />
-          </video>
-        </div>
       </div>
 
-      <div className="proj-body-wrap">
-        <ProjectSidebar sections={TOC_SECTIONS} />
+      <div className="proj-content-full">
+        <SectionProgress sections={NAV_SECTIONS} />
 
-        <main className="proj-content">
-          {/* Context */}
-          <ScrollReveal>
-            <div className="section" id="sec-context">
-              <h2>Context</h2>
-              <div className="cs-label">Problem Space</div>
-              <h3 className="cs-heading">
-                How might we streamline task efficiency and reduce the reliance
-                on support teams?
-              </h3>
-              <p>
-                I led the redesign of an internal dashboard used daily by 500+
-                engineers. As the platform scaled, entry points multiplied and
-                the UI became cluttered, hurting productivity and increasing
-                support requests. The solution combined AI automation, UI
-                standardization, and improved information architecture.
-              </p>
-            </div>
-          </ScrollReveal>
-
-          {/* Impact */}
-          <ScrollReveal>
-            <div className="section" id="sec-impact">
-              <h2>Impact</h2>
-            </div>
-          </ScrollReveal>
-          <div className="cs-stats">
-            <ScrollReveal delay={0}>
-              <div className="cs-stat-card">
-                <div className="cs-stat-number">30%</div>
-                <div className="cs-stat-title">Reduced Navigation Time</div>
-                <p>
-                  Task navigation time decreased after search optimization.
-                </p>
-              </div>
-            </ScrollReveal>
-            <ScrollReveal delay={150}>
-              <div className="cs-stat-card">
-                <div className="cs-stat-number">12%</div>
-                <div className="cs-stat-title">Improved User Efficiency</div>
-                <p>
-                  Task completion efficiency increased as users could perform
-                  actions without page switching.
-                </p>
-              </div>
-            </ScrollReveal>
-            <ScrollReveal delay={300}>
-              <div className="cs-stat-card">
-                <div className="cs-stat-number">25%</div>
-                <div className="cs-stat-title">Higher User Satisfaction</div>
-                <p>
-                  Post-redesign survey showed increased satisfaction with
-                  workflow clarity and ease of use.
-                </p>
-              </div>
-            </ScrollReveal>
+        {/* Context */}
+        <ScrollReveal>
+          <div className="section" id="sec-context">
+            <p className="cs-label">Context</p>
+            <h2 className="cs-heading">
+              500+ engineers navigated a cluttered portal that grew
+              faster than its design
+            </h2>
+            <p>
+              As AT&amp;T&apos;s internal testing platform scaled,
+              entry points multiplied and the UI became cluttered
+              &mdash; hurting productivity and increasing support
+              requests. I led the redesign combining AI automation,
+              UI standardization, and improved information architecture
+              into a single cohesive experience.
+            </p>
           </div>
+        </ScrollReveal>
 
-          {/* Research */}
-          <ScrollReveal>
-            <div className="section" id="sec-research">
-              <h2>Research</h2>
+        {/* Impact */}
+        <ScrollReveal>
+          <div className="section" id="sec-impact">
+            <h2>Impact</h2>
+          </div>
+        </ScrollReveal>
+        <div className="cs-stats">
+          <ScrollReveal delay={0}>
+            <div className="cs-stat-card">
+              <div className="cs-stat-number">30%</div>
+              <div className="cs-stat-title">Reduced Navigation Time</div>
               <p>
-                Through stakeholder interviews across four user roles, I mapped
-                divergent frustrations to shared root causes. While specific
-                tasks varied, the underlying problems were consistent.
+                Task navigation time decreased after search optimization.
               </p>
-
-              <div className="cs-quotes-grid cs-quotes-grid--inline">
-                <ScrollReveal delay={0}>
-                  <div className="cs-quote-card">
-                    <div className="cs-quote-text">
-                      &ldquo;I&apos;ve been working for five years, and every
-                      day I have to log into the portal and{" "}
-                      <strong>manually edit the task type</strong> for each
-                      ticket.&rdquo;
-                    </div>
-                    <div className="cs-quote-role">Dispatcher</div>
-                  </div>
-                </ScrollReveal>
-                <ScrollReveal delay={100}>
-                  <div className="cs-quote-card">
-                    <div className="cs-quote-text">
-                      &ldquo;I have to{" "}
-                      <strong>switch between different entrances</strong> to
-                      check my test status, and it takes a lot of time and
-                      effort.&rdquo;
-                    </div>
-                    <div className="cs-quote-role">Performance Engineer</div>
-                  </div>
-                </ScrollReveal>
-                <ScrollReveal delay={200}>
-                  <div className="cs-quote-card">
-                    <div className="cs-quote-text">
-                      &ldquo;I log into the portal every day and{" "}
-                      <strong>
-                        I don&apos;t think there is any problem.
-                      </strong>
-                      &rdquo;
-                    </div>
-                    <div className="cs-quote-role">Testing Engineer</div>
-                  </div>
-                </ScrollReveal>
-                <ScrollReveal delay={300}>
-                  <div className="cs-quote-card">
-                    <div className="cs-quote-text">
-                      &ldquo;I wish there were a{" "}
-                      <strong>&ldquo;Delete All&rdquo; button</strong> so I
-                      could remove all tickets after completing each
-                      task.&rdquo;
-                    </div>
-                    <div className="cs-quote-role">Executive Engineer</div>
-                  </div>
-                </ScrollReveal>
-              </div>
             </div>
           </ScrollReveal>
-
-          {/* Before */}
-          <ScrollReveal>
-            <div className="section" id="sec-before">
-              <h2>Before &amp; After</h2>
-              <h3>The Existing Portal</h3>
+          <ScrollReveal delay={150}>
+            <div className="cs-stat-card">
+              <div className="cs-stat-number">12%</div>
+              <div className="cs-stat-title">Improved User Efficiency</div>
               <p>
-                The original interface relied on scattered card-based navigation
-                with no unified search, requiring users to navigate through
-                multiple pages to complete basic tasks.
+                Task completion efficiency increased without page
+                switching.
               </p>
-              <div className="cs-image-full">
-                <Image
-                  src="/images/projects/dashboard/demo1.png"
-                  alt="Existing AT&T portal dashboard"
-                  width={2000}
-                  height={1200}
-                  sizes="(max-width: 768px) 100vw, 800px"
+            </div>
+          </ScrollReveal>
+          <ScrollReveal delay={300}>
+            <div className="cs-stat-card">
+              <div className="cs-stat-number">25%</div>
+              <div className="cs-stat-title">Higher User Satisfaction</div>
+              <p>
+                Post-redesign survey showed increased satisfaction.
+              </p>
+            </div>
+          </ScrollReveal>
+        </div>
+
+        <PasswordGate code="5600">
+        <ScrollReveal>
+          <div className="section">
+            <p className="cs-label">Product Demo</p>
+            <div className="proj-hero-video">
+              <video autoPlay loop muted playsInline>
+                <source
+                  src="/images/projects/dashboard/att-overview.mp4"
+                  type="video/mp4"
                 />
-              </div>
+              </video>
             </div>
-          </ScrollReveal>
-
-          {/* Solution */}
-          <ScrollReveal>
-            <div className="section" id="sec-solution">
-              <h3>From Multi-Entries to Single-Surface</h3>
-              <p>
-                Through multiple rounds of design iterations, interviews, and
-                usability testing, I arrived at three key improvements:
-              </p>
-              <div className="cs-solutions-list">
-                <ScrollReveal delay={0}>
-                  <div className="cs-solution-item">
-                    <div className="cs-solution-number">01</div>
-                    <div>
-                      <h3>Enhanced Search</h3>
-                      <p>
-                        Redesigned search on the landing page for immediate test
-                        case access upon login.
-                      </p>
-                    </div>
+          </div>
+        </ScrollReveal>
+        {/* Research */}
+        <ScrollReveal>
+          <div className="section" id="sec-research">
+            <p className="cs-label">Research</p>
+            <h2 className="cs-heading">
+              Four roles, different tasks, same root frustrations
+            </h2>
+            <p>
+              Through stakeholder interviews across four user roles, I
+              mapped divergent frustrations to shared root causes.
+              While specific tasks varied, the underlying problems were
+              consistent: too many entry points, no unified search, and
+              repetitive manual operations.
+            </p>
+            <div className="cs-quotes-grid cs-quotes-grid--inline">
+              <ScrollReveal delay={0}>
+                <div className="cs-quote-card">
+                  <div className="cs-quote-text">
+                    &ldquo;I&apos;ve been working for five years, and every
+                    day I have to log into the portal and{" "}
+                    <strong>manually edit the task type</strong> for each
+                    ticket.&rdquo;
                   </div>
-                </ScrollReveal>
-                <ScrollReveal delay={100}>
-                  <div className="cs-solution-item">
-                    <div className="cs-solution-number">02</div>
-                    <div>
-                      <h3>Streamlined Navigation</h3>
-                      <p>
-                        Expandable sidebar menu providing direct access to
-                        frequent pages — reducing 3 steps to 1.
-                      </p>
-                    </div>
+                  <div className="cs-quote-role">Dispatcher</div>
+                </div>
+              </ScrollReveal>
+              <ScrollReveal delay={100}>
+                <div className="cs-quote-card">
+                  <div className="cs-quote-text">
+                    &ldquo;I have to{" "}
+                    <strong>switch between different entrances</strong> to
+                    check my test status, and it takes a lot of time and
+                    effort.&rdquo;
                   </div>
-                </ScrollReveal>
-                <ScrollReveal delay={200}>
-                  <div className="cs-solution-item">
-                    <div className="cs-solution-number">03</div>
-                    <div>
-                      <h3>Batch Actions</h3>
-                      <p>
-                        Multi-selection for managing multiple items
-                        simultaneously, eliminating repetitive one-by-one edits.
-                      </p>
-                    </div>
+                  <div className="cs-quote-role">Performance Engineer</div>
+                </div>
+              </ScrollReveal>
+              <ScrollReveal delay={200}>
+                <div className="cs-quote-card">
+                  <div className="cs-quote-text">
+                    &ldquo;I log into the portal every day and{" "}
+                    <strong>
+                      I don&apos;t think there is any problem.
+                    </strong>
+                    &rdquo;
                   </div>
-                </ScrollReveal>
-              </div>
-
-              <div className="cs-image-full">
-                <Image
-                  src="/images/projects/dashboard/solution.png"
-                  alt="Redesigned AT&T portal — single-surface solution"
-                  width={2000}
-                  height={2340}
-                  sizes="(max-width: 768px) 100vw, 800px"
-                />
-              </div>
+                  <div className="cs-quote-role">Testing Engineer</div>
+                </div>
+              </ScrollReveal>
+              <ScrollReveal delay={300}>
+                <div className="cs-quote-card">
+                  <div className="cs-quote-text">
+                    &ldquo;I wish there were a{" "}
+                    <strong>&ldquo;Delete All&rdquo; button</strong> so I
+                    could remove all tickets after completing each
+                    task.&rdquo;
+                  </div>
+                  <div className="cs-quote-role">Executive Engineer</div>
+                </div>
+              </ScrollReveal>
             </div>
-          </ScrollReveal>
+          </div>
+        </ScrollReveal>
 
-          {/* Iterations — collapsible */}
-          <div className="section" id="sec-iterations">
-            <Collapsible title="Design Iterations">
-              <div className="collapsible-section" id="sec-iter-search">
-                <ScrollReveal>
-                  <h3>SEO Optimization</h3>
+        {/* Before */}
+        <ScrollReveal>
+          <div className="section" id="sec-before">
+            <p className="cs-label">Before</p>
+            <h2 className="cs-heading">
+              Scattered card-based navigation with no unified search
+            </h2>
+            <p>
+              The original interface required users to navigate through
+              multiple pages to complete basic tasks &mdash; with no
+              consistent entry point or search capability across 10,000+
+              test case IDs.
+            </p>
+            <div className="cs-image-full">
+              <Image
+                src="/images/projects/dashboard/demo1.png"
+                alt="Existing AT&T portal dashboard"
+                width={2000}
+                height={1200}
+                sizes="(max-width: 768px) 100vw, 800px"
+              />
+            </div>
+          </div>
+        </ScrollReveal>
+
+        {/* Solution */}
+        <ScrollReveal>
+          <div className="section" id="sec-solution">
+            <p className="cs-label">After</p>
+            <h2 className="cs-heading">
+              Three interventions collapsed multi-step workflows into
+              single surfaces
+            </h2>
+            <div className="cs-solutions-row">
+                <div className="cs-solution-card">
+                  <span className="cs-solution-num">01</span>
+                  <h3>Enhanced Search</h3>
                   <p>
-                    Added &ldquo;contains&rdquo; and &ldquo;starts with&rdquo;
-                    options to let users choose their search preference, making
-                    search more effective across 10,000+ test case IDs.
+                    Redesigned search on the landing page for immediate
+                    test case access upon login.
+                  </p>
+                </div>
+                <div className="cs-solution-card">
+                  <span className="cs-solution-num">02</span>
+                  <h3>Streamlined Navigation</h3>
+                  <p>
+                    Expandable sidebar menu providing direct access to
+                    frequent pages &mdash; reducing 3 steps to 1.
+                  </p>
+                </div>
+                <div className="cs-solution-card">
+                  <span className="cs-solution-num">03</span>
+                  <h3>Batch Actions</h3>
+                  <p>
+                    Multi-selection for managing multiple items
+                    simultaneously, eliminating repetitive edits.
+                  </p>
+                </div>
+            </div>
+            <div className="cs-image-full">
+              <Image
+                src="/images/projects/dashboard/solution.png"
+                alt="Redesigned AT&T portal — single-surface solution"
+                width={2000}
+                height={2340}
+                sizes="(max-width: 768px) 100vw, 800px"
+              />
+            </div>
+          </div>
+        </ScrollReveal>
+
+        {/* Iterations */}
+        <ScrollReveal>
+          <div className="section" id="sec-iterations">
+            <h2>Iterations</h2>
+            <div className="cs-accordion">
+              <details id="sec-iter-search">
+                <summary>
+                  <span className="cs-accordion-num">01</span>
+                  <span className="cs-accordion-title">Search — &ldquo;Contains&rdquo; vs &ldquo;starts with&rdquo; gave users control over 10,000+ test case IDs</span>
+                  <span className="cs-accordion-icon" />
+                </summary>
+                <div className="cs-accordion-body">
+                  <p>
+                    Added search mode options to let users choose their
+                    preference, making search more effective across the full
+                    test case inventory.
                   </p>
                   <div className="cs-image-full">
                     <Image
@@ -314,15 +281,19 @@ export default function DashboardPage() {
                       sizes="(max-width: 768px) 100vw, 800px"
                     />
                   </div>
-                </ScrollReveal>
-              </div>
-
-              <div className="collapsible-section" id="sec-iter-nav">
-                <ScrollReveal>
-                  <h3>Multi-Steps to One-Click</h3>
+                </div>
+              </details>
+              <details id="sec-iter-nav">
+                <summary>
+                  <span className="cs-accordion-num">02</span>
+                  <span className="cs-accordion-title">Navigation — Three-step deep navigation replaced with expandable sidebar</span>
+                  <span className="cs-accordion-icon" />
+                </summary>
+                <div className="cs-accordion-body">
                   <p>
-                    Replaced the 3-step deep navigation tree with an expandable
-                    sidebar that gives direct access from any page.
+                    An expandable sidebar gives direct access from any page,
+                    eliminating the need to navigate through nested menus to
+                    reach frequently used tools.
                   </p>
                   <div className="cs-image-full">
                     <Image
@@ -333,14 +304,17 @@ export default function DashboardPage() {
                       sizes="(max-width: 768px) 100vw, 800px"
                     />
                   </div>
-                </ScrollReveal>
-              </div>
-
-              <div className="collapsible-section" id="sec-iter-ui">
-                <ScrollReveal>
-                  <h3>Consistent UI Improves Productivity</h3>
+                </div>
+              </details>
+              <details id="sec-iter-ui">
+                <summary>
+                  <span className="cs-accordion-num">03</span>
+                  <span className="cs-accordion-title">UI Consistency — Standardized modals and form patterns reduced learning curve</span>
+                  <span className="cs-accordion-icon" />
+                </summary>
+                <div className="cs-accordion-body">
                   <p>
-                    Standardized modals, dialogs, and form patterns across the
+                    Unified modals, dialogs, and form patterns across the
                     portal. Added onboarding tooltips to help new engineers
                     learn the system faster.
                   </p>
@@ -353,16 +327,19 @@ export default function DashboardPage() {
                       sizes="(max-width: 768px) 100vw, 800px"
                     />
                   </div>
-                </ScrollReveal>
-              </div>
-
-              <div className="collapsible-section" id="sec-iter-ds">
-                <ScrollReveal>
-                  <h3>Design System with Brand Alignment</h3>
+                </div>
+              </details>
+              <details id="sec-iter-ds">
+                <summary>
+                  <span className="cs-accordion-num">04</span>
+                  <span className="cs-accordion-title">Design System — Color palette and button system aligned with AT&amp;T brand guidelines</span>
+                  <span className="cs-accordion-icon" />
+                </summary>
+                <div className="cs-accordion-body">
                   <p>
-                    Defined a color palette and button system aligned with
-                    AT&amp;T brand guidelines, ensuring visual consistency
-                    across all portal components.
+                    Defined a design system ensuring visual consistency
+                    across all portal components &mdash; from status colors
+                    to interaction states.
                   </p>
                   <div className="cs-image-row">
                     <div className="cs-image-half">
@@ -384,18 +361,20 @@ export default function DashboardPage() {
                       />
                     </div>
                   </div>
-                </ScrollReveal>
-              </div>
-
-              <div className="collapsible-section" id="sec-iter-ai">
-                <ScrollReveal>
-                  <h3>Innovating with AI</h3>
+                </div>
+              </details>
+              <details id="sec-iter-ai">
+                <summary>
+                  <span className="cs-accordion-num">05</span>
+                  <span className="cs-accordion-title">AI Innovation — An AI chatbot eliminated manual lookup across multiple pages</span>
+                  <span className="cs-accordion-icon" />
+                </summary>
+                <div className="cs-accordion-body">
                   <p>
-                    Collaborated with engineering to propose an AI chatbot to
-                    leadership. Users enter a test case ID, the system
-                    auto-retrieves the token, and surfaces all related data in
-                    one interface — eliminating manual lookup across multiple
-                    pages.
+                    Collaborated with engineering to propose an AI chatbot
+                    to leadership. Users enter a test case ID, the system
+                    auto-retrieves the token, and surfaces all related data
+                    in one interface.
                   </p>
                   <div className="cs-image-full">
                     <Image
@@ -406,16 +385,17 @@ export default function DashboardPage() {
                       sizes="(max-width: 768px) 100vw, 800px"
                     />
                   </div>
-                </ScrollReveal>
-              </div>
-            </Collapsible>
+                </div>
+              </details>
+            </div>
           </div>
+        </ScrollReveal>
 
-          <div className="proj-nav-bar">
-            <Link href="/">← All Projects</Link>
-            <Link href="/projects/healthcare">Next: Healthcare →</Link>
-          </div>
-        </main>
+        <div className="proj-nav-bar">
+          <Link href="/">← All Projects</Link>
+          <Link href="/projects/healthcare">Next: Healthcare →</Link>
+        </div>
+        </PasswordGate>
       </div>
     </>
   );

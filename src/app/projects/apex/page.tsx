@@ -1,44 +1,28 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ProjectSidebar } from "@/components/ProjectSidebar";
 import { PasswordGate } from "@/components/PasswordGate";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { ShowcaseReveal } from "@/components/ShowcaseReveal";
 import { Collapsible } from "@/components/Collapsible";
+import { SectionProgress } from "@/components/SectionProgress";
 
 export const metadata: Metadata = {
-  title: "Apex Fintech Solutions — Jenny Lin",
+  title: "Fintech Platform Design — Jenny Lin",
 };
 
-const TOC_SECTIONS = [
-  {
-    title: "Design",
-    href: "#sec-design",
-    children: [
-      { label: "Open Account v2", href: "#sec-account" },
-      { label: "Bulk Actions", href: "#sec-bulk" },
-      { label: "AI Integration", href: "#sec-ai" },
-    ],
-  },
-  {
-    title: "Design System",
-    href: "#sec-system",
-    children: [
-      { label: "Component Library", href: "#sec-system" },
-    ],
-  },
-  {
-    title: "Outcomes",
-    href: "#sec-outcomes",
-    children: [{ label: "Reflections", href: "#sec-outcomes" }],
-  },
+const NAV_SECTIONS = [
+  { label: "Overview", href: "#sec-overview" },
+  { label: "Impact", href: "#sec-impact" },
+  { label: "Design", href: "#sec-design", childIds: ["sec-account", "sec-bulk", "sec-ai"] },
+  { label: "Design System", href: "#sec-system" },
+  { label: "Outcomes", href: "#sec-outcomes" },
 ];
 
 export default function ApexPage() {
   return (
     <>
       <div className="proj-hero">
-        <h1>Apex Fintech Solutions</h1>
+        <h1>Fintech Platform Design</h1>
         <p className="desc">
           Architecting 3 fintech platforms across billing, trading, and account
           onboarding — shaping complex financial workflows into intuitive,
@@ -64,8 +48,8 @@ export default function ApexPage() {
         </div>
       </div>
 
-      {/* Public content — aligned with hero */}
-      <div className="proj-public">
+      <div className="proj-content-full">
+        <SectionProgress sections={NAV_SECTIONS} />
         <ScrollReveal>
           <div className="section" id="sec-overview">
             <h2>Overview</h2>
@@ -124,13 +108,9 @@ export default function ApexPage() {
             </div>
           </ScrollReveal>
         </div>
-      </div>
 
-      {/* Password-protected content with sidebar */}
-      <PasswordGate code="5600">
-        <div className="proj-body-wrap">
-          <ProjectSidebar sections={TOC_SECTIONS} />
-          <main className="proj-content">
+        {/* Password-protected content */}
+        <PasswordGate code="5600">
             <ScrollReveal>
               <div className="section" id="sec-design">
                 <h2>Design</h2>
@@ -390,13 +370,12 @@ export default function ApexPage() {
               </div>
             </ScrollReveal>
 
-            <div className="proj-nav-bar">
-              <Link href="/">&larr; All Projects</Link>
-              <Link href="/projects/eli-lilly">Next: Eli Lilly &rarr;</Link>
-            </div>
-          </main>
-        </div>
-      </PasswordGate>
+          <div className="proj-nav-bar">
+            <Link href="/">&larr; All Projects</Link>
+            <Link href="/projects/eli-lilly">Next: Eli Lilly &rarr;</Link>
+          </div>
+        </PasswordGate>
+      </div>
     </>
   );
 }

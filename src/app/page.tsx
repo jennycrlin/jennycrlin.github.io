@@ -56,11 +56,11 @@ export default function Home() {
         <div className="section-label">Featured Work</div>
         <Link href="/projects/apex" className="featured-card">
           <div className="card-cover">
-            <Image src="/images/projects/apex/apex-cover.svg" alt="Apex Fintech Solutions" width={1200} height={600} sizes="(max-width: 768px) 100vw, 1100px" />
+            <Image src="/images/projects/apex/apex-cover.svg" alt="Fintech Platform Design" width={1200} height={600} sizes="(max-width: 768px) 100vw, 1100px" />
           </div>
           <div className="info">
             <h3>
-              Apex Fintech Solutions{" "}
+              Fintech Platform Design{" "}
               <span className="lock-badge">🔒 NDA</span>
             </h3>
             <p>
@@ -88,7 +88,7 @@ export default function Home() {
               <Image src="/images/projects/eli-lilly/lilly-cover.svg" alt="Eli Lilly Clinical Trial Platform" width={1200} height={600} sizes="(max-width: 768px) 100vw, 50vw" />
             </div>
             <div className="card-info">
-              <h4>Eli Lilly</h4>
+              <h4>Clinical Trial Protocol Digitalization</h4>
               <p>
                 AI-enabled clinical trial platform transforming regulated
                 document workflows into real-time collaboration.
@@ -104,6 +104,7 @@ export default function Home() {
           </Link>
 
           <Link href="/projects/dashboard" className="proj-card">
+            <div className="lock-icon">🔒</div>
             <div className="card-cover">
               <Image src="/images/projects/dashboard/att-cover.svg" alt="AT&T Portal Dashboard" width={1200} height={600} sizes="(max-width: 768px) 100vw, 50vw" />
             </div>

@@ -1,34 +1,20 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { ProjectSidebar } from "@/components/ProjectSidebar";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { PasswordGate } from "@/components/PasswordGate";
 import { Carousel } from "@/components/Carousel";
-import { ShowcaseReveal } from "@/components/ShowcaseReveal";
+import { SectionProgress } from "@/components/SectionProgress";
 
 export const metadata: Metadata = {
   title: "Eli Lilly — Jenny Lin",
 };
 
-const TOC_SECTIONS = [
-  {
-    title: "Research",
-    href: "#sec-research",
-    children: [
-      { label: "Workshop", href: "#sec-workshop" },
-      { label: "Insights", href: "#sec-insights" },
-    ],
-  },
-  {
-    title: "Design",
-    href: "#sec-design",
-    children: [
-      { label: "Source of Truth", href: "#sec-source" },
-      { label: "AI Workflows", href: "#sec-ai" },
-      { label: "Collab Studio", href: "#sec-collab" },
-    ],
-  },
+const NAV_SECTIONS = [
+  { label: "Overview", href: "#sec-overview" },
+  { label: "Impact", href: "#sec-impact" },
+  { label: "Research", href: "#sec-research", childIds: ["sec-demo", "sec-challenge", "sec-workshop", "sec-insights", "sec-personas"] },
+  { label: "Design", href: "#sec-design", childIds: ["sec-source", "sec-ai", "sec-collab"] },
 ];
 
 export default function EliLillyPage() {
@@ -61,8 +47,8 @@ export default function EliLillyPage() {
         </div>
       </div>
 
-      {/* Public content */}
-      <div className="proj-public">
+      <div className="proj-content-full">
+        <SectionProgress sections={NAV_SECTIONS} />
         <ScrollReveal>
           <div className="section" id="sec-overview">
             <p className="cs-label">Overview</p>
@@ -113,13 +99,9 @@ export default function EliLillyPage() {
             </div>
           </ScrollReveal>
         </div>
-      </div>
 
-      {/* Password-protected content with sidebar */}
-      <PasswordGate code="5600">
-        <div className="proj-body-wrap">
-          <ProjectSidebar sections={TOC_SECTIONS} />
-          <main className="proj-content">
+        {/* Password-protected content */}
+        <PasswordGate code="5600">
             {/* Product Demo — confidential */}
             <ScrollReveal>
               <div className="section" id="sec-demo">
@@ -390,136 +372,110 @@ export default function EliLillyPage() {
             <ScrollReveal>
               <div className="section" id="sec-design">
                 <h2>Design</h2>
+                <div className="cs-accordion">
+                  <details id="sec-source">
+                    <summary>
+                      <span className="cs-accordion-num">01</span>
+                      <span className="cs-accordion-title">Single Source of Truth — Structured data flows eliminate Excel exports</span>
+                      <span className="cs-accordion-icon" />
+                    </summary>
+                    <div className="cs-accordion-body">
+                      <p>
+                        Structured data flows from Lilly Ontology through
+                        Design Studio to the Study Data Repository &mdash;
+                        eliminating Excel exports and ensuring every
+                        change is versioned, aligned, and traceable
+                        across the full protocol lifecycle.
+                      </p>
+                      <div className="cs-image-full">
+                        <Image
+                          src="/images/projects/eli-lilly/future-state.svg"
+                          alt="Future state architecture"
+                          width={1200}
+                          height={480}
+                          sizes="(max-width: 768px) 100vw, 800px"
+                        />
+                      </div>
+                    </div>
+                  </details>
+                  <details id="sec-ai">
+                    <summary>
+                      <span className="cs-accordion-num">02</span>
+                      <span className="cs-accordion-title">AI-Assisted Workflows — Human-in-the-loop compliance and auto-crop</span>
+                      <span className="cs-accordion-icon" />
+                    </summary>
+                    <div className="cs-accordion-body">
+                      <p>
+                        AI validates protocol compliance with ICH M11,
+                        flags misalignment between design and narrative,
+                        and suggests document split points. Crucially,
+                        AI recommends but never auto-corrects &mdash;
+                        human-in-the-loop by design.
+                      </p>
+                      <div className="cs-solutions-row">
+                        <div className="cs-solution-card">
+                          <span className="cs-solution-num">1</span>
+                          <h3>AI Auto-Crop</h3>
+                          <p>Suggests optimal document split points.</p>
+                        </div>
+                        <div className="cs-solution-card">
+                          <span className="cs-solution-num">2</span>
+                          <h3>Compliance Validation</h3>
+                          <p>Flags ICH M11 and regulatory gaps in real time.</p>
+                        </div>
+                        <div className="cs-solution-card">
+                          <span className="cs-solution-num">3</span>
+                          <h3>Inline Protocol View</h3>
+                          <p>Preview formatted protocol directly in the platform.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </details>
+                  <details id="sec-collab">
+                    <summary>
+                      <span className="cs-accordion-num">03</span>
+                      <span className="cs-accordion-title">Collaborative Authoring — Role-based permissions with contextual comments</span>
+                      <span className="cs-accordion-icon" />
+                    </summary>
+                    <div className="cs-accordion-body">
+                      <p>
+                        Invite people directly into the workspace with
+                        role-based permissions. Leave contextual comments
+                        anchored to specific SoA sections &mdash; not
+                        buried in email threads. Every discussion is
+                        visible to the full team, so decisions are
+                        traceable and no feedback gets lost.
+                      </p>
+                      <div className="cs-lilly-collab-flow">
+                        <div className="cs-collab-step">
+                          <div className="cs-collab-role">Clinical Designer</div>
+                          <div className="cs-collab-action">Authors structured SoA data in Design Studio</div>
+                        </div>
+                        <div className="cs-collab-arrow">&rarr;</div>
+                        <div className="cs-collab-step">
+                          <div className="cs-collab-role">Medical Writer</div>
+                          <div className="cs-collab-action">Reviews and annotates inline with contextual comments</div>
+                        </div>
+                        <div className="cs-collab-arrow">&rarr;</div>
+                        <div className="cs-collab-step">
+                          <div className="cs-collab-role">Study Lead</div>
+                          <div className="cs-collab-action">Approves with full visibility into discussion threads</div>
+                        </div>
+                      </div>
+                    </div>
+                  </details>
+                </div>
               </div>
             </ScrollReveal>
 
-            <ShowcaseReveal>
-              <div className="cs-showcase" id="sec-showcase">
-                <div className="cs-showcase-sticky">
-                  <h3>
-                    Collab Studio &mdash; Governed Digital Authoring
-                  </h3>
-                  <p>
-                    Replacing fragmented handoffs with a structured,
-                    AI-enabled workspace for protocol design and
-                    execution.
-                  </p>
-                </div>
-
-                <div className="cs-showcase-scroll">
-                  <div className="cs-showcase-item" id="sec-source">
-                    <div className="cs-showcase-num">01</div>
-                    <h4>Single Source of Truth</h4>
-                    <p>
-                      Structured data flows from Lilly Ontology through
-                      Design Studio to the Study Data Repository &mdash;
-                      eliminating Excel exports and ensuring every
-                      change is versioned, aligned, and traceable
-                      across the full protocol lifecycle.
-                    </p>
-                    <div className="cs-image-full">
-                      <Image
-                        src="/images/projects/eli-lilly/future-state.svg"
-                        alt="Future state architecture: Lilly Ontology and USDM feed into Design Studio, which submits aligned SoA data to SDR as Single Source of Truth, then outputs formatted SoA tables and protocol narratives"
-                        width={1200}
-                        height={480}
-                        sizes="(max-width: 768px) 100vw, 800px"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="cs-showcase-item" id="sec-ai">
-                    <div className="cs-showcase-num">02</div>
-                    <h4>AI-Assisted Workflows</h4>
-                    <p>
-                      AI validates protocol compliance with ICH M11,
-                      auto-generates formatted SoA tables, and flags
-                      misalignment between design and narrative &mdash;
-                      reducing rework from late-stage edits and
-                      version drift.
-                    </p>
-                    {/* Key benefits — replaces writers-studio.png */}
-                    <div className="cs-lilly-benefits">
-                      <div className="cs-benefit-card">
-                        <div className="cs-benefit-num">1</div>
-                        <h5>Reduced Rework</h5>
-                        <p>
-                          Real-time visibility and structured editing
-                          eliminate the manual reconciliation cycles
-                          that plagued the old workflow.
-                        </p>
-                      </div>
-                      <div className="cs-benefit-card">
-                        <div className="cs-benefit-num">2</div>
-                        <h5>Preserved Structure</h5>
-                        <p>
-                          Guided editing within the platform maintains
-                          SoA structure and formatting, preventing the
-                          structural breaks from Word.
-                        </p>
-                      </div>
-                      <div className="cs-benefit-card">
-                        <div className="cs-benefit-num">3</div>
-                        <h5>Auditable Governance</h5>
-                        <p>
-                          Every edit, comment, and alignment decision
-                          is captured and traceable, providing
-                          compliance teams with a clear audit trail.
-                        </p>
-                      </div>
-                      <div className="cs-benefit-card">
-                        <div className="cs-benefit-num">4</div>
-                        <h5>True Collaboration</h5>
-                        <p>
-                          Contextual comments, shared visibility, and
-                          explicit alignment stages transform isolated
-                          document editing into cohesive,
-                          cross-functional collaboration.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="cs-showcase-item" id="sec-collab">
-                    <div className="cs-showcase-num">03</div>
-                    <h4>Collaborative Authoring</h4>
-                    <p>
-                      Medical writers, clinical designers, and study
-                      leads work in the same governed workspace with
-                      role-based permissions, contextual comments, and
-                      real-time visibility into changes &mdash;
-                      eliminating offline Word-and-email review cycles.
-                    </p>
-                    <div className="cs-lilly-collab-flow">
-                      <div className="cs-collab-step">
-                        <div className="cs-collab-role">Clinical Designer</div>
-                        <div className="cs-collab-action">Authors structured SoA data in Design Studio</div>
-                      </div>
-                      <div className="cs-collab-arrow">&rarr;</div>
-                      <div className="cs-collab-step">
-                        <div className="cs-collab-role">Medical Writer</div>
-                        <div className="cs-collab-action">Reviews and annotates inline with contextual comments</div>
-                      </div>
-                      <div className="cs-collab-arrow">&rarr;</div>
-                      <div className="cs-collab-step">
-                        <div className="cs-collab-role">Study Lead</div>
-                        <div className="cs-collab-action">Approves with full visibility into discussion threads</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </ShowcaseReveal>
-
-            <div className="proj-nav-bar">
-              <Link href="/projects/apex">&larr; Apex Fintech</Link>
-              <Link href="/projects/healthcare">
-                Next: Healthcare &rarr;
-              </Link>
-            </div>
-          </main>
-        </div>
-      </PasswordGate>
+          <div className="proj-nav-bar">
+            <Link href="/projects/apex">&larr; Apex Fintech</Link>
+            <Link href="/projects/healthcare">
+              Next: Healthcare &rarr;
+            </Link>
+          </div>
+        </PasswordGate>
+      </div>
     </>
   );
 }

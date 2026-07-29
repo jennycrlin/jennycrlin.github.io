@@ -3,10 +3,20 @@ import Link from "next/link";
 import Image from "next/image";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { Carousel } from "@/components/Carousel";
+import { SectionProgress } from "@/components/SectionProgress";
 
 export const metadata: Metadata = {
   title: "Teaching AI Agent — Jenny Lin",
 };
+
+const NAV_SECTIONS = [
+  { label: "Overview", href: "#sec-overview", childIds: ["sec-solution", "sec-challenge"] },
+  { label: "Research", href: "#sec-methodology" },
+  { label: "Design", href: "#sec-design", childIds: ["sec-design-1", "sec-design-2"] },
+  { label: "Testing", href: "#sec-testing", childIds: ["sec-finding"] },
+  { label: "Redesign", href: "#sec-redesign", childIds: ["sec-redesign-1", "sec-redesign-2"] },
+  { label: "Reflection", href: "#sec-reflection", childIds: ["sec-reflection-1", "sec-reflection-2", "sec-reflection-3"] },
+];
 
 export default function AIAgentPage() {
   return (
@@ -34,8 +44,8 @@ export default function AIAgentPage() {
         </div>
       </div>
 
-      <div className="proj-body-wrap">
-        <main className="proj-content">
+      <div className="proj-content-full">
+        <SectionProgress sections={NAV_SECTIONS} />
           {/* Overview */}
           <ScrollReveal>
             <div className="section" id="sec-overview">
@@ -418,7 +428,6 @@ export default function AIAgentPage() {
             <Link href="/projects/healthcare">&larr; Healthcare App</Link>
             <Link href="/projects/apple-books">Next: Apple Books &rarr;</Link>
           </div>
-        </main>
       </div>
     </>
   );
