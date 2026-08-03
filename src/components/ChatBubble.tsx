@@ -194,7 +194,7 @@ export function ChatBubble() {
 
   useEffect(() => {
     const key = "chatbot-opened";
-    if (!sessionStorage.getItem(key)) {
+    if (!sessionStorage.getItem(key) && window.innerWidth > 768) {
       sessionStorage.setItem(key, "1");
       setIsOpen(true);
     }

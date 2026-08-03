@@ -126,7 +126,7 @@ export default function HealthcarePage() {
               and static layouts offered no way to explore or compare
               personal metrics over time.
             </p>
-            <div className="cs-image-row">
+            <div className="cs-image-row cs-image-row--two">
               <ScrollReveal delay={0}>
                 <div className="cs-image-half">
                   <Image
@@ -134,29 +134,18 @@ export default function HealthcarePage() {
                     alt="User quote about scientific reports"
                     width={1316}
                     height={350}
-                    sizes="(max-width: 768px) 100vw, 300px"
+                    sizes="(max-width: 768px) 100vw, 45vw"
                   />
                 </div>
               </ScrollReveal>
               <ScrollReveal delay={100}>
                 <div className="cs-image-half">
                   <Image
-                    src="/images/projects/healthcare/people2.png"
-                    alt="User quote about wanting more information"
-                    width={1316}
-                    height={350}
-                    sizes="(max-width: 768px) 100vw, 300px"
-                  />
-                </div>
-              </ScrollReveal>
-              <ScrollReveal delay={200}>
-                <div className="cs-image-half">
-                  <Image
                     src="/images/projects/healthcare/people3.png"
                     alt="User quote about visual learning"
                     width={1316}
                     height={349}
-                    sizes="(max-width: 768px) 100vw, 300px"
+                    sizes="(max-width: 768px) 100vw, 45vw"
                   />
                 </div>
               </ScrollReveal>

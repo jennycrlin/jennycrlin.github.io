@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 const NAV_SECTIONS = [
   { label: "Overview", href: "#sec-overview" },
   { label: "Impact", href: "#sec-impact" },
-  { label: "Research", href: "#sec-research", childIds: ["sec-challenge", "sec-workshop", "sec-insights", "sec-personas"] },
+  { label: "Research", href: "#sec-research", childIds: ["sec-challenge", "sec-workshop", "sec-personas"] },
   { label: "Design", href: "#sec-design", childIds: ["sec-source", "sec-ai", "sec-collab"] },
 ];
 
@@ -152,60 +152,45 @@ export default function EliLillyPage() {
               </div>
             </ScrollReveal>
 
-            {/* Workshop Discovery */}
+            {/* Research */}
             <ScrollReveal>
               <div className="section" id="sec-workshop">
                 <p className="cs-label">Research</p>
                 <h2 className="cs-heading">
-                  Cross-functional workshop surfaced competing needs
-                  across 6 stakeholder groups
+                  2-day workshop with 6 stakeholder groups
                 </h2>
                 <p>
-                  I facilitated a 2-day design thinking workshop with
-                  clinical designers, medical writers, and compliance
-                  stakeholders &mdash; turning pain points into a
-                  prioritized future-state vision.
+                  Facilitated cross-functional design thinking sessions with
+                  clinical designers, medical writers, data standards, regulatory,
+                  clinical ops, and change management teams.
                 </p>
-                <div className="cs-image-full" style={{ background: "var(--img-bg)", borderRadius: 12, padding: "80px 24px", textAlign: "center" as const, color: "var(--text3)" }}>
-                  <p>[ Image placeholder: Workshop artifacts ]</p>
+                <div className="figjam-board">
+                  <div className="figjam-sticky figjam-sticky--purple" style={{ ["--rotate" as string]: "-0.6deg" }}>
+                    <strong>Key pain point</strong><br />
+                    Excel exports break structure &mdash; medical writers recreate SoA from scratch every cycle
+                  </div>
+                  <div className="figjam-sticky figjam-sticky--blue" style={{ ["--rotate" as string]: "0.4deg" }}>
+                    <strong>Consensus</strong><br />
+                    Design Studio should be improved, not replaced &mdash; teams value it but use it inconsistently
+                  </div>
+                  <div className="figjam-sticky figjam-sticky--pink" style={{ ["--rotate" as string]: "0.5deg" }}>
+                    <strong>Vision</strong><br />
+                    Digitally-driven, structured authoring aligned with USDM &mdash; Design Studio as the single source of truth
+                  </div>
+                  <div className="figjam-sticky figjam-sticky--orange" style={{ ["--rotate" as string]: "-0.3deg" }}>
+                    <strong>Strategic goals</strong><br />
+                    Reduce cycle time &bull; minimize rework &bull; enable API-ready automation &bull; ensure ICH M11 compliance &bull; lay groundwork for AI
+                  </div>
                 </div>
-              </div>
-            </ScrollReveal>
-
-            {/* Stakeholder Insights */}
-            <ScrollReveal>
-              <div className="section" id="sec-insights">
-                <p className="cs-label">Insights</p>
-                <h2 className="cs-heading">
-                  Trust in the tool was high &mdash; trust in the
-                  workflow was not
-                </h2>
-                <p>
-                  Stakeholders valued Design Studio but couldn&apos;t
-                  rely on it as a single source of truth &mdash; Excel
-                  exports lost structure, and writers recreated SoA
-                  from scratch every cycle.
-                </p>
-                <div className="cs-quotes-grid cs-quotes-grid--inline">
-                  <div className="cs-quote-card">
-                    <p className="cs-quote-text">
-                      <strong>Design Studio has a lot of features that
-                      people use inconsistently</strong> based upon what
-                      their teams and leadership want. It&apos;s easy to
-                      use and teams like the feel of it during design.
-                    </p>
-                    <p className="cs-quote-role">Stakeholder Feedback</p>
-                  </div>
-                  <div className="cs-quote-card">
-                    <p className="cs-quote-text">
-                      I think DS is <strong>not appreciated and
-                      optimised enough</strong> &mdash; retaining
-                      control over such an instrumental &amp; proprietary
-                      process is not to be underestimated. I would invest
-                      significantly in V2+.
-                    </p>
-                    <p className="cs-quote-role">Stakeholder Feedback</p>
-                  </div>
+                <p className="cs-label" style={{ marginTop: 32 }}>Workshop Output &mdash; Future-State Workflow</p>
+                <div className="cs-image-full">
+                  <Image
+                    src="/images/projects/eli-lilly/art-of-possible.svg"
+                    alt="Future-state collaborative workflow synthesized from workshop: Writer Studio dashboard through SOA editing, design review, and study team approval to auto-sync with Design Studio"
+                    width={1200}
+                    height={920}
+                    sizes="(max-width: 768px) 100vw, 800px"
+                  />
                 </div>
               </div>
             </ScrollReveal>
@@ -320,8 +305,47 @@ export default function EliLillyPage() {
                     <p>Preview formatted protocol directly in the platform.</p>
                   </div>
                 </div>
-                <div className="cs-image-full" style={{ background: "var(--img-bg)", borderRadius: 12, padding: "80px 24px", textAlign: "center" as const, color: "var(--text3)" }}>
-                  <p>[ Image placeholder: AI Compliance Validation UI ]</p>
+                <div className="cs-image-grid-2x2">
+                  <figure className="cs-grid-fig">
+                    <Image
+                      src="/images/projects/eli-lilly/ai-suggest.png"
+                      alt="AI Auto-Crop — suggested split points"
+                      width={6048}
+                      height={4120}
+                      sizes="(max-width: 768px) 100vw, 400px"
+                    />
+                    <figcaption>AI Auto-Crop &mdash; split point suggestions</figcaption>
+                  </figure>
+                  <figure className="cs-grid-fig">
+                    <Image
+                      src="/images/projects/eli-lilly/ai-suggest2.png"
+                      alt="AI Auto-Crop — suggestion detail"
+                      width={6048}
+                      height={4120}
+                      sizes="(max-width: 768px) 100vw, 400px"
+                    />
+                    <figcaption>AI Auto-Crop &mdash; accepted suggestion</figcaption>
+                  </figure>
+                  <figure className="cs-grid-fig">
+                    <Image
+                      src="/images/projects/eli-lilly/inline-protocol.png"
+                      alt="Inline Protocol View — formatted preview"
+                      width={6048}
+                      height={4120}
+                      sizes="(max-width: 768px) 100vw, 400px"
+                    />
+                    <figcaption>Inline Protocol View &mdash; formatted preview</figcaption>
+                  </figure>
+                  <figure className="cs-grid-fig">
+                    <Image
+                      src="/images/projects/eli-lilly/inline-protocol2.png"
+                      alt="Inline Protocol View — detail"
+                      width={6048}
+                      height={4120}
+                      sizes="(max-width: 768px) 100vw, 400px"
+                    />
+                    <figcaption>Inline Protocol View &mdash; section detail</figcaption>
+                  </figure>
                 </div>
               </div>
             </ScrollReveal>
@@ -340,24 +364,18 @@ export default function EliLillyPage() {
                   specific SoA sections &mdash; keeping decisions
                   traceable and visible to the full team.
                 </p>
-                <div className="cs-lilly-collab-flow">
-                  <div className="cs-collab-step">
-                    <div className="cs-collab-role">Clinical Designer</div>
-                    <div className="cs-collab-action">Authors structured SoA data in Design Studio</div>
+                <div className="proj-hero-video--desktop">
+                  <div className="monitor-bezel">
+                    <video autoPlay loop muted playsInline>
+                      <source
+                        src="/images/projects/eli-lilly/collab.mov"
+                        type="video/mp4"
+                      />
+                    </video>
                   </div>
-                  <div className="cs-collab-arrow">&rarr;</div>
-                  <div className="cs-collab-step">
-                    <div className="cs-collab-role">Medical Writer</div>
-                    <div className="cs-collab-action">Reviews and annotates inline with contextual comments</div>
-                  </div>
-                  <div className="cs-collab-arrow">&rarr;</div>
-                  <div className="cs-collab-step">
-                    <div className="cs-collab-role">Study Lead</div>
-                    <div className="cs-collab-action">Approves with full visibility into discussion threads</div>
-                  </div>
-                </div>
-                <div className="cs-image-full" style={{ background: "var(--img-bg)", borderRadius: 12, padding: "80px 24px", textAlign: "center" as const, color: "var(--text3)" }}>
-                  <p>[ Image placeholder: Collaborative Authoring Interface ]</p>
+                  <div className="monitor-chin" />
+                  <div className="monitor-neck" />
+                  <div className="monitor-base" />
                 </div>
               </div>
             </ScrollReveal>
