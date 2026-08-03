@@ -42,8 +42,8 @@ export default function ApexPage() {
             <span>Web, Mobile, Internal Tools</span>
           </div>
           <div className="meta-item">
-            <label>Impact</label>
-            <span>$1.2M+ annual savings</span>
+            <label>Industry</label>
+            <span>Fintech / Wealth Management</span>
           </div>
         </div>
       </div>
@@ -54,21 +54,12 @@ export default function ApexPage() {
           <div className="section" id="sec-overview">
             <h2>Overview</h2>
             <p>
-              As a Product Design Engineer at Apex Fintech Solutions, I
-              architected 3 fintech platforms — Ascend OS (advisor-facing),
-              Enterprise (internal operations), and Investor (client-facing) —
-              transforming complex financial workflows into intuitive,
-              production-ready interfaces. The platforms serve one of the
-              largest clearing and custody firms in the US, handling trading,
-              billing, transfers, and account onboarding at scale.
-            </p>
-            <p>
-              I designed front-end applications and prototypes using React,
-              TypeScript, and HTML/CSS with Claude Code and GitHub, reducing
-              engineering effort by 98% — from 60 days to 1 day — through
-              code-ready UI delivery. I also established AI-augmented design
-              documentation and reusable interaction patterns, governing a
-              component library across 2,300+ iterations.
+              I architected 3 fintech platforms at Apex &mdash; Ascend OS
+              (advisor-facing), Enterprise (internal operations), and
+              Investor (client-facing) &mdash; serving one of the largest
+              clearing and custody firms in the US. By delivering
+              code-ready UI in React and TypeScript, I reduced
+              design-to-dev handoff by 98%.
             </p>
           </div>
         </ScrollReveal>
@@ -83,7 +74,7 @@ export default function ApexPage() {
             <div className="cs-stat-card">
               <div className="cs-stat-number">98%</div>
               <div className="cs-stat-title">Engineering Effort</div>
-              <p>Reduced from 60 days to 1 day via code-ready UI.</p>
+              <p>Compressed weeks of handoff into a single-day turnaround.</p>
             </div>
           </ScrollReveal>
           <ScrollReveal delay={100}>
@@ -114,13 +105,6 @@ export default function ApexPage() {
             <ScrollReveal>
               <div className="section" id="sec-design">
                 <h2>Design</h2>
-                <p>
-                  I led the end-to-end design of key product areas across
-                  all three platforms, focusing on reducing complexity in
-                  regulated financial workflows. Each solution was validated
-                  through usability testing and iterated through multiple
-                  design rounds before production handoff.
-                </p>
               </div>
             </ScrollReveal>
 
@@ -140,13 +124,9 @@ export default function ApexPage() {
                     <div className="cs-showcase-num">01</div>
                     <h4>People-First Architecture</h4>
                     <p>
-                      The original account opening flow required users to
-                      fill 40+ fields on a single page — leading to a 35%
-                      abandonment rate. I restructured the flow into a
-                      3-step wizard: Investors → Accounts → Review. Users
-                      first add people (account holders, authorized traders),
-                      then configure accounts linked to those people,
-                      eliminating redundant data entry.
+                      Restructured a 40+ field form (35% abandonment) into
+                      a 3-step wizard: Investors &rarr; Accounts &rarr;
+                      Review &mdash; eliminating redundant data entry.
                     </p>
                     <div className="img-placeholder" style={{ height: 280 }}>
                       Open Account v2 — Step 1: Add Investors
@@ -157,12 +137,9 @@ export default function ApexPage() {
                     <div className="cs-showcase-num">02</div>
                     <h4>Progressive Disclosure</h4>
                     <p>
-                      Each step unlocks only after the previous one is
-                      validated. A persistent sidebar stepper shows progress,
-                      and inline validation catches errors before submission.
-                      Complex fields like SSN, citizenship, and employment
-                      use contextual help tooltips and smart defaults to
-                      reduce cognitive load.
+                      Steps unlock sequentially with a persistent sidebar
+                      stepper, inline validation, and contextual help
+                      tooltips to reduce cognitive load.
                     </p>
                     <div className="img-placeholder" style={{ height: 280 }}>
                       Wizard Stepper — Progressive Unlock
@@ -173,12 +150,9 @@ export default function ApexPage() {
                     <div className="cs-showcase-num">03</div>
                     <h4>Review &amp; ACAT Transfer</h4>
                     <p>
-                      The final review step presents all data in scannable
-                      tables with edit-in-place capability. I designed
-                      transfer sheet integration for ACAT (Automated
-                      Customer Account Transfer) and DWAC (Deposit/Withdrawal
-                      at Custodian) workflows — allowing advisors to initiate
-                      asset transfers directly during account setup.
+                      Scannable review tables with edit-in-place and
+                      integrated ACAT/DWAC transfer sheets &mdash; advisors
+                      initiate asset transfers directly during setup.
                     </p>
                     <div className="img-placeholder" style={{ height: 280 }}>
                       Review Step — ACAT Transfer Sheets
@@ -204,12 +178,9 @@ export default function ApexPage() {
                     <div className="cs-showcase-num">01</div>
                     <h4>Bulk Upload &amp; Validation</h4>
                     <p>
-                      Operations teams previously processed account updates
-                      one at a time. I designed a bulk upload interface that
-                      accepts CSV files, validates data against business
-                      rules in real-time, and surfaces row-level errors with
-                      inline correction — reducing batch processing time
-                      from hours to minutes.
+                      CSV upload with real-time business-rule validation
+                      and row-level inline correction &mdash; reducing
+                      batch processing from hours to minutes.
                     </p>
                     <div className="img-placeholder" style={{ height: 280 }}>
                       Bulk Upload — CSV Validation &amp; Error Handling
@@ -220,12 +191,9 @@ export default function ApexPage() {
                     <div className="cs-showcase-num">02</div>
                     <h4>Table Bulk Actions</h4>
                     <p>
-                      For trading blotters, billing groups, and performance
-                      data tables, I designed a consistent bulk-action
-                      toolbar pattern: select rows → contextual action bar
-                      appears with relevant operations (approve, reject,
-                      export, reassign). This pattern is shared across all
-                      three platforms with role-based visibility.
+                      Consistent select-rows &rarr; action-bar pattern
+                      across all three platforms with role-based visibility
+                      for approve, reject, export, and reassign operations.
                     </p>
                     <div className="img-placeholder" style={{ height: 280 }}>
                       Bulk Action Toolbar — Row Selection Pattern
@@ -251,13 +219,9 @@ export default function ApexPage() {
                     <div className="cs-showcase-num">01</div>
                     <h4>Ask Ascend — AI Assistant</h4>
                     <p>
-                      I designed &ldquo;Ask Ascend,&rdquo; an AI-powered
-                      assistant panel integrated into the Dev Portal and
-                      advisor workflows. It provides contextual answers to
-                      API documentation queries, surfaces relevant help
-                      articles, and suggests next actions based on the
-                      user&apos;s current task — reducing support ticket
-                      volume by 25%.
+                      AI-powered assistant panel providing contextual
+                      answers to API queries and suggesting next actions
+                      &mdash; reducing support ticket volume by 25%.
                     </p>
                     <div className="img-placeholder" style={{ height: 280 }}>
                       Ask Ascend — AI Assistant Panel
@@ -268,12 +232,9 @@ export default function ApexPage() {
                     <div className="cs-showcase-num">02</div>
                     <h4>Model Marketplace</h4>
                     <p>
-                      Designed a marketplace for advisors to browse, compare,
-                      and subscribe to investment model portfolios from
-                      third-party providers. AI-driven recommendations
-                      surface relevant models based on the advisor&apos;s
-                      client demographics, risk profiles, and existing
-                      allocations.
+                      Marketplace for browsing and subscribing to model
+                      portfolios, with AI recommendations based on client
+                      demographics and risk profiles.
                     </p>
                     <div className="img-placeholder" style={{ height: 280 }}>
                       Model Marketplace — AI-Driven Recommendations
@@ -287,13 +248,9 @@ export default function ApexPage() {
               <div className="section" id="sec-system">
                 <h2>Design System</h2>
                 <p>
-                  I built and governed a cross-platform component library
-                  using atomic design principles (atoms → molecules →
-                  organisms → templates), ensuring visual and behavioral
-                  consistency across Ascend OS, Enterprise, and Investor.
-                  The system includes 100+ components with WCAG AA
-                  accessibility, keyboard navigation, and screen reader
-                  support built in.
+                  100+ component library built on atomic design principles
+                  with WCAG AA accessibility, governing visual and
+                  behavioral consistency across all three platforms.
                 </p>
                 <div className="img-row">
                   <div className="img-placeholder" style={{ height: 200 }}>
@@ -303,45 +260,17 @@ export default function ApexPage() {
                     Color System &amp; Token Architecture
                   </div>
                 </div>
-                <p>
-                  Key patterns include a standardized badge color system
-                  (color by actionability, not sentiment), panel edit
-                  patterns with view/edit modes and destructive action
-                  styling, and a sheet format specification with consistent
-                  typography, shadows, and responsive breakpoints.
-                </p>
               </div>
             </ScrollReveal>
 
             <Collapsible title="AI-Augmented Design Process">
               <div className="section">
-                <h3>Claude Code as a Design Tool</h3>
                 <p>
-                  I integrated Claude Code into my design workflow to bridge
-                  the gap between design intent and production code. By
-                  writing design specifications in natural language and
-                  iterating through code-ready prototypes, I reduced the
-                  typical design-to-development handoff from 60 days to 1
-                  day — a 98% reduction in engineering effort.
-                </p>
-                <p>
-                  This AI-augmented workflow enabled rapid prototyping of
-                  complex interaction patterns (wizard flows, data tables,
-                  bulk operations) directly in React and TypeScript,
-                  eliminating the translation gap between static mockups
-                  and functional code. The approach also accelerated design
-                  system documentation, generating component specifications
-                  and usage guidelines alongside the code.
-                </p>
-                <h3>Collaborative Design Planning</h3>
-                <p>
-                  Beyond code generation, I used AI to facilitate design
-                  planning sessions — synthesizing research findings into
-                  structured design briefs, generating user flow
-                  alternatives for stakeholder review, and maintaining a
-                  living design rationale document that evolves with the
-                  product. This shifted my role from pixel-pushing to
-                  strategic design leadership.
+                  I integrated Claude Code to prototype complex interaction
+                  patterns directly in React &mdash; reducing design-to-dev
+                  handoff turnaround by 98%. AI also accelerated design
+                  planning, synthesizing research into structured briefs
+                  and generating component specifications alongside code.
                 </p>
               </div>
             </Collapsible>
@@ -350,22 +279,17 @@ export default function ApexPage() {
               <div className="section" id="sec-outcomes">
                 <h2>Outcomes</h2>
                 <p>
-                  The redesigned platforms launched across 2,000+ users
-                  with a phased rollout. The Open Account v2 wizard reduced
-                  form abandonment by 35%, and task completion time dropped
-                  40% in the first month. Support ticket volume decreased
-                  25% within the first quarter, and the AI-driven workflow
-                  automation delivered $1.2M+ in annual operational savings.
+                  Launched across 2,000+ users &mdash; Open Account v2
+                  cut form abandonment by 35%, task completion sped up
+                  40%, and AI-driven automation delivered $1.2M+ in
+                  annual savings.
                 </p>
                 <h3>Reflections</h3>
                 <p>
-                  This project demonstrated that AI isn&apos;t a replacement
-                  for design thinking — it&apos;s an accelerator. The most
-                  impactful decisions were still human: restructuring the
-                  account flow around people instead of forms, choosing
-                  progressive disclosure over comprehensive display, and
-                  designing for trust in regulated environments. AI amplified
-                  execution speed, but the design strategy came from research.
+                  The most impactful decisions were human &mdash;
+                  restructuring flows around people, not forms. AI
+                  amplified execution speed, but the design strategy
+                  came from research.
                 </p>
               </div>
             </ScrollReveal>

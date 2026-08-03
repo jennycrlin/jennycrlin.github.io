@@ -36,8 +36,15 @@ export function Carousel({
             ‹
           </button>
         )}
-        <div className="carousel-slide" key={index}>
-          {children[index]}
+        <div className="carousel-slides-stack">
+          {children.map((child, i) => (
+            <div
+              className={`carousel-slide${i === index ? " carousel-slide--active" : ""}`}
+              key={i}
+            >
+              {child}
+            </div>
+          ))}
         </div>
         {index < children.length - 1 && (
           <button

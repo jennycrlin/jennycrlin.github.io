@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 const NAV_SECTIONS = [
   { label: "Overview", href: "#sec-overview" },
   { label: "Impact", href: "#sec-impact" },
-  { label: "Research", href: "#sec-research", childIds: ["sec-demo", "sec-challenge", "sec-workshop", "sec-insights", "sec-personas"] },
+  { label: "Research", href: "#sec-research", childIds: ["sec-challenge", "sec-workshop", "sec-insights", "sec-personas"] },
   { label: "Design", href: "#sec-design", childIds: ["sec-source", "sec-ai", "sec-collab"] },
 ];
 
@@ -45,6 +45,20 @@ export default function EliLillyPage() {
             <span>Healthcare / Pharma</span>
           </div>
         </div>
+
+        <div className="proj-hero-video--desktop">
+          <div className="monitor-bezel">
+            <video autoPlay loop muted playsInline>
+              <source
+                src="/images/projects/eli-lilly/overview.mp4"
+                type="video/mp4"
+              />
+            </video>
+          </div>
+          <div className="monitor-chin" />
+          <div className="monitor-neck" />
+          <div className="monitor-base" />
+        </div>
       </div>
 
       <div className="proj-content-full">
@@ -57,16 +71,11 @@ export default function EliLillyPage() {
             </h2>
             <p>
               Clinical trial documentation at Lilly was fragmented across
-              Design Studio, Excel exports, and Word documents. Clinical
-              designers authored structured data but had no way to
-              re-import changes &mdash; forcing manual, line-by-line
-              reconciliation across every revision cycle.
-            </p>
-            <p>
-              I led the design of Collab Studio, an AI-enabled digital
-              platform that establishes Design Studio as the single source
-              of truth for protocol authoring, SoA management, and
-              cross-functional collaboration.
+              Design Studio, Excel exports, and Word documents &mdash;
+              forcing manual, line-by-line reconciliation every revision
+              cycle. I led the design of Collab Studio, an AI-enabled
+              platform establishing a single source of truth for protocol
+              authoring and cross-functional collaboration.
             </p>
           </div>
         </ScrollReveal>
@@ -102,24 +111,10 @@ export default function EliLillyPage() {
 
         {/* Password-protected content */}
         <PasswordGate code="5600">
-            {/* Product Demo — confidential */}
-            <ScrollReveal>
-              <div className="section" id="sec-demo">
-                <h2>Product Demo</h2>
-                <div className="cs-video-embed">
-                  <video autoPlay loop muted playsInline>
-                    <source
-                      src="/images/projects/eli-lilly/overview.mp4"
-                      type="video/mp4"
-                    />
-                  </video>
-                </div>
-              </div>
-            </ScrollReveal>
-
             {/* Design Challenge */}
             <ScrollReveal>
               <div className="section" id="sec-challenge">
+                <p className="cs-label">Design Challenge</p>
                 <blockquote>
                   <p>
                     How Might We transform trial design from a static
@@ -140,11 +135,10 @@ export default function EliLillyPage() {
                   Excel exports broke the design-to-authoring loop
                 </h2>
                 <p>
-                  Clinical designers authored in Design Studio and
-                  exported to Excel for SoA review &mdash; but medical
-                  writers rebuilt everything in Word, with no path to
-                  re-import changes. Every revision meant manual
-                  line-by-line reconciliation across 7+ handoff points.
+                  Designers authored in Design Studio and exported to
+                  Excel, but writers rebuilt everything in Word with no
+                  way to re-import &mdash; every revision meant manual
+                  reconciliation across 7+ handoff points.
                 </p>
                 <div className="cs-image-full">
                   <Image
@@ -163,101 +157,17 @@ export default function EliLillyPage() {
               <div className="section" id="sec-workshop">
                 <p className="cs-label">Research</p>
                 <h2 className="cs-heading">
-                  Cross-functional workshop surfaced 6 stakeholder
-                  groups with competing needs
+                  Cross-functional workshop surfaced competing needs
+                  across 6 stakeholder groups
                 </h2>
                 <p>
                   I facilitated a 2-day design thinking workshop with
-                  clinical designers, medical writers, data standards
-                  teams, and compliance stakeholders. The workshop moved
-                  the initiative from awareness to activation &mdash;
-                  turning current-state pain points into a clear,
-                  prioritized vision for future-state workflows.
+                  clinical designers, medical writers, and compliance
+                  stakeholders &mdash; turning pain points into a
+                  prioritized future-state vision.
                 </p>
-
-                {/* Workshop Pillars — replaces workshop.png */}
-                <div className="cs-info-cards" style={{ marginTop: 24 }}>
-                  <div className="cs-info-card">
-                    <h4>01 &middot; Ideas to Action</h4>
-                    <ul>
-                      <li>Translate big concepts into tangible outputs, roadmaps, and next steps</li>
-                    </ul>
-                  </div>
-                  <div className="cs-info-card">
-                    <h4>02 &middot; Strategic Alignment</h4>
-                    <ul>
-                      <li>Create shared understanding of goals, challenges, and community needs</li>
-                    </ul>
-                  </div>
-                </div>
-                <div className="cs-info-cards" style={{ marginTop: 12 }}>
-                  <div className="cs-info-card">
-                    <h4>03 &middot; Identify Gaps</h4>
-                    <ul>
-                      <li>Uncover blind spots, overlaps, and areas for improvement in the current process</li>
-                    </ul>
-                  </div>
-                  <div className="cs-info-card">
-                    <h4>04 &middot; Surface Perspectives</h4>
-                    <ul>
-                      <li>Elevate voices from different roles, backgrounds, and geographies</li>
-                    </ul>
-                  </div>
-                </div>
-
-                {/* 5W1H Analysis — replaces 5w1h.png */}
-                <h3>5W1H Analysis</h3>
-                <p>
-                  Established shared understanding across 6 stakeholder
-                  groups by mapping the who, what, why, when, and where
-                  of the USDM &amp; Design Studio transformation.
-                </p>
-                <div className="cs-lilly-5w1h">
-                  <div className="cs-5w1h-item">
-                    <div className="cs-5w1h-label">Who?</div>
-                    <div className="cs-5w1h-content">
-                      Protocol Design &amp; Clinical Designers, Medical
-                      Writers, Data Standards &amp; Tech Teams,
-                      Regulatory &amp; Compliance, Clinical Operations,
-                      UX &amp; Change Management
-                    </div>
-                  </div>
-                  <div className="cs-5w1h-item">
-                    <div className="cs-5w1h-label">What?</div>
-                    <div className="cs-5w1h-content">
-                      Establish a digitally-driven, standardized
-                      authoring process for study design (SoA + Protocol)
-                      that aligns with USDM &mdash; reducing rework,
-                      improving traceability, and enabling automation
-                      through Design Studio as the single source of truth
-                    </div>
-                  </div>
-                  <div className="cs-5w1h-item">
-                    <div className="cs-5w1h-label">Why?</div>
-                    <div className="cs-5w1h-content">
-                      Reduce cycle time between design, protocol, and
-                      system setup. Minimize rework from late-stage edits.
-                      Enable automation via clean, API-ready study
-                      definitions. Ensure ICH M11 and FDA compliance.
-                    </div>
-                  </div>
-                  <div className="cs-5w1h-item">
-                    <div className="cs-5w1h-label">When?</div>
-                    <div className="cs-5w1h-content">
-                      Current: hybrid workflows, Excel still prevalent.
-                      Future (Release 2+): fully integrated PI process,
-                      SoA comparison tool, structured comments natively
-                      supported.
-                    </div>
-                  </div>
-                  <div className="cs-5w1h-item">
-                    <div className="cs-5w1h-label">Where?</div>
-                    <div className="cs-5w1h-content">
-                      Design Studio, SDR Database, downstream systems
-                      (EDC, CTMS, RTSM), workshops &amp; pilots for
-                      collaborative testing.
-                    </div>
-                  </div>
+                <div className="cs-image-full" style={{ background: "var(--img-bg)", borderRadius: 12, padding: "80px 24px", textAlign: "center" as const, color: "var(--text3)" }}>
+                  <p>[ Image placeholder: Workshop artifacts ]</p>
                 </div>
               </div>
             </ScrollReveal>
@@ -271,15 +181,11 @@ export default function EliLillyPage() {
                   workflow was not
                 </h2>
                 <p>
-                  Tool exploration revealed stakeholders valued Design
-                  Studio but couldn&apos;t rely on it as a single source
-                  of truth. Key pain points: exporting to Excel caused
-                  structure loss, manual review had no change tracking,
-                  and medical writers recreated SoA from scratch in
-                  Word every cycle.
+                  Stakeholders valued Design Studio but couldn&apos;t
+                  rely on it as a single source of truth &mdash; Excel
+                  exports lost structure, and writers recreated SoA
+                  from scratch every cycle.
                 </p>
-
-                {/* Stakeholder quotes — replaces sentiment.png */}
                 <div className="cs-quotes-grid cs-quotes-grid--inline">
                   <div className="cs-quote-card">
                     <p className="cs-quote-text">
@@ -300,26 +206,6 @@ export default function EliLillyPage() {
                     </p>
                     <p className="cs-quote-role">Stakeholder Feedback</p>
                   </div>
-                  <div className="cs-quote-card">
-                    <p className="cs-quote-text">
-                      I don&apos;t know of another tool that would work
-                      for our purposes, but I do think <strong>Design
-                      Studio could be greatly improved</strong> &mdash;
-                      usability and the background data could be
-                      optimized.
-                    </p>
-                    <p className="cs-quote-role">Stakeholder Feedback</p>
-                  </div>
-                  <div className="cs-quote-card">
-                    <p className="cs-quote-text">
-                      <strong>Exporting to Excel</strong> (behavior)
-                      &mdash; structure loss &mdash; versioning.
-                      <strong> Manual review process</strong> for those
-                      changes. MRs recreating SoA. No design complete
-                      gate.
-                    </p>
-                    <p className="cs-quote-role">Problem Hypothesis</p>
-                  </div>
                 </div>
               </div>
             </ScrollReveal>
@@ -336,31 +222,34 @@ export default function EliLillyPage() {
                   ]}
                 >
                   {[
-                    <div key="designer">
+                    <div key="designer" style={{ maxWidth: 750, margin: "0 auto", overflow: "hidden", borderRadius: 12 }}>
                       <Image
                         src="/images/projects/eli-lilly/Clinical Designer.png"
                         alt="Persona: Clinical Designer — translates scientific intent into structured, operational trial definitions"
                         width={1591}
                         height={1194}
-                        sizes="(max-width: 768px) 100vw, 800px"
+                        sizes="(max-width: 768px) 100vw, 700px"
+                        style={{ clipPath: "inset(6px)" }}
                       />
                     </div>,
-                    <div key="writer">
+                    <div key="writer" style={{ maxWidth: 750, margin: "0 auto", overflow: "hidden", borderRadius: 12 }}>
                       <Image
                         src="/images/projects/eli-lilly/Medical Writer.png"
                         alt="Persona: Medical Writer — translates complex scientific inputs into regulatory-ready protocol narratives"
                         width={1591}
                         height={1194}
-                        sizes="(max-width: 768px) 100vw, 800px"
+                        sizes="(max-width: 768px) 100vw, 700px"
+                        style={{ clipPath: "inset(6px)" }}
                       />
                     </div>,
-                    <div key="lead">
+                    <div key="lead" style={{ maxWidth: 750, margin: "0 auto", overflow: "hidden", borderRadius: 12 }}>
                       <Image
                         src="/images/projects/eli-lilly/Study Lead.png"
                         alt="Persona: Study Lead — responsible for final approval, expects clarity and traceability"
                         width={1591}
                         height={1194}
-                        sizes="(max-width: 768px) 100vw, 800px"
+                        sizes="(max-width: 768px) 100vw, 700px"
+                        style={{ clipPath: "inset(6px)" }}
                       />
                     </div>,
                   ]}
@@ -372,98 +261,103 @@ export default function EliLillyPage() {
             <ScrollReveal>
               <div className="section" id="sec-design">
                 <h2>Design</h2>
-                <div className="cs-accordion">
-                  <details id="sec-source">
-                    <summary>
-                      <span className="cs-accordion-num">01</span>
-                      <span className="cs-accordion-title">Single Source of Truth — Structured data flows eliminate Excel exports</span>
-                      <span className="cs-accordion-icon" />
-                    </summary>
-                    <div className="cs-accordion-body">
-                      <p>
-                        Structured data flows from Lilly Ontology through
-                        Design Studio to the Study Data Repository &mdash;
-                        eliminating Excel exports and ensuring every
-                        change is versioned, aligned, and traceable
-                        across the full protocol lifecycle.
-                      </p>
-                      <div className="cs-image-full">
-                        <Image
-                          src="/images/projects/eli-lilly/future-state.svg"
-                          alt="Future state architecture"
-                          width={1200}
-                          height={480}
-                          sizes="(max-width: 768px) 100vw, 800px"
-                        />
-                      </div>
-                    </div>
-                  </details>
-                  <details id="sec-ai">
-                    <summary>
-                      <span className="cs-accordion-num">02</span>
-                      <span className="cs-accordion-title">AI-Assisted Workflows — Human-in-the-loop compliance and auto-crop</span>
-                      <span className="cs-accordion-icon" />
-                    </summary>
-                    <div className="cs-accordion-body">
-                      <p>
-                        AI validates protocol compliance with ICH M11,
-                        flags misalignment between design and narrative,
-                        and suggests document split points. Crucially,
-                        AI recommends but never auto-corrects &mdash;
-                        human-in-the-loop by design.
-                      </p>
-                      <div className="cs-solutions-row">
-                        <div className="cs-solution-card">
-                          <span className="cs-solution-num">1</span>
-                          <h3>AI Auto-Crop</h3>
-                          <p>Suggests optimal document split points.</p>
-                        </div>
-                        <div className="cs-solution-card">
-                          <span className="cs-solution-num">2</span>
-                          <h3>Compliance Validation</h3>
-                          <p>Flags ICH M11 and regulatory gaps in real time.</p>
-                        </div>
-                        <div className="cs-solution-card">
-                          <span className="cs-solution-num">3</span>
-                          <h3>Inline Protocol View</h3>
-                          <p>Preview formatted protocol directly in the platform.</p>
-                        </div>
-                      </div>
-                    </div>
-                  </details>
-                  <details id="sec-collab">
-                    <summary>
-                      <span className="cs-accordion-num">03</span>
-                      <span className="cs-accordion-title">Collaborative Authoring — Role-based permissions with contextual comments</span>
-                      <span className="cs-accordion-icon" />
-                    </summary>
-                    <div className="cs-accordion-body">
-                      <p>
-                        Invite people directly into the workspace with
-                        role-based permissions. Leave contextual comments
-                        anchored to specific SoA sections &mdash; not
-                        buried in email threads. Every discussion is
-                        visible to the full team, so decisions are
-                        traceable and no feedback gets lost.
-                      </p>
-                      <div className="cs-lilly-collab-flow">
-                        <div className="cs-collab-step">
-                          <div className="cs-collab-role">Clinical Designer</div>
-                          <div className="cs-collab-action">Authors structured SoA data in Design Studio</div>
-                        </div>
-                        <div className="cs-collab-arrow">&rarr;</div>
-                        <div className="cs-collab-step">
-                          <div className="cs-collab-role">Medical Writer</div>
-                          <div className="cs-collab-action">Reviews and annotates inline with contextual comments</div>
-                        </div>
-                        <div className="cs-collab-arrow">&rarr;</div>
-                        <div className="cs-collab-step">
-                          <div className="cs-collab-role">Study Lead</div>
-                          <div className="cs-collab-action">Approves with full visibility into discussion threads</div>
-                        </div>
-                      </div>
-                    </div>
-                  </details>
+              </div>
+            </ScrollReveal>
+
+            {/* 01 Single Source of Truth */}
+            <ScrollReveal>
+              <div className="section" id="sec-source">
+                <p className="cs-label">01 Architecture</p>
+                <h2 className="cs-heading">
+                  Single Source of Truth &mdash; Structured data flows
+                  eliminate Excel exports
+                </h2>
+                <p>
+                  Data flows from Lilly Ontology through Design Studio
+                  to the Study Data Repository &mdash; eliminating
+                  Excel exports and keeping every change versioned
+                  and traceable.
+                </p>
+                <div className="cs-image-full">
+                  <Image
+                    src="/images/projects/eli-lilly/future-state.svg"
+                    alt="Future state architecture"
+                    width={1200}
+                    height={480}
+                    sizes="(max-width: 768px) 100vw, 800px"
+                  />
+                </div>
+              </div>
+            </ScrollReveal>
+
+            {/* 02 AI-Assisted Workflows */}
+            <ScrollReveal>
+              <div className="section" id="sec-ai">
+                <p className="cs-label">02 Intelligence</p>
+                <h2 className="cs-heading">
+                  AI-Assisted Workflows &mdash; Human-in-the-loop
+                  compliance and auto-crop
+                </h2>
+                <p>
+                  AI validates compliance, flags misalignment, and
+                  suggests split points &mdash; but never auto-corrects.
+                  Human-in-the-loop by design.
+                </p>
+                <div className="cs-solutions-row">
+                  <div className="cs-solution-card">
+                    <span className="cs-solution-num">1</span>
+                    <h3>AI Auto-Crop</h3>
+                    <p>Suggests optimal document split points.</p>
+                  </div>
+                  <div className="cs-solution-card">
+                    <span className="cs-solution-num">2</span>
+                    <h3>Compliance Validation</h3>
+                    <p>Flags ICH M11 and regulatory gaps in real time.</p>
+                  </div>
+                  <div className="cs-solution-card">
+                    <span className="cs-solution-num">3</span>
+                    <h3>Inline Protocol View</h3>
+                    <p>Preview formatted protocol directly in the platform.</p>
+                  </div>
+                </div>
+                <div className="cs-image-full" style={{ background: "var(--img-bg)", borderRadius: 12, padding: "80px 24px", textAlign: "center" as const, color: "var(--text3)" }}>
+                  <p>[ Image placeholder: AI Compliance Validation UI ]</p>
+                </div>
+              </div>
+            </ScrollReveal>
+
+            {/* 03 Collaborative Authoring */}
+            <ScrollReveal>
+              <div className="section" id="sec-collab">
+                <p className="cs-label">03 Collaboration</p>
+                <h2 className="cs-heading">
+                  Collaborative Authoring &mdash; Role-based permissions
+                  with contextual comments
+                </h2>
+                <p>
+                  Role-based permissions let teams collaborate directly
+                  in the workspace. Contextual comments anchor to
+                  specific SoA sections &mdash; keeping decisions
+                  traceable and visible to the full team.
+                </p>
+                <div className="cs-lilly-collab-flow">
+                  <div className="cs-collab-step">
+                    <div className="cs-collab-role">Clinical Designer</div>
+                    <div className="cs-collab-action">Authors structured SoA data in Design Studio</div>
+                  </div>
+                  <div className="cs-collab-arrow">&rarr;</div>
+                  <div className="cs-collab-step">
+                    <div className="cs-collab-role">Medical Writer</div>
+                    <div className="cs-collab-action">Reviews and annotates inline with contextual comments</div>
+                  </div>
+                  <div className="cs-collab-arrow">&rarr;</div>
+                  <div className="cs-collab-step">
+                    <div className="cs-collab-role">Study Lead</div>
+                    <div className="cs-collab-action">Approves with full visibility into discussion threads</div>
+                  </div>
+                </div>
+                <div className="cs-image-full" style={{ background: "var(--img-bg)", borderRadius: 12, padding: "80px 24px", textAlign: "center" as const, color: "var(--text3)" }}>
+                  <p>[ Image placeholder: Collaborative Authoring Interface ]</p>
                 </div>
               </div>
             </ScrollReveal>

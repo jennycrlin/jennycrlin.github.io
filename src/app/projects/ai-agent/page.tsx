@@ -42,6 +42,22 @@ export default function AIAgentPage() {
             <span>5 Months</span>
           </div>
         </div>
+
+        <div className="proj-hero-video--desktop">
+          <div className="monitor-bezel monitor-bezel--flush-ai">
+            <div className="monitor-screen">
+              <video autoPlay loop muted playsInline>
+                <source
+                  src="/images/projects/ai-agent/video.mp4"
+                  type="video/mp4"
+                />
+              </video>
+            </div>
+          </div>
+          <div className="monitor-chin" />
+          <div className="monitor-neck" />
+          <div className="monitor-base" />
+        </div>
       </div>
 
       <div className="proj-content-full">

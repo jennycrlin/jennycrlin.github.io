@@ -45,6 +45,20 @@ export default function DashboardPage() {
             <span>Web (Internal Portal)</span>
           </div>
         </div>
+
+        <div className="proj-hero-video--desktop" style={{ maxWidth: 840 }}>
+          <div className="monitor-bezel monitor-bezel--flush">
+            <video autoPlay loop muted playsInline>
+              <source
+                src="/images/projects/dashboard/att-overview.mp4"
+                type="video/mp4"
+              />
+            </video>
+          </div>
+          <div className="monitor-chin" />
+          <div className="monitor-neck" />
+          <div className="monitor-base" />
+        </div>
       </div>
 
       <div className="proj-content-full">
@@ -59,12 +73,10 @@ export default function DashboardPage() {
               faster than its design
             </h2>
             <p>
-              As AT&amp;T&apos;s internal testing platform scaled,
-              entry points multiplied and the UI became cluttered
-              &mdash; hurting productivity and increasing support
-              requests. I led the redesign combining AI automation,
-              UI standardization, and improved information architecture
-              into a single cohesive experience.
+              As AT&amp;T&apos;s internal testing platform scaled, entry
+              points multiplied and the UI became cluttered. I led a
+              redesign combining AI automation, UI standardization, and
+              improved information architecture.
             </p>
           </div>
         </ScrollReveal>
@@ -107,19 +119,6 @@ export default function DashboardPage() {
         </div>
 
         <PasswordGate code="5600">
-        <ScrollReveal>
-          <div className="section">
-            <p className="cs-label">Product Demo</p>
-            <div className="proj-hero-video">
-              <video autoPlay loop muted playsInline>
-                <source
-                  src="/images/projects/dashboard/att-overview.mp4"
-                  type="video/mp4"
-                />
-              </video>
-            </div>
-          </div>
-        </ScrollReveal>
         {/* Research */}
         <ScrollReveal>
           <div className="section" id="sec-research">
@@ -128,11 +127,9 @@ export default function DashboardPage() {
               Four roles, different tasks, same root frustrations
             </h2>
             <p>
-              Through stakeholder interviews across four user roles, I
-              mapped divergent frustrations to shared root causes.
-              While specific tasks varied, the underlying problems were
-              consistent: too many entry points, no unified search, and
-              repetitive manual operations.
+              I interviewed four user roles and mapped their frustrations
+              to shared root causes: too many entry points, no unified
+              search, and repetitive manual operations.
             </p>
             <div className="cs-quotes-grid cs-quotes-grid--inline">
               <ScrollReveal delay={0}>
@@ -192,10 +189,8 @@ export default function DashboardPage() {
               Scattered card-based navigation with no unified search
             </h2>
             <p>
-              The original interface required users to navigate through
-              multiple pages to complete basic tasks &mdash; with no
-              consistent entry point or search capability across 10,000+
-              test case IDs.
+              Users navigated through multiple pages to complete basic
+              tasks, with no unified search across 10,000+ test case IDs.
             </p>
             <div className="cs-image-full">
               <Image

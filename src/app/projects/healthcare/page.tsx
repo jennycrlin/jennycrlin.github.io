@@ -200,7 +200,7 @@ export default function HealthcarePage() {
               ]}
             >
               {[
-                <div key="competitor">
+                <div key="competitor" className="cs-image-blend">
                   <Image
                     src="/images/projects/healthcare/method1.png"
                     alt="Competitor analysis matrix"
@@ -209,7 +209,7 @@ export default function HealthcarePage() {
                     sizes="(max-width: 768px) 100vw, 800px"
                   />
                 </div>,
-                <div key="inventory">
+                <div key="inventory" className="cs-image-blend">
                   <Image
                     src="/images/projects/healthcare/method2.png"
                     alt="Content inventory spreadsheet"
@@ -218,7 +218,7 @@ export default function HealthcarePage() {
                     sizes="(max-width: 768px) 100vw, 800px"
                   />
                 </div>,
-                <div key="ia">
+                <div key="ia" className="cs-image-blend">
                   <Image
                     src="/images/projects/healthcare/method3.png"
                     alt="Information architecture diagram"
@@ -252,7 +252,7 @@ export default function HealthcarePage() {
               ensuring visual coherence across all health dashboards and
               report screens.
             </p>
-            <div className="cs-iteration-crop">
+            <div className="cs-image-full">
               <Image
                 src="/images/projects/healthcare/design system.png"
                 alt="WCWH app design system — colors, typography, components"
@@ -278,14 +278,35 @@ export default function HealthcarePage() {
               plain-language interpretations &mdash; making results
               actionable without medical expertise.
             </p>
-            <div className="cs-image-full" style={{ maxWidth: 600 }}>
-              <Image
-                src="/images/projects/healthcare/design1.png"
-                alt="Biological Aging Report — interpreting results and age comparison"
-                width={3352}
-                height={3376}
-                sizes="(max-width: 768px) 100vw, 500px"
-              />
+            <div className="phone-frame-pair">
+              <div className="phone-frame">
+                <div className="phone-frame__notch" />
+                <div className="phone-frame__screen">
+                  <Image
+                    src="/images/projects/healthcare/design1.png"
+                    alt="Biological Aging Report — interpreting biological age"
+                    width={3352}
+                    height={3376}
+                    sizes="280px"
+                    style={{ width: "200%", maxWidth: "none", marginLeft: "0" }}
+                  />
+                </div>
+                <div className="phone-frame__bar" />
+              </div>
+              <div className="phone-frame">
+                <div className="phone-frame__notch" />
+                <div className="phone-frame__screen">
+                  <Image
+                    src="/images/projects/healthcare/design1.png"
+                    alt="Biological Aging Report — age comparison results"
+                    width={3352}
+                    height={3376}
+                    sizes="280px"
+                    style={{ width: "200%", maxWidth: "none", marginLeft: "-100%" }}
+                  />
+                </div>
+                <div className="phone-frame__bar" />
+              </div>
             </div>
           </div>
         </ScrollReveal>
@@ -304,14 +325,35 @@ export default function HealthcarePage() {
               reflect cultural values and ensuring clarity for the
               primarily Hispanic participant population.
             </p>
-            <div className="cs-image-full" style={{ maxWidth: 600 }}>
-              <Image
-                src="/images/projects/healthcare/design2.png"
-                alt="Healthy aging tips in English and Spanish side by side"
-                width={2460}
-                height={2532}
-                sizes="(max-width: 768px) 100vw, 500px"
-              />
+            <div className="phone-frame-pair">
+              <div className="phone-frame">
+                <div className="phone-frame__notch" />
+                <div className="phone-frame__screen">
+                  <Image
+                    src="/images/projects/healthcare/design2.png"
+                    alt="Healthy aging tips in English"
+                    width={2460}
+                    height={2532}
+                    sizes="280px"
+                    style={{ width: "200%", maxWidth: "none", marginLeft: "0" }}
+                  />
+                </div>
+                <div className="phone-frame__bar" />
+              </div>
+              <div className="phone-frame">
+                <div className="phone-frame__notch" />
+                <div className="phone-frame__screen">
+                  <Image
+                    src="/images/projects/healthcare/design2.png"
+                    alt="Healthy aging tips in Spanish"
+                    width={2460}
+                    height={2532}
+                    sizes="280px"
+                    style={{ width: "200%", maxWidth: "none", marginLeft: "-100%" }}
+                  />
+                </div>
+                <div className="phone-frame__bar" />
+              </div>
             </div>
           </div>
         </ScrollReveal>
@@ -330,31 +372,37 @@ export default function HealthcarePage() {
               &mdash; replacing the static PDF experience with an
               interactive, guided format.
             </p>
-            <div className="cs-image-full" style={{ maxWidth: 280, position: "relative" }}>
-              <Image
-                src="/images/projects/healthcare/Sleep.png"
-                alt="Clickable report with video guide — tap to play"
-                width={1560}
-                height={3376}
-                sizes="360px"
-              />
-              <div style={{
-                position: "absolute",
-                top: "56%",
-                left: "8%",
-                right: "8%",
-                display: "flex",
-                justifyContent: "center",
-              }}>
-                <video
-                  controls playsInline
-                  style={{ width: "100%", borderRadius: 8, cursor: "pointer" }}
-                >
-                  <source
-                    src="/images/projects/healthcare/video.mp4"
-                    type="video/mp4"
+            <div className="phone-frame-pair">
+              <div className="phone-frame">
+                <div className="phone-frame__notch" />
+                <div className="phone-frame__screen" style={{ position: "relative" }}>
+                  <Image
+                    src="/images/projects/healthcare/Sleep.png"
+                    alt="Clickable report with video guide — tap to play"
+                    width={1560}
+                    height={3376}
+                    sizes="280px"
                   />
-                </video>
+                  <div style={{
+                    position: "absolute",
+                    top: "56%",
+                    left: "8%",
+                    right: "8%",
+                    display: "flex",
+                    justifyContent: "center",
+                  }}>
+                    <video
+                      autoPlay loop muted playsInline
+                      style={{ width: "100%", borderRadius: 8, cursor: "pointer" }}
+                    >
+                      <source
+                        src="/images/projects/healthcare/video.mp4"
+                        type="video/mp4"
+                      />
+                    </video>
+                  </div>
+                </div>
+                <div className="phone-frame__bar" />
               </div>
             </div>
           </div>
@@ -374,7 +422,7 @@ export default function HealthcarePage() {
               users at each stage &mdash; iterating toward the right
               balance of information richness and visual clarity.
             </p>
-            <div className="cs-iteration-crop">
+            <div className="cs-iteration-crop cs-iteration-crop--zoom">
               <Image
                 src="/images/projects/healthcare/design3-cropped.png"
                 alt="Design iteration explorations across multiple screens"

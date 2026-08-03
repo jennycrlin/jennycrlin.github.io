@@ -3,6 +3,7 @@ import { Inter, Lora } from "next/font/google";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
+import { ChatBubble } from "@/components/ChatBubble";
 import "./globals.css";
 
 const inter = Inter({
@@ -39,6 +40,7 @@ export default function RootLayout({
           <Nav />
           {children}
           <Footer />
+          <ChatBubble />
         </ThemeProvider>
       </body>
     </html>

@@ -38,6 +38,17 @@ export default function MeetEatPage() {
             <span>12 Weeks Sprint</span>
           </div>
         </div>
+
+        <div className="proj-hero-image--compact">
+          <Image
+            src="/images/projects/meeteat/meeteatcover.png"
+            alt="Meet & Eat app overview"
+            width={1600}
+            height={900}
+            sizes="(max-width: 768px) 100vw, 720px"
+            priority
+          />
+        </div>
       </div>
 
       <div className="proj-content-full">
