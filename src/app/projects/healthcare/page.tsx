@@ -30,19 +30,15 @@ export default function HealthcarePage() {
         <div className="meta-grid">
           <div className="meta-item">
             <label>My Role</label>
-            <span>UX Research Designer</span>
+            <span>UX Researcher, UI Designer, Content Designer</span>
           </div>
           <div className="meta-item">
             <label>Team</label>
-            <span>2 Designers, 3 Researchers, 4 Engineers</span>
+            <span>5 Research Scientists, 1 Product Manager, 2 Engineers, 2 Translators</span>
           </div>
           <div className="meta-item">
             <label>Timeline</label>
             <span>8 Months</span>
-          </div>
-          <div className="meta-item">
-            <label>Platform</label>
-            <span>iOS &amp; Android</span>
           </div>
         </div>
 
@@ -70,15 +66,14 @@ export default function HealthcarePage() {
               own health data
             </h2>
             <p>
-              The Williamson County and Cities Health District conducts
-              longitudinal health research, collecting biometric data
-              from participants through Fitbit sensors, environmental
-              monitors, and self-reported surveys. Participants received
-              dense PDF reports they couldn&apos;t interpret &mdash;
-              leading to low engagement and missed health insights. I
-              designed a mobile app that transforms raw research data
-              into a personal health dashboard covering temperature,
-              activity, heart rate, air quality, mood, and sleep.
+              The Whole Communities Whole Health (WCWH) initiative
+              focuses on addressing health disparities in underserved
+              communities of eastern Travis County, TX. Participants
+              received dense PDF reports they couldn&apos;t
+              interpret &mdash; leading to low engagement and missed
+              health insights. I designed a mobile app that transforms
+              raw research data into an accessible, culturally
+              responsive health dashboard.
             </p>
           </div>
         </ScrollReveal>
@@ -161,7 +156,7 @@ export default function HealthcarePage() {
               A retiree who values health data but struggles with
               medical jargon
             </h2>
-            <div className="cs-image-full" style={{ maxWidth: 900, margin: "0 auto" }}>
+            <div className="cs-image-full cs-image-light-bg" style={{ maxWidth: 900, margin: "0 auto" }}>
               <Image
                 src="/images/projects/healthcare/persona.png"
                 alt="Primary user persona"
@@ -258,26 +253,26 @@ export default function HealthcarePage() {
           <div className="section" id="sec-aging">
             <p className="cs-label">02 &middot; Data Visualization</p>
             <h2 className="cs-heading">
-              Complex biological aging data, simplified into plain
-              language
+              Progressive disclosure to reduce anxiety around
+              personal health results
             </h2>
             <p>
-              Redesigned the biological aging report to present actual
-              age vs. biological age range with intuitive graphs and
-              plain-language interpretations &mdash; making results
-              actionable without medical expertise.
+              Users felt anxious facing unfamiliar jargon or negative
+              results. I applied progressive disclosure &mdash;
+              showing general findings first and revealing personal
+              results gradually to reduce anxiety while maintaining
+              transparency.
             </p>
             <div className="phone-frame-pair">
               <div className="phone-frame">
                 <div className="phone-frame__notch" />
                 <div className="phone-frame__screen">
                   <Image
-                    src="/images/projects/healthcare/design1.png"
+                    src="/images/projects/healthcare/design1-left.png"
                     alt="Biological Aging Report — interpreting biological age"
-                    width={3352}
-                    height={3376}
+                    width={1552}
+                    height={3368}
                     sizes="280px"
-                    style={{ width: "200%", maxWidth: "none", marginLeft: "0" }}
                   />
                 </div>
                 <div className="phone-frame__bar" />
@@ -286,12 +281,11 @@ export default function HealthcarePage() {
                 <div className="phone-frame__notch" />
                 <div className="phone-frame__screen">
                   <Image
-                    src="/images/projects/healthcare/design1.png"
+                    src="/images/projects/healthcare/design1-right.png"
                     alt="Biological Aging Report — age comparison results"
-                    width={3352}
-                    height={3376}
+                    width={1552}
+                    height={3368}
                     sizes="280px"
-                    style={{ width: "200%", maxWidth: "none", marginLeft: "-100%" }}
                   />
                 </div>
                 <div className="phone-frame__bar" />
@@ -310,21 +304,22 @@ export default function HealthcarePage() {
             </h2>
             <p>
               Collaborated with a translator to adapt content for
-              English and Spanish readers &mdash; reframing language to
-              reflect cultural values and ensuring clarity for the
-              primarily Hispanic participant population.
+              English and Spanish readers &mdash; not just translating,
+              but reframing language to reflect cultural values. For
+              example, shifting from individual responsibility framing
+              to collective well-being, which resonated more with the
+              primarily Hispanic participant community.
             </p>
             <div className="phone-frame-pair">
               <div className="phone-frame">
                 <div className="phone-frame__notch" />
                 <div className="phone-frame__screen">
                   <Image
-                    src="/images/projects/healthcare/design2.png"
+                    src="/images/projects/healthcare/design2-left.png"
                     alt="Healthy aging tips in English"
-                    width={2460}
-                    height={2532}
+                    width={1164}
+                    height={2526}
                     sizes="280px"
-                    style={{ width: "200%", maxWidth: "none", marginLeft: "0" }}
                   />
                 </div>
                 <div className="phone-frame__bar" />
@@ -333,12 +328,11 @@ export default function HealthcarePage() {
                 <div className="phone-frame__notch" />
                 <div className="phone-frame__screen">
                   <Image
-                    src="/images/projects/healthcare/design2.png"
+                    src="/images/projects/healthcare/design2-right.png"
                     alt="Healthy aging tips in Spanish"
-                    width={2460}
-                    height={2532}
+                    width={1164}
+                    height={2526}
                     sizes="280px"
-                    style={{ width: "200%", maxWidth: "none", marginLeft: "-100%" }}
                   />
                 </div>
                 <div className="phone-frame__bar" />
@@ -352,14 +346,15 @@ export default function HealthcarePage() {
           <div className="section" id="sec-interactive">
             <p className="cs-label">04 &middot; Engagement</p>
             <h2 className="cs-heading">
-              Static PDFs replaced with interactive, video-guided
-              reports
+              Supporting different learning styles with optional
+              video guides
             </h2>
             <p>
-              Introduced clickable reports with embedded video guides,
-              allowing participants to tap links for deeper context
-              &mdash; replacing the static PDF experience with an
-              interactive, guided format.
+              User interviews revealed most participants relied on
+              visual learning. I integrated an optional video guide
+              within the progressive disclosure model &mdash; giving
+              users flexibility in how they consumed reports without
+              forcing a single format.
             </p>
             <div className="phone-frame-pair">
               <div className="phone-frame">

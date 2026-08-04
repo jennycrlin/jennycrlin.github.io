@@ -1,17 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 920" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 60 1200 545" fill="none">
   <style>
-    .node { fill: #f7f6f3; stroke: #d0cdc8; stroke-width: 1.5; rx: 8; }
-    .node-start { fill: #e8dff5; stroke: #c4b5e0; stroke-width: 1.5; rx: 8; }
-    .node-end { fill: #d4edfc; stroke: #a3cceb; stroke-width: 1.5; rx: 8; }
-    .node-decision { fill: #fce4b6; stroke: #e0c88a; stroke-width: 1.5; }
-    .node-success { fill: #d4f0d4; stroke: #a3d4a3; stroke-width: 1.5; rx: 8; }
-    .label { font-family: Inter, sans-serif; font-size: 12px; fill: #1a1a1a; text-anchor: middle; }
-    .label-sm { font-family: Inter, sans-serif; font-size: 10px; fill: #888; text-anchor: middle; }
-    .label-bold { font-family: Inter, sans-serif; font-size: 12px; fill: #1a1a1a; text-anchor: middle; font-weight: 600; }
+    .node { fill: #f7f6f3; stroke: #d0cdc8; stroke-width: 1.5; rx: 10; }
+    .node-start { fill: #EFEDE8; stroke: #D0CCC6; stroke-width: 1.5; rx: 10; }
+    .node-end { fill: #E0DDD6; stroke: #C4C0B8; stroke-width: 1.5; rx: 10; }
+    .node-success { fill: #E8E5DE; stroke: #C8C4BC; stroke-width: 1.5; rx: 10; }
+    .label { font-family: Inter, sans-serif; font-size: 13px; fill: #1a1a1a; text-anchor: middle; }
+    .label-sm { font-family: Inter, sans-serif; font-size: 10.5px; fill: #888; text-anchor: middle; }
+    .label-bold { font-family: Inter, sans-serif; font-size: 13px; fill: #1a1a1a; text-anchor: middle; font-weight: 600; }
     .arrow { stroke: #999; stroke-width: 1.2; fill: none; marker-end: url(#arrowhead); }
     .arrow-loop { stroke: #c4756e; stroke-width: 1.2; fill: none; marker-end: url(#arrowred); stroke-dasharray: 4 3; }
-    .loop-label { font-family: Inter, sans-serif; font-size: 10px; fill: #c4756e; font-style: italic; }
-    .branch-label { font-family: Inter, sans-serif; font-size: 10px; fill: #666; }
+    .loop-label { font-family: Inter, sans-serif; font-size: 10.5px; fill: #c4756e; font-style: italic; }
   </style>
   <defs>
     <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
@@ -22,124 +20,40 @@
     </marker>
   </defs>
 
-  <!-- Row 1: Entry Points -->
-  <rect class="node-start" x="460" y="20" width="280" height="44"/>
-  <text class="label-bold" x="600" y="47">Writer opens Writer Studio → Dashboard</text>
+  <!-- Step 1: Dashboard -->
+  <rect class="node-start" x="460" y="80" width="280" height="48"/>
+  <text class="label-bold" x="600" y="109">Writer opens Dashboard</text>
 
-  <!-- Branch to Email and Dashboard -->
-  <line class="arrow" x1="530" y1="64" x2="240" y2="110"/>
-  <line class="arrow" x1="670" y1="64" x2="780" y2="110"/>
+  <line class="arrow" x1="600" y1="128" x2="600" y2="180"/>
 
-  <!-- Email notification -->
-  <rect class="node" x="120" y="110" width="240" height="40"/>
-  <text class="label" x="240" y="135">Email / Teams notification</text>
+  <!-- Step 2: Writer Edits SOA -->
+  <rect class="node" x="420" y="180" width="360" height="56"/>
+  <text class="label-bold" x="600" y="205">Writer edits SOA</text>
+  <text class="label-sm" x="600" y="222">Structured editing · Comments · Change tracking</text>
 
-  <!-- Dashboard -->
-  <rect class="node" x="660" y="110" width="240" height="40"/>
-  <text class="label" x="780" y="128">Dashboard: view &amp; prioritize</text>
-  <text class="label" x="780" y="142">work filters, due dates, priorities</text>
+  <line class="arrow" x1="600" y1="236" x2="600" y2="300"/>
 
-  <!-- Deep link -->
-  <rect class="node" x="120" y="190" width="240" height="40"/>
-  <text class="label" x="240" y="215">Deep link to specific SOA section</text>
-  <line class="arrow" x1="240" y1="150" x2="240" y2="190"/>
+  <!-- Step 3: Designer Reviews -->
+  <rect class="node" x="420" y="300" width="360" height="56"/>
+  <text class="label-bold" x="600" y="325">Designer reviews SOA</text>
+  <text class="label-sm" x="600" y="342">Comments only — no direct edits</text>
 
-  <!-- Select protocol -->
-  <rect class="node" x="660" y="190" width="240" height="40"/>
-  <text class="label" x="780" y="215">Select protocol from My SOAs</text>
-  <line class="arrow" x1="780" y1="150" x2="780" y2="190"/>
+  <!-- Feedback loop: Designer → Writer -->
+  <line class="arrow-loop" x1="420" y1="328" x2="320" y2="328"/>
+  <line class="arrow-loop" x1="320" y1="328" x2="320" y2="208"/>
+  <line class="arrow-loop" x1="320" y1="208" x2="420" y2="208"/>
+  <text class="loop-label" x="310" y="272">Changes needed</text>
 
-  <!-- Converge to SOA protocol view -->
-  <line class="arrow" x1="360" y1="210" x2="420" y2="270"/>
-  <line class="arrow" x1="660" y1="210" x2="600" y2="270"/>
+  <line class="arrow" x1="600" y1="356" x2="600" y2="420"/>
 
-  <!-- Row 2: SOA Protocol View -->
-  <rect class="node" x="420" y="270" width="360" height="44"/>
-  <text class="label" x="600" y="290">SOA protocol view with navigation</text>
-  <text class="label-sm" x="600" y="304">General Info, SOA tabs, section nav</text>
+  <!-- Step 4: Study Team Approves -->
+  <rect class="node-success" x="440" y="420" width="320" height="48"/>
+  <text class="label-bold" x="600" y="449">Study Team approves</text>
 
-  <line class="arrow" x1="600" y1="314" x2="600" y2="350"/>
+  <line class="arrow" x1="600" y1="468" x2="600" y2="530"/>
 
-  <!-- Row 3: Writer Edits -->
-  <rect class="node" x="440" y="350" width="320" height="40"/>
-  <text class="label-bold" x="600" y="375">Writer edits SOA in open text editor</text>
-
-  <line class="arrow" x1="600" y1="390" x2="600" y2="430"/>
-
-  <!-- Row 4: Three actions -->
-  <rect class="node" x="100" y="430" width="260" height="44"/>
-  <text class="label" x="230" y="449">Writer adds Reason for change</text>
-  <text class="label-sm" x="230" y="463">commit-style message</text>
-
-  <rect class="node" x="400" y="430" width="260" height="44"/>
-  <text class="label" x="530" y="449">Writer uses Comments for</text>
-  <text class="label-sm" x="530" y="463">discussion with Designer</text>
-
-  <rect class="node" x="700" y="430" width="260" height="44"/>
-  <text class="label" x="830" y="449">Writer marks protocol</text>
-  <text class="label-sm" x="830" y="463">ready for design review</text>
-
-  <line class="arrow" x1="500" y1="390" x2="230" y2="430"/>
-  <line class="arrow" x1="600" y1="390" x2="530" y2="430"/>
-  <line class="arrow" x1="700" y1="390" x2="830" y2="430"/>
-
-  <!-- Converge to Designer review -->
-  <line class="arrow" x1="830" y1="474" x2="680" y2="530"/>
-
-  <!-- Row 5: Designer Reviews -->
-  <rect class="node" x="440" y="530" width="320" height="44"/>
-  <text class="label-bold" x="600" y="549">Designer reviews SOA</text>
-  <text class="label-sm" x="600" y="563">comments only, no direct edits</text>
-
-  <!-- Decision diamond -->
-  <polygon class="node-decision" points="600,610 700,650 600,690 500,650"/>
-  <text class="label" x="600" y="654">Review</text>
-
-  <line class="arrow" x1="600" y1="574" x2="600" y2="610"/>
-
-  <!-- Changes needed (left loop) -->
-  <line class="arrow-loop" x1="500" y1="650" x2="200" y2="650"/>
-  <line class="arrow-loop" x1="200" y1="650" x2="200" y2="375"/>
-  <line class="arrow-loop" x1="200" y1="375" x2="440" y2="370"/>
-  <text class="loop-label" x="340" y="640">Changes needed</text>
-
-  <!-- Looks good (right) -->
-  <line class="arrow" x1="700" y1="650" x2="830" y2="650"/>
-  <text class="branch-label" x="760" y="642">Looks good</text>
-
-  <rect class="node" x="780" y="630" width="200" height="40"/>
-  <text class="label" x="880" y="655">Designer indicates "All good"</text>
-
-  <line class="arrow" x1="880" y1="670" x2="680" y2="730"/>
-
-  <!-- Row 6: Send to Study Team -->
-  <rect class="node" x="400" y="730" width="320" height="40"/>
-  <text class="label" x="560" y="755">Writer sends SOA to Study Team for approval</text>
-
-  <line class="arrow" x1="560" y1="770" x2="560" y2="810"/>
-
-  <!-- Study Team Reviews -->
-  <polygon class="node-decision" points="560,810 660,845 560,880 460,845"/>
-  <text class="label" x="560" y="849">Approve?</text>
-
-  <!-- Changes loop -->
-  <line class="arrow-loop" x1="460" y1="845" x2="140" y2="845"/>
-  <line class="arrow-loop" x1="140" y1="845" x2="140" y2="375"/>
-  <line class="arrow-loop" x1="140" y1="375" x2="440" y2="370"/>
-  <text class="loop-label" x="290" y="836">Requests changes</text>
-
-  <!-- Approved -->
-  <line class="arrow" x1="660" y1="845" x2="780" y2="845"/>
-  <text class="branch-label" x="710" y="837">Approved</text>
-
-  <!-- Success + Auto-sync + Final -->
-  <rect class="node-success" x="780" y="825" width="180" height="40"/>
-  <text class="label" x="870" y="849">Study Team approves</text>
-
-  <line class="arrow" x1="960" y1="845" x2="1000" y2="845"/>
-
-  <rect class="node-end" x="1000" y="815" width="160" height="60"/>
-  <text class="label" x="1080" y="840">Auto-sync to</text>
-  <text class="label-bold" x="1080" y="856">Design Studio</text>
-  <text class="label-sm" x="1080" y="870">Design Aligned ✓</text>
+  <!-- Step 5: Auto-sync -->
+  <rect class="node-end" x="440" y="530" width="320" height="56"/>
+  <text class="label" x="600" y="554">Auto-sync to</text>
+  <text class="label-bold" x="600" y="572">Design Studio ✓</text>
 </svg>

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ThemeToggle } from "./ThemeToggle";
 import { ProjectsLink } from "./ProjectsLink";
+import { MobileMenuButton } from "./MobileMenuButton";
 
 export function Nav() {
   return (
@@ -15,6 +16,7 @@ export function Nav() {
       </div>
       <div className="nav-right">
         <ThemeToggle />
+        <MobileMenuButton />
       </div>
     </nav>
   );

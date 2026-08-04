@@ -78,35 +78,50 @@ export default function AppleBooksPage() {
               <h2>Methodology</h2>
               <Carousel
                 labels={[
-                  "Survey & Interview",
+                  "Journey Map",
+                  "Personas",
                   "Competitor Analysis",
                   "Content Inventory",
                   "Card Sorting",
-                  "Personas",
-                  "Journey Map",
                 ]}
               >
                 {[
-                  <div key="survey" className="carousel-content-panel">
-                    <h3>01 Survey &amp; Interview</h3>
+                  <div key="journey" className="carousel-content-panel">
+                    <h3>01 Journey Map</h3>
                     <p>
-                      We conducted 20 surveys to gather user feedback.
-                      I oversaw 3 interviewees during 11 interviews and recommended
-                      emphasizing integration based on findings.
+                      A journey map was created to visualize and analyze the complete
+                      user experience with reading and tracking apps.
                     </p>
-                    <div className="survey-grid-wrap">
-                      <div className="survey-grid">
-                        <div className="survey-box">01 Social Media</div>
-                        <div className="survey-box">04 Recommendation</div>
-                        <div className="survey-box">02 Goal Setting</div>
-                        <div className="survey-box">05 Book Track</div>
-                        <div className="survey-box">03 Reviews</div>
-                      </div>
+                    <div className="cs-image-full cs-image-crop-edge">
+                      <Image
+                        src="/images/projects/apple-books/Journey map.png"
+                        alt="User journey map"
+                        width={26368}
+                        height={13268}
+                        sizes="(max-width: 768px) 100vw, 800px"
+                      />
+                    </div>
+                  </div>,
+
+                  <div key="persona" className="carousel-content-panel">
+                    <h3>02 Personas</h3>
+                    <p>
+                      A persona was created for Amanda, a business analyst who relies
+                      on book tracking to stay updated on industry trends.
+                    </p>
+                    <div className="cs-image-full cs-image-crop-edge cs-image-light-bg">
+                      <Image
+                        src="/images/projects/apple-books/persona.png"
+                        alt="Persona: Amanda, 28, Business Analyst"
+                        width={1794}
+                        height={1077}
+                        sizes="(max-width: 768px) 100vw, 800px"
+                      />
                     </div>
                   </div>,
 
                   <div key="ca" className="carousel-content-panel">
-                    <h3>02 Competitor Analysis</h3>
+                    <h3>03 Competitor Analysis</h3>
                     <p>
                       A key insight was to leverage a combination of global, local,
                       and contextual navigation systems to improve the information
@@ -124,7 +139,7 @@ export default function AppleBooksPage() {
                   </div>,
 
                   <div key="ci" className="carousel-content-panel">
-                    <h3>03 Content Inventory</h3>
+                    <h3>04 Content Inventory</h3>
                     <p>
                       After reviewing over 700 pages of content within Apple Books,
                       labels of &ldquo;keep,&rdquo; &ldquo;remove,&rdquo; and
@@ -143,7 +158,7 @@ export default function AppleBooksPage() {
                   </div>,
 
                   <div key="cs" className="carousel-content-panel">
-                    <h3>04 Card Sorting</h3>
+                    <h3>05 Card Sorting</h3>
                     <p>
                       Card sorting showed how users perceived the redesign.
                       I identified popular placements for the page hierarchy,
@@ -156,40 +171,6 @@ export default function AppleBooksPage() {
                         alt="Card sorting results"
                         width={1904}
                         height={1329}
-                        sizes="(max-width: 768px) 100vw, 800px"
-                      />
-                    </div>
-                  </div>,
-
-                  <div key="persona" className="carousel-content-panel">
-                    <h3>05 Personas</h3>
-                    <p>
-                      A persona was created for Amanda, a business analyst who relies
-                      on book tracking to stay updated on industry trends.
-                    </p>
-                    <div className="cs-image-full cs-image-crop-edge">
-                      <Image
-                        src="/images/projects/apple-books/persona.png"
-                        alt="Persona: Amanda, 28, Business Analyst"
-                        width={1794}
-                        height={1077}
-                        sizes="(max-width: 768px) 100vw, 800px"
-                      />
-                    </div>
-                  </div>,
-
-                  <div key="journey" className="carousel-content-panel">
-                    <h3>06 Journey Map</h3>
-                    <p>
-                      A journey map was created to visualize and analyze the complete
-                      user experience with reading and tracking apps.
-                    </p>
-                    <div className="cs-image-full cs-image-crop-edge">
-                      <Image
-                        src="/images/projects/apple-books/Journey map.png"
-                        alt="User journey map"
-                        width={26368}
-                        height={13268}
                         sizes="(max-width: 768px) 100vw, 800px"
                       />
                     </div>
@@ -214,7 +195,7 @@ export default function AppleBooksPage() {
                 architecture was reorganized to help users navigate more easily
                 and find what they need efficiently.
               </p>
-              <div className="cs-image-full">
+              <div className="cs-image-full cs-image-crop-border">
                 <Image
                   src="/images/projects/apple-books/design1.png"
                   alt="Before & After: Reading Now → Home with Reading Goals"
@@ -234,7 +215,7 @@ export default function AppleBooksPage() {
                 like &ldquo;Best Seller&rdquo; and &ldquo;Top Charts&rdquo;
                 with enhanced search functionality added.
               </p>
-              <div className="cs-image-full">
+              <div className="cs-image-full cs-image-crop-border">
                 <Image
                   src="/images/projects/apple-books/design2.png"
                   alt="Before & After: Book Store with personalized recommendations"
@@ -256,7 +237,7 @@ export default function AppleBooksPage() {
                 The &ldquo;My Friends&rdquo; page includes feeds and posts
                 for interaction.
               </p>
-              <div className="cs-image-full cs-image-blue-outline">
+              <div className="cs-image-full cs-image-crop-border">
                 <Image
                   src="/images/projects/apple-books/design3.png"
                   alt="Community: book clubs, friend activity, group discussions"

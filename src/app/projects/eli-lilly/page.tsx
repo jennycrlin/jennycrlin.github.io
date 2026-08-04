@@ -3,7 +3,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { PasswordGate } from "@/components/PasswordGate";
-import { Carousel } from "@/components/Carousel";
 import { SectionProgress } from "@/components/SectionProgress";
 
 export const metadata: Metadata = {
@@ -34,30 +33,51 @@ export default function EliLillyPage() {
           </div>
           <div className="meta-item">
             <label>Team</label>
-            <span>1 PM, 2 Clinical Stakeholders</span>
+            <span>1 Product Manager, 2 Clinical Stakeholders</span>
           </div>
           <div className="meta-item">
             <label>Timeline</label>
             <span>3 Months</span>
           </div>
-          <div className="meta-item">
-            <label>Industry</label>
-            <span>Healthcare / Pharma</span>
-          </div>
         </div>
 
-        <div className="proj-hero-video--desktop">
-          <div className="monitor-bezel">
-            <video autoPlay loop muted playsInline>
-              <source
-                src="/images/projects/eli-lilly/overview.mp4"
-                type="video/mp4"
+        <div className="hero-showcase-desktop">
+          <div className="hero-showcase-monitor">
+            <div className="monitor-bezel">
+              <Image
+                src="/images/projects/eli-lilly/soa.png"
+                alt="Collab Studio dashboard — My SoAs list view with status tracking and team assignments"
+                width={6048}
+                height={5132}
+                sizes="(max-width: 768px) 100vw, 680px"
+                priority
+                style={{ width: '100%', height: 'auto', display: 'block', borderRadius: '2px 2px 0 0' }}
               />
-            </video>
+            </div>
+            <div className="monitor-chin" />
+            <div className="monitor-neck" />
+            <div className="monitor-base" />
           </div>
-          <div className="monitor-chin" />
-          <div className="monitor-neck" />
-          <div className="monitor-base" />
+          <div className="hero-showcase-cards">
+            <div className="hero-showcase-float">
+              <Image
+                src="/images/projects/eli-lilly/soa-comment2.png"
+                alt="SoA commenting — threaded discussions anchored to specific protocol sections"
+                width={6048}
+                height={4120}
+                sizes="(max-width: 768px) 100vw, 280px"
+              />
+            </div>
+            <div className="hero-showcase-float">
+              <Image
+                src="/images/projects/eli-lilly/soa-history.png"
+                alt="SoA version history — audit trail of all changes by team members"
+                width={6048}
+                height={4120}
+                sizes="(max-width: 768px) 100vw, 280px"
+              />
+            </div>
+          </div>
         </div>
       </div>
 
@@ -199,46 +219,26 @@ export default function EliLillyPage() {
             <ScrollReveal>
               <div className="section" id="sec-personas">
                 <h3>User Personas</h3>
-                <Carousel
-                  labels={[
-                    "Clinical Designer",
-                    "Medical Writer",
-                    "Study Lead",
-                  ]}
-                >
-                  {[
-                    <div key="designer" style={{ maxWidth: 750, margin: "0 auto", overflow: "hidden", borderRadius: 12 }}>
-                      <Image
-                        src="/images/projects/eli-lilly/Clinical Designer.png"
-                        alt="Persona: Clinical Designer — translates scientific intent into structured, operational trial definitions"
-                        width={1591}
-                        height={1194}
-                        sizes="(max-width: 768px) 100vw, 700px"
-                        style={{ clipPath: "inset(6px)" }}
-                      />
-                    </div>,
-                    <div key="writer" style={{ maxWidth: 750, margin: "0 auto", overflow: "hidden", borderRadius: 12 }}>
-                      <Image
-                        src="/images/projects/eli-lilly/Medical Writer.png"
-                        alt="Persona: Medical Writer — translates complex scientific inputs into regulatory-ready protocol narratives"
-                        width={1591}
-                        height={1194}
-                        sizes="(max-width: 768px) 100vw, 700px"
-                        style={{ clipPath: "inset(6px)" }}
-                      />
-                    </div>,
-                    <div key="lead" style={{ maxWidth: 750, margin: "0 auto", overflow: "hidden", borderRadius: 12 }}>
-                      <Image
-                        src="/images/projects/eli-lilly/Study Lead.png"
-                        alt="Persona: Study Lead — responsible for final approval, expects clarity and traceability"
-                        width={1591}
-                        height={1194}
-                        sizes="(max-width: 768px) 100vw, 700px"
-                        style={{ clipPath: "inset(6px)" }}
-                      />
-                    </div>,
-                  ]}
-                </Carousel>
+                <div className="cs-image-row" style={{ marginTop: 24 }}>
+                  <div className="cs-image-full">
+                    <Image
+                      src="/images/projects/eli-lilly/designer.png"
+                      alt="Persona: Clinical Designer"
+                      width={1591}
+                      height={1194}
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  </div>
+                  <div className="cs-image-full">
+                    <Image
+                      src="/images/projects/eli-lilly/writer.png"
+                      alt="Persona: Medical Writer"
+                      width={1591}
+                      height={1194}
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  </div>
+                </div>
               </div>
             </ScrollReveal>
 
@@ -249,28 +249,105 @@ export default function EliLillyPage() {
               </div>
             </ScrollReveal>
 
-            {/* 01 Single Source of Truth */}
+            {/* 01 One Platform, Role-Adapted Interfaces */}
             <ScrollReveal>
               <div className="section" id="sec-source">
-                <p className="cs-label">01 Architecture</p>
+                <p className="cs-label">01 One Platform</p>
                 <h2 className="cs-heading">
-                  Single Source of Truth &mdash; Structured data flows
-                  eliminate Excel exports
+                  Familiar by Design &mdash; One platform,
+                  role-adapted interfaces
                 </h2>
                 <p>
-                  Data flows from Lilly Ontology through Design Studio
-                  to the Study Data Repository &mdash; eliminating
-                  Excel exports and keeping every change versioned
-                  and traceable.
+                  No more exporting to Excel or rebuilding in Word.
+                  Writers get a Google Docs&ndash;like editing
+                  experience; designers keep the Design Studio
+                  interface they already know. Every role works in one
+                  governed platform &mdash; from notification to
+                  approval.
                 </p>
-                <div className="cs-image-full">
-                  <Image
-                    src="/images/projects/eli-lilly/future-state.svg"
-                    alt="Future state architecture"
-                    width={1200}
-                    height={480}
-                    sizes="(max-width: 768px) 100vw, 800px"
-                  />
+
+                <div className="cs-collab-flow-grid">
+                  {/* Row 1 */}
+                  <div className="cs-flow-card">
+                    <div className="cs-flow-card-img">
+                      <Image src="/images/projects/eli-lilly/soa-email.png" alt="Writer receives email notification for assigned protocol" width={6048} height={3780} sizes="(max-width: 768px) 50vw, 420px" />
+                    </div>
+                    <div className="cs-flow-card-caption">
+                      <span className="cs-flow-card-num">1</span>
+                      <div className="cs-flow-card-text">
+                        <p className="cs-step-role">Writer</p>
+                        <h4>Email notification &mdash; protocol assigned</h4>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="cs-flow-card">
+                    <div className="cs-flow-card-img">
+                      <Image src="/images/projects/eli-lilly/soa-edit.png" alt="Writer edits SoA directly in platform — no Word or Excel" width={6048} height={4120} sizes="(max-width: 768px) 50vw, 420px" />
+                    </div>
+                    <div className="cs-flow-card-caption">
+                      <span className="cs-flow-card-num">2</span>
+                      <div className="cs-flow-card-text">
+                        <p className="cs-step-role">Writer</p>
+                        <h4>Edit directly &mdash; no Word/Excel export</h4>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="cs-flow-arrow-row">&darr;</div>
+
+                  {/* Row 2 */}
+                  <div className="cs-flow-card">
+                    <div className="cs-flow-card-img">
+                      <Image src="/images/projects/eli-lilly/teams.png" alt="Writer and designer coordinate on Teams" width={5760} height={3240} sizes="(max-width: 768px) 50vw, 420px" />
+                    </div>
+                    <div className="cs-flow-card-caption">
+                      <span className="cs-flow-card-num">3</span>
+                      <div className="cs-flow-card-text">
+                        <p className="cs-step-role">Writer &amp; Designer</p>
+                        <h4>Quick sync on Teams</h4>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="cs-flow-card">
+                    <div className="cs-flow-card-img">
+                      <Image src="/images/projects/eli-lilly/soa-designer-reply.png" alt="Designer reviews SoA using familiar Design Studio interface" width={6048} height={4120} sizes="(max-width: 768px) 50vw, 420px" />
+                    </div>
+                    <div className="cs-flow-card-caption">
+                      <span className="cs-flow-card-num">4</span>
+                      <div className="cs-flow-card-text">
+                        <p className="cs-step-role">Designer</p>
+                        <h4>Review in Design Studio</h4>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="cs-flow-arrow-row">&darr;</div>
+
+                  {/* Row 3 */}
+                  <div className="cs-flow-card">
+                    <div className="cs-flow-card-img">
+                      <Image src="/images/projects/eli-lilly/soa-studyteam-approve.png" alt="Study team approves or replies inline" width={6048} height={4120} sizes="(max-width: 768px) 50vw, 420px" />
+                    </div>
+                    <div className="cs-flow-card-caption">
+                      <span className="cs-flow-card-num">5</span>
+                      <div className="cs-flow-card-text">
+                        <p className="cs-step-role">Study Team</p>
+                        <h4>Approve or reply</h4>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="cs-flow-card">
+                    <div className="cs-flow-card-img">
+                      <Image src="/images/projects/eli-lilly/soa-aligned.png" alt="Design aligned — all comments resolved, SoA finalized" width={6048} height={4120} sizes="(max-width: 768px) 50vw, 420px" />
+                    </div>
+                    <div className="cs-flow-card-caption">
+                      <span className="cs-flow-card-num">6</span>
+                      <div className="cs-flow-card-text">
+                        <p className="cs-step-role">All Roles</p>
+                        <h4>Design aligned</h4>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </ScrollReveal>
@@ -288,21 +365,16 @@ export default function EliLillyPage() {
                   suggests split points &mdash; but never auto-corrects.
                   Human-in-the-loop by design.
                 </p>
-                <div className="cs-solutions-row">
+                <div className="cs-solutions-row" style={{ gridTemplateColumns: '1fr 1fr' }}>
                   <div className="cs-solution-card">
                     <span className="cs-solution-num">1</span>
                     <h3>AI Auto-Crop</h3>
-                    <p>Suggests optimal document split points.</p>
+                    <p>Suggests optimal split points and validates formatting constraints &mdash; flagging where rows would leak across pages.</p>
                   </div>
                   <div className="cs-solution-card">
                     <span className="cs-solution-num">2</span>
-                    <h3>Compliance Validation</h3>
-                    <p>Flags ICH M11 and regulatory gaps in real time.</p>
-                  </div>
-                  <div className="cs-solution-card">
-                    <span className="cs-solution-num">3</span>
                     <h3>Inline Protocol View</h3>
-                    <p>Preview formatted protocol directly in the platform.</p>
+                    <p>Preview formatted protocol directly in the platform &mdash; no export needed to check layout.</p>
                   </div>
                 </div>
                 <div className="cs-image-grid-2x2">
@@ -350,28 +422,47 @@ export default function EliLillyPage() {
               </div>
             </ScrollReveal>
 
-            {/* 03 Collaborative Authoring */}
+            {/* 03 Real-Time Co-Authoring */}
             <ScrollReveal>
               <div className="section" id="sec-collab">
                 <p className="cs-label">03 Collaboration</p>
                 <h2 className="cs-heading">
-                  Collaborative Authoring &mdash; Role-based permissions
-                  with contextual comments
+                  Real-Time Co-Authoring &mdash; Comments, threads,
+                  and version history in one view
                 </h2>
                 <p>
-                  Role-based permissions let teams collaborate directly
-                  in the workspace. Contextual comments anchor to
-                  specific SoA sections &mdash; keeping decisions
-                  traceable and visible to the full team.
+                  Once inside the platform, teams work in the same
+                  document simultaneously. Threaded comments anchor
+                  to specific SoA cells, every edit is versioned
+                  automatically, and role-based permissions ensure
+                  writers edit while designers review &mdash; no
+                  conflicting changes, no lost context.
                 </p>
                 <div className="proj-hero-video--desktop">
                   <div className="monitor-bezel">
-                    <video autoPlay loop muted playsInline>
-                      <source
-                        src="/images/projects/eli-lilly/collab.mov"
-                        type="video/mp4"
+                    <div className="monitor-slideshow">
+                      <Image
+                        src="/images/projects/eli-lilly/soa-comment.png"
+                        alt="SoA commenting — threaded discussions anchored to specific cells"
+                        width={6048}
+                        height={4120}
+                        sizes="(max-width: 768px) 100vw, 680px"
                       />
-                    </video>
+                      <Image
+                        src="/images/projects/eli-lilly/soa-comment2.png"
+                        alt="SoA commenting — reply threads with designer and writer discussion"
+                        width={6048}
+                        height={4120}
+                        sizes="(max-width: 768px) 100vw, 680px"
+                      />
+                      <Image
+                        src="/images/projects/eli-lilly/soa-history.png"
+                        alt="SoA version history — audit trail of all changes by team members"
+                        width={6048}
+                        height={4120}
+                        sizes="(max-width: 768px) 100vw, 680px"
+                      />
+                    </div>
                   </div>
                   <div className="monitor-chin" />
                   <div className="monitor-neck" />

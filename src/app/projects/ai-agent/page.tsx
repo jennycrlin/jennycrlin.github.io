@@ -198,7 +198,7 @@ export default function AIAgentPage() {
           <ScrollReveal>
             <div className="section" id="sec-design-1">
               <h3>01 Conversation Flow</h3>
-              <div className="cs-image-full">
+              <div className="cs-image-full cs-image-light-bg">
                 <Image
                   src="/images/projects/ai-agent/voiceflow2.png"
                   alt="Detailed conversation flow: Select the topic, Teaching AI with Professor/Student personas, Warp Up"
@@ -207,7 +207,7 @@ export default function AIAgentPage() {
                   sizes="(max-width: 768px) 100vw, 800px"
                 />
               </div>
-              <div className="cs-image-full">
+              <div className="cs-image-full cs-image-light-bg" style={{ marginTop: 48 }}>
                 <Image
                   src="/images/projects/ai-agent/flow2.png"
                   alt="Annotated chat interface showing brief wrap-up messages, additional resources, follow-up questions, and prompts for personal experiences"
@@ -323,7 +323,7 @@ export default function AIAgentPage() {
                 However, repetitive questioning and rapid back-to-back messages
                 sometimes left users feeling confused.
               </p>
-              <div className="cs-image-full">
+              <div className="cs-image-full cs-image-light-bg">
                 <Image
                   src="/images/projects/ai-agent/findings.png"
                   alt="Positive: user confidence, smooth flow. Negative: repetitive questioning, lengthy responses"
@@ -350,7 +350,7 @@ export default function AIAgentPage() {
                 conversation moves forward naturally, reducing repetitive
                 questioning and giving users more control to stop or continue.
               </p>
-              <div className="cs-image-full">
+              <div className="cs-image-full cs-image-light-bg">
                 <Image
                   src="/images/projects/ai-agent/redesignFlow.png"
                   alt="Redesigned conversation flow with 3-attempt limit"
@@ -378,7 +378,8 @@ export default function AIAgentPage() {
                 cleaner, less overwhelming layout.
               </p>
               <div className="cs-design-pair">
-                <div className="cs-image-full">
+                <figure className="cs-grid-fig">
+                  <p className="cs-label">Before</p>
                   <Image
                     src="/images/projects/ai-agent/before.png"
                     alt="Before: cluttered home with rigid categories"
@@ -386,8 +387,9 @@ export default function AIAgentPage() {
                     height={4479}
                     sizes="(max-width: 768px) 100vw, 400px"
                   />
-                </div>
-                <div className="cs-image-full">
+                </figure>
+                <figure className="cs-grid-fig">
+                  <p className="cs-label">After</p>
                   <Image
                     src="/images/projects/ai-agent/after.png"
                     alt="After: focused input with sidebar navigation"
@@ -395,7 +397,7 @@ export default function AIAgentPage() {
                     height={4462}
                     sizes="(max-width: 768px) 100vw, 400px"
                   />
-                </div>
+                </figure>
               </div>
             </div>
           </ScrollReveal>

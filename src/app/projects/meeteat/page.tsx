@@ -118,7 +118,7 @@ export default function MeetEatPage() {
                       support planning, prioritization, and organization of features
                       along a timeline.
                     </p>
-                    <div className="cs-image-full">
+                    <div className="cs-image-full cs-image-light-bg">
                       <Image
                         src="/images/projects/meeteat/StoryMap.png"
                         alt="User story map"
@@ -131,7 +131,7 @@ export default function MeetEatPage() {
 
                   <div key="wireframe" className="carousel-content-panel">
                     <h3>03 Wireframe</h3>
-                    <div className="cs-image-full">
+                    <div className="cs-image-full cs-image-light-bg">
                       <Image
                         src="/images/projects/meeteat/low-fi.png"
                         alt="Low-fidelity wireframes"
@@ -154,7 +154,7 @@ export default function MeetEatPage() {
                       <li><strong>Time on Task:</strong> Identify usability issues during tasks.</li>
                       <li><strong>System Usability Scale:</strong> Measure how users find the app valuable.</li>
                     </ul>
-                    <div className="cs-image-full cs-image-blend">
+                    <div className="cs-image-full cs-image-blend cs-image-light-bg">
                       <Image
                         src="/images/projects/meeteat/SuS.png"
                         alt="SUS Score: 82.3% — Grade A, Excellent"

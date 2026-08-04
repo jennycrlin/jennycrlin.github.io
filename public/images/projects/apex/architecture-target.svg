@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" fill="none">
+  <style>
+    .layer { rx: 10; }
+    .layer-tokens { fill: #F0EDE8; stroke: #D8D4CD; stroke-width: 1; }
+    .layer-chassis { fill: #EDEAE5; stroke: #D8D4CD; stroke-width: 1; }
+    .layer-features { fill: #F0EDE8; stroke: #D8D4CD; stroke-width: 1; }
+    .layer-existing { fill: #F7F6F3; stroke: #E0DDD8; stroke-width: 1; }
+    .folder { fill: #FAFAF8; stroke: #D8D4CD; stroke-width: 1; rx: 6; }
+    .title { font-family: Inter, system-ui, sans-serif; font-size: 11px; fill: #999; letter-spacing: 1.5px; text-transform: uppercase; }
+    .layer-title { font-family: Inter, system-ui, sans-serif; font-size: 13px; fill: #1a1a1a; font-weight: 600; }
+    .layer-desc { font-family: Inter, system-ui, sans-serif; font-size: 11px; fill: #999; }
+    .folder-text { font-family: 'SF Mono', 'Fira Code', monospace; font-size: 11.5px; fill: #666; }
+    .arrow { stroke: #ccc; stroke-width: 1.2; fill: none; marker-end: url(#arr); }
+    .note { font-family: Inter, system-ui, sans-serif; font-size: 10.5px; fill: #aaa; font-style: italic; }
+    .badge { font-family: Inter, system-ui, sans-serif; font-size: 10px; fill: #fff; font-weight: 600; }
+    .badge-bg-new { fill: #1A1A1A; rx: 8; }
+    .step { font-family: Inter, system-ui, sans-serif; font-size: 10px; fill: #1A1A1A; font-weight: 600; letter-spacing: 0.5px; }
+  </style>
+  <defs>
+    <marker id="arr" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto">
+      <path d="M0,0 L7,2.5 L0,5" fill="#ccc"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text class="title" x="40" y="28">Target Architecture — Three New Shared Layers</text>
+
+  <!-- Step 1: Tokens -->
+  <text class="step" x="40" y="56">STEP 1</text>
+  <rect class="layer layer-tokens" x="40" y="64" width="820" height="72"/>
+  <rect class="badge-bg-new" x="60" y="74" width="36" height="16"/>
+  <text class="badge" x="66" y="86">NEW</text>
+  <text class="layer-title" x="104" y="86">tokens/</text>
+  <text class="layer-desc" x="170" y="86">Single source of truth — consumed by both Chakra theme and shadcn CSS variables</text>
+
+  <rect class="folder" x="60" y="100" width="85" height="26"/>
+  <text class="folder-text" x="72" y="117">colors.ts</text>
+
+  <rect class="folder" x="153" y="100" width="90" height="26"/>
+  <text class="folder-text" x="165" y="117">spacing.ts</text>
+
+  <rect class="folder" x="251" y="100" width="110" height="26"/>
+  <text class="folder-text" x="263" y="117">typography.ts</text>
+
+  <rect class="folder" x="369" y="100" width="85" height="26"/>
+  <text class="folder-text" x="381" y="117">radius.ts</text>
+
+  <line class="arrow" x1="450" y1="136" x2="450" y2="158"/>
+
+  <!-- Step 2: Chassis -->
+  <text class="step" x="40" y="172">STEP 2</text>
+  <rect class="layer layer-chassis" x="40" y="180" width="820" height="72"/>
+  <rect class="badge-bg-new" x="60" y="190" width="36" height="16"/>
+  <text class="badge" x="66" y="202">NEW</text>
+  <text class="layer-title" x="104" y="202">chassis/</text>
+  <text class="layer-desc" x="172" y="202">5 shared controls extracted into framework-agnostic modules</text>
+
+  <rect class="folder" x="60" y="216" width="120" height="26"/>
+  <text class="folder-text" x="72" y="233">global-search/</text>
+
+  <rect class="folder" x="188" y="216" width="140" height="26"/>
+  <text class="folder-text" x="200" y="233">access-mgmt/</text>
+
+  <rect class="folder" x="336" y="216" width="100" height="26"/>
+  <text class="folder-text" x="348" y="233">app-menu/</text>
+
+  <rect class="folder" x="444" y="216" width="120" height="26"/>
+  <text class="folder-text" x="456" y="233">rep-code/</text>
+
+  <rect class="folder" x="572" y="216" width="140" height="26"/>
+  <text class="folder-text" x="584" y="233">account-context/</text>
+
+  <line class="arrow" x1="450" y1="252" x2="450" y2="274"/>
+
+  <!-- Step 3: Features -->
+  <text class="step" x="40" y="288">STEP 3</text>
+  <rect class="layer layer-features" x="40" y="296" width="820" height="72"/>
+  <rect class="badge-bg-new" x="60" y="306" width="36" height="16"/>
+  <text class="badge" x="66" y="318">NEW</text>
+  <text class="layer-title" x="104" y="318">features/</text>
+  <text class="layer-desc" x="178" y="318">Shared business logic — hooks, contexts, types (no UI)</text>
+
+  <rect class="folder" x="60" y="334" width="95" height="26"/>
+  <text class="folder-text" x="72" y="351">accounts/</text>
+
+  <rect class="folder" x="163" y="334" width="80" height="26"/>
+  <text class="folder-text" x="175" y="351">billing/</text>
+
+  <rect class="folder" x="251" y="334" width="80" height="26"/>
+  <text class="folder-text" x="263" y="351">trading/</text>
+
+  <rect class="folder" x="339" y="334" width="105" height="26"/>
+  <text class="folder-text" x="351" y="351">onboarding/</text>
+
+  <text class="note" x="460" y="351">hooks/, contexts/, types/ per domain</text>
+
+  <!-- Arrows down to existing -->
+  <line class="arrow" x1="250" y1="368" x2="170" y2="398"/>
+  <line class="arrow" x1="610" y1="368" x2="690" y2="398"/>
+
+  <!-- Existing: shadcn -->
+  <rect class="layer layer-existing" x="40" y="402" width="380" height="36"/>
+  <text class="layer-title" x="60" y="425">components/</text>
+  <text class="note" x="165" y="425">shadcn UI — unchanged, imports from features/</text>
+
+  <!-- Existing: Chakra -->
+  <rect class="layer layer-existing" x="460" y="402" width="400" height="36"/>
+  <text class="layer-title" x="480" y="425">enterprise/</text>
+  <text class="note" x="580" y="425">Chakra UI — unchanged, imports from features/</text>
+
+  <!-- Routes -->
+  <line class="arrow" x1="230" y1="438" x2="230" y2="452"/>
+  <line class="arrow" x1="660" y1="438" x2="660" y2="452"/>
+
+  <rect class="layer layer-existing" x="40" y="456" width="820" height="24"/>
+  <text class="layer-desc" x="60" y="472">app/ — wealth/, enterprise/, investor/ (routes only)</text>
+</svg>

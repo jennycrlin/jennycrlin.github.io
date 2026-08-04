@@ -1,0 +1,157 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" fill="none">
+  <style>
+    .layer { rx: 10; }
+    .layer-chassis { fill: #f3eef9; stroke: #c4b5e0; stroke-width: 1; }
+    .layer-features { fill: #eef6fc; stroke: #a3cceb; stroke-width: 1; }
+    .layer-shadcn { fill: #eef8ee; stroke: #a3d4a3; stroke-width: 1; }
+    .layer-chakra { fill: #fef3e6; stroke: #e0c6a0; stroke-width: 1; }
+    .folder { fill: #fff; stroke: #d0cdc8; stroke-width: 1; rx: 6; }
+    .folder-active { fill: #fff; stroke: #999; stroke-width: 1.5; rx: 6; }
+    .title { font-family: Inter, system-ui, sans-serif; font-size: 11px; fill: #999; letter-spacing: 1.5px; text-transform: uppercase; }
+    .layer-title { font-family: Inter, system-ui, sans-serif; font-size: 13px; fill: #1a1a1a; font-weight: 600; }
+    .layer-desc { font-family: Inter, system-ui, sans-serif; font-size: 11px; fill: #888; }
+    .folder-text { font-family: 'SF Mono', 'Fira Code', monospace; font-size: 11.5px; fill: #555; }
+    .folder-text-bold { font-family: 'SF Mono', 'Fira Code', monospace; font-size: 11.5px; fill: #1a1a1a; font-weight: 600; }
+    .arrow { stroke: #bbb; stroke-width: 1.2; fill: none; marker-end: url(#arr); }
+    .arrow-dash { stroke: #bbb; stroke-width: 1; fill: none; stroke-dasharray: 4 3; }
+    .note { font-family: Inter, system-ui, sans-serif; font-size: 10.5px; fill: #aaa; font-style: italic; }
+    .badge { font-family: Inter, system-ui, sans-serif; font-size: 10px; fill: #fff; font-weight: 600; }
+    .badge-bg-purple { fill: #9b7ec8; rx: 8; }
+    .badge-bg-green { fill: #6ab56a; rx: 8; }
+    .badge-bg-orange { fill: #d4a054; rx: 8; }
+    .challenge { fill: #fff8f0; stroke: #e0c6a0; stroke-width: 1; rx: 8; stroke-dasharray: 4 3; }
+  </style>
+  <defs>
+    <marker id="arr" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto">
+      <path d="M0,0 L7,2.5 L0,5" fill="#bbb"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text class="title" x="40" y="28">Platform Architecture — Three Apps, One Chassis</text>
+
+  <!-- Shared Chassis Layer -->
+  <rect class="layer layer-chassis" x="40" y="44" width="820" height="88"/>
+  <text class="layer-title" x="60" y="66">Shared Chassis</text>
+  <text class="layer-desc" x="195" y="66">Common controls every application inherits</text>
+
+  <rect class="folder" x="60" y="80" width="120" height="36"/>
+  <text class="folder-text" x="72" y="102">Global Search</text>
+
+  <rect class="folder" x="190" y="80" width="150" height="36"/>
+  <text class="folder-text" x="202" y="102">Access Mgmt</text>
+
+  <rect class="folder" x="350" y="80" width="130" height="36"/>
+  <text class="folder-text" x="362" y="102">App Menu</text>
+
+  <rect class="folder" x="490" y="80" width="130" height="36"/>
+  <text class="folder-text" x="502" y="102">Rep Code Toggle</text>
+
+  <rect class="folder" x="630" y="80" width="160" height="36"/>
+  <text class="folder-text" x="642" y="102">Account Context</text>
+
+  <!-- Arrow down -->
+  <line class="arrow" x1="450" y1="132" x2="450" y2="158"/>
+
+  <!-- Feature Components Layer -->
+  <rect class="layer layer-features" x="40" y="162" width="820" height="130"/>
+  <text class="layer-title" x="60" y="186">src/components/</text>
+  <text class="layer-desc" x="200" y="186">Organized by feature, not by platform</text>
+
+  <rect class="folder-active" x="60" y="200" width="95" height="32"/>
+  <text class="folder-text-bold" x="72" y="220">accounts/</text>
+
+  <rect class="folder-active" x="163" y="200" width="80" height="32"/>
+  <text class="folder-text-bold" x="175" y="220">billing/</text>
+
+  <rect class="folder-active" x="251" y="200" width="100" height="32"/>
+  <text class="folder-text-bold" x="263" y="220">dashboard/</text>
+
+  <rect class="folder-active" x="359" y="200" width="80" height="32"/>
+  <text class="folder-text-bold" x="371" y="220">filters/</text>
+
+  <rect class="folder-active" x="447" y="200" width="115" height="32"/>
+  <text class="folder-text-bold" x="459" y="220">open-account/</text>
+
+  <rect class="folder-active" x="570" y="200" width="80" height="32"/>
+  <text class="folder-text-bold" x="582" y="220">panels/</text>
+
+  <rect class="folder" x="658" y="200" width="100" height="32"/>
+  <text class="folder-text" x="670" y="220">ask-ascend/</text>
+
+  <rect class="folder" x="60" y="244" width="105" height="32"/>
+  <text class="folder-text" x="72" y="264">households/</text>
+
+  <rect class="folder" x="173" y="244" width="95" height="32"/>
+  <text class="folder-text" x="185" y="264">investors/</text>
+
+  <rect class="folder" x="276" y="244" width="130" height="32"/>
+  <text class="folder-text" x="288" y="264">billing-reports/</text>
+
+  <rect class="folder" x="414" y="244" width="140" height="32"/>
+  <text class="folder-text" x="426" y="264">business-insights/</text>
+
+  <text class="note" x="570" y="264">+ filter-fields, ...</text>
+
+  <!-- Split arrows -->
+  <line class="arrow" x1="300" y1="292" x2="220" y2="330"/>
+  <line class="arrow" x1="560" y1="292" x2="640" y2="330"/>
+
+  <!-- shadcn Branch -->
+  <rect class="layer layer-shadcn" x="40" y="334" width="390" height="150"/>
+  <rect class="badge-bg-green" x="60" y="344" width="58" height="18"/>
+  <text class="badge" x="72" y="356">shadcn</text>
+  <text class="layer-title" x="126" y="357">Advisor + Investor</text>
+
+  <rect class="folder" x="60" y="374" width="90" height="30"/>
+  <text class="folder-text-bold" x="72" y="393">advisor/</text>
+
+  <rect class="folder" x="158" y="374" width="90" height="30"/>
+  <text class="folder-text-bold" x="170" y="393">investor/</text>
+
+  <rect class="folder" x="256" y="374" width="55" height="30"/>
+  <text class="folder-text-bold" x="268" y="393">ui/</text>
+
+  <rect class="folder" x="319" y="374" width="90" height="30"/>
+  <text class="folder-text" x="331" y="393">wealth/</text>
+
+  <text class="note" x="60" y="428">investor/accounts/ — account-list, balances,</text>
+  <text class="note" x="60" y="443">holdings, trade, transfer, onboarding...</text>
+
+  <text class="note" x="60" y="468">investor/navigation/, investor/settings/...</text>
+
+  <!-- Chakra Branch -->
+  <rect class="layer layer-chakra" x="470" y="334" width="390" height="150"/>
+  <rect class="badge-bg-orange" x="490" y="344" width="56" height="18"/>
+  <text class="badge" x="500" y="356">Chakra</text>
+  <text class="layer-title" x="554" y="357">Enterprise</text>
+
+  <text class="layer-desc" x="490" y="382">src/enterprise/</text>
+
+  <rect class="folder" x="490" y="394" width="100" height="30"/>
+  <text class="folder-text" x="502" y="413">components/</text>
+
+  <rect class="folder" x="598" y="394" width="80" height="30"/>
+  <text class="folder-text" x="610" y="413">features/</text>
+
+  <rect class="folder" x="686" y="394" width="65" height="30"/>
+  <text class="folder-text" x="698" y="413">hooks/</text>
+
+  <rect class="folder" x="490" y="434" width="80" height="30"/>
+  <text class="folder-text" x="502" y="453">layouts/</text>
+
+  <rect class="folder" x="578" y="434" width="65" height="30"/>
+  <text class="folder-text" x="590" y="453">styles/</text>
+
+  <rect class="folder" x="651" y="434" width="65" height="30"/>
+  <text class="folder-text" x="663" y="453">theme/</text>
+
+  <rect class="folder" x="724" y="434" width="80" height="30"/>
+  <text class="folder-text" x="736" y="453">contexts/</text>
+
+  <!-- Challenge callout -->
+  <rect class="challenge" x="40" y="504" width="820" height="56"/>
+  <text class="layer-title" x="60" y="527">Challenge</text>
+  <text class="layer-desc" x="140" y="527">Two UI frameworks, one platform experience — how to unify without rewriting?</text>
+  <text class="note" x="60" y="547">Shared design tokens + adapter pattern + feature-first architecture → progressive convergence</text>
+</svg>

@@ -34,15 +34,11 @@ export default function DashboardPage() {
           </div>
           <div className="meta-item">
             <label>Team</label>
-            <span>1 PM, 3 Engineers</span>
+            <span>1 Product Manager, 3 Engineers</span>
           </div>
           <div className="meta-item">
             <label>Timeline</label>
             <span>10-Week Internship</span>
-          </div>
-          <div className="meta-item">
-            <label>Platform</label>
-            <span>Web (Internal Portal)</span>
           </div>
         </div>
 
