@@ -37,11 +37,29 @@ export function SectionProgress({
       { rootMargin: "-130px 0px -60% 0px" }
     );
 
-    for (const id of Object.keys(idToNav)) {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    }
-    return () => observer.disconnect();
+    // Some section ids (e.g. behind a PasswordGate) don't exist in the DOM
+    // yet on first mount. Re-scan whenever the DOM changes so newly-revealed
+    // sections (unlocked content, client-side renders) get observed too.
+    const observedIds = new Set<string>();
+    const scanForSections = () => {
+      for (const id of Object.keys(idToNav)) {
+        if (observedIds.has(id)) continue;
+        const el = document.getElementById(id);
+        if (el) {
+          observer.observe(el);
+          observedIds.add(id);
+        }
+      }
+    };
+    scanForSections();
+
+    const mutationObserver = new MutationObserver(scanForSections);
+    mutationObserver.observe(document.body, { childList: true, subtree: true });
+
+    return () => {
+      observer.disconnect();
+      mutationObserver.disconnect();
+    };
   }, [sections]);
 
   return (

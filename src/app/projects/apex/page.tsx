@@ -109,7 +109,7 @@ export default function ApexPage() {
             <p>Down from ~4 months, via GraphQL-powered prototyping.</p>
           </div>
           <div className="cs-stat-card">
-            <div className="cs-stat-number">20&ndash;35 hrs</div>
+            <div className="cs-stat-number">~25 hrs</div>
             <div className="cs-stat-title">PM Time Reclaimed / Month</div>
             <p>By eliminating local dev setup for prototype review.</p>
           </div>
@@ -235,13 +235,13 @@ export default function ApexPage() {
 
             {/* B — Expanded filter panel replaces separate Consent/Activity tabs */}
             <div className="cs-annotate-box" style={{ left: '0.7%', top: '18.5%', width: '99%', height: '15.5%' }} />
-            <div className="cs-annotate-tag" style={{ left: '0.7%', top: '34.5%' }}>
+            <div className="cs-annotate-tag" style={{ left: '0.7%', top: '36%' }}>
               B: filters do more, so old Consent/Activity tabs aren&apos;t needed
             </div>
 
             {/* C — Buttons unified to brand blue */}
             <div className="cs-annotate-box" style={{ left: '87.5%', top: '1.0%', width: '6.2%', height: '4.5%' }} />
-            <div className="cs-annotate-tag" style={{ left: '66%', top: '2.0%' }}>
+            <div className="cs-annotate-tag" style={{ left: '83%', top: '6.6%' }}>
               C: unified to blue
             </div>
 
@@ -342,6 +342,7 @@ export default function ApexPage() {
             startPercent={35}
             endPercent={70}
           />
+          <p className="cs-media-caption">Design Researcher agent output</p>
         </div>
 
         {/* 03 Leadership */}
