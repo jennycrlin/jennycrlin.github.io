@@ -12,20 +12,21 @@ export const metadata: Metadata = {
 const NAV_SECTIONS = [
   { label: "Context", href: "#sec-context" },
   { label: "Impact", href: "#sec-impact" },
-  { label: "Design", href: "#sec-design", childIds: ["sec-ia", "sec-ai"] },
+  { label: "System", href: "#sec-design", childIds: ["sec-system", "sec-governance"] },
+  { label: "Leadership", href: "#sec-leadership" },
 ];
 
 export default function ApexPage() {
   return (
     <>
       <div className="proj-hero">
-        <h1>3 Fintech Platforms, One Unified System</h1>
+        <h1>Governing AI-Generated UI Across 3 Fintech Platforms</h1>
         <p className="desc">
           Architecting Ascend OS (advisor-facing), Enterprise
-          (internal ops), and Investor (client-facing) from scratch
-          &mdash; with AI-augmented workflows that compressed
-          concept-to-prototype from 60 days to 1, delivering $1.2M+
-          in annual savings.
+          (internal ops), and Investor (client-facing) onto one
+          single source of truth &mdash; then building the
+          constraints that let AI agents ship consistent, secure
+          UI on top of it, delivering $1.2M+ in annual savings.
         </p>
         <div className="meta-grid">
           <div className="meta-item">
@@ -34,7 +35,7 @@ export default function ApexPage() {
           </div>
           <div className="meta-item">
             <label>Team</label>
-            <span>PMs, Engineers, Compliance</span>
+            <span>Led design; partnered with PMs, Engineers, Compliance</span>
           </div>
           <div className="meta-item">
             <label>Timeline</label>
@@ -69,24 +70,25 @@ export default function ApexPage() {
         <div className="section" id="sec-context">
           <p className="cs-label">Problem</p>
           <h2 className="cs-heading">
-            Three platforms, two component libraries, zero
-            shared architecture
+            No shared system, no rules for AI
           </h2>
           <p>
             Apex Fintech Solutions is one of the largest clearing
-            and custody firms in the US. When I joined, each
-            platform &mdash; Ascend OS, Enterprise, and Investor
-            &mdash; was designed and built in isolation. Enterprise
-            used one component library; Advisor and Investor shared
-            another. There was no unified information architecture,
-            no cross-platform design patterns, and no scalable way
-            to maintain consistency as features shipped.
+            and custody firms in the US. Ascend OS, Enterprise,
+            and Investor were each built in isolation &mdash; two
+            different component libraries, no shared architecture,
+            no way to stay consistent as features shipped. And the
+            team was reaching for AI to move faster, which
+            without constraints would only fragment things more:
+            inventing its own spacing, colors, and assumptions
+            about data it shouldn&apos;t touch.
           </p>
           <blockquote>
             <p>
-              How do you unify 3 platforms with different users,
-              different component libraries, and different business
-              logic &mdash; without slowing any of them down?
+              How do you let AI move fast across 3 platforms with
+              different users and different business logic &mdash;
+              without it inventing its own rules, or touching data
+              it shouldn&apos;t?
             </p>
           </blockquote>
         </div>
@@ -102,19 +104,19 @@ export default function ApexPage() {
             <p>Through AI-driven workflow automation.</p>
           </div>
           <div className="cs-stat-card">
-            <div className="cs-stat-number">98%</div>
-            <div className="cs-stat-title">Faster Handoff</div>
-            <p>60-day cycles compressed to 1-day turnaround.</p>
+            <div className="cs-stat-number">&lt;1 Month</div>
+            <div className="cs-stat-title">Build Time</div>
+            <p>Down from ~4 months, via GraphQL-powered prototyping.</p>
           </div>
           <div className="cs-stat-card">
-            <div className="cs-stat-number">40%</div>
-            <div className="cs-stat-title">Task Completion</div>
-            <p>Faster completion time across platforms.</p>
+            <div className="cs-stat-number">20&ndash;35 hrs</div>
+            <div className="cs-stat-title">PM Time Reclaimed / Month</div>
+            <p>By eliminating local dev setup for prototype review.</p>
           </div>
           <div className="cs-stat-card">
-            <div className="cs-stat-number">2,300+</div>
-            <div className="cs-stat-title">Iterations</div>
-            <p>Governed component library across 3 platforms.</p>
+            <div className="cs-stat-number">30+</div>
+            <div className="cs-stat-title">Apps Unified</div>
+            <p>Onto one design system across 3 platforms.</p>
           </div>
         </div>
 
@@ -122,25 +124,25 @@ export default function ApexPage() {
 
         {/* Design */}
         <div className="section" id="sec-design">
-          <h2>Design</h2>
+          <h2>The System</h2>
         </div>
 
-        {/* 01 Convergence Strategy */}
-        <div className="section" id="sec-ia">
-          <p className="cs-label">01 Convergence Strategy</p>
+        {/* 01 Single Source of Truth */}
+        <div className="section" id="sec-system">
+          <p className="cs-label">01 Single Source of Truth</p>
           <h2 className="cs-heading">
-            Unifying without rewriting &mdash; three
-            incremental layers
+            Three layers, zero rewrites
           </h2>
           <p>
-            Enterprise runs on Chakra UI with atomic design.
-            Advisor and Investor run on shadcn with
-            feature-based components. Rewriting either side
-            would take months and break a stable product.
-            Instead, I&apos;m driving convergence through
-            three additive layers &mdash; each is an
-            independent PR that doesn&apos;t break existing
-            features:
+            Enterprise runs on Chakra UI; Wealth and Investor
+            run on shadcn. Rewriting either would take months
+            and break a stable product. Instead, I led design
+            and engineering through working sessions to decide,
+            element by element, which components become the
+            shared standard &mdash; balancing each platform&apos;s
+            needs so the system could still support customization
+            later. That became three additive layers, each
+            shipped as an independent PR:
           </p>
 
           <div className="cs-solutions-row">
@@ -215,7 +217,7 @@ export default function ApexPage() {
           </div>
 
           <p className="cs-label" style={{ marginTop: 40 }}>After</p>
-          <figure className="cs-grid-fig" style={{ marginTop: 12 }}>
+          <figure className="cs-grid-fig cs-annotate-wrap" style={{ marginTop: 12 }}>
             <Image
               src="/images/projects/apex/shared.png"
               alt="Unified platform — shared design tokens and chassis"
@@ -224,51 +226,114 @@ export default function ApexPage() {
               sizes="(max-width: 768px) 100vw, 800px"
               style={{ borderRadius: 8, border: '1px solid var(--border)' }}
             />
+
+            {/* A — Initiate Cash Transfer: was a standalone button, now a tab */}
+            <div className="cs-annotate-box" style={{ left: '13.0%', top: '6.5%', width: '9.5%', height: '7%' }} />
+            <div className="cs-annotate-tag" style={{ left: '23.5%', top: '7.7%' }}>
+              A: was a button &rarr; now a tab
+            </div>
+
+            {/* B — Expanded filter panel replaces separate Consent/Activity tabs */}
+            <div className="cs-annotate-box" style={{ left: '0.7%', top: '18.5%', width: '99%', height: '15.5%' }} />
+            <div className="cs-annotate-tag" style={{ left: '0.7%', top: '34.5%' }}>
+              B: filters do more, so old Consent/Activity tabs aren&apos;t needed
+            </div>
+
+            {/* C — Buttons unified to brand blue */}
+            <div className="cs-annotate-box" style={{ left: '87.5%', top: '1.0%', width: '6.2%', height: '4.5%' }} />
+            <div className="cs-annotate-tag" style={{ left: '66%', top: '2.0%' }}>
+              C: unified to blue
+            </div>
+
             <figcaption>Unified &mdash; shared tokens, chassis, and features</figcaption>
           </figure>
         </div>
 
-        {/* 03 AI-Augmented Workflow */}
-        <div className="section" id="sec-ai">
-          <p className="cs-label">02 AI Workflow</p>
+        {/* 02 AI Governance */}
+        <div className="section" id="sec-governance">
+          <p className="cs-label">02 Governing the Machine</p>
           <h2 className="cs-heading">
-            I didn&apos;t use AI to generate UI &mdash; I
-            built the systems that get me to validated
-            directions faster
+            Constraints, not prompts
           </h2>
           <p>
-            I built a small design team inside Claude Code: a
-            Design Researcher that audits real patterns from
-            Mobbin and the web, then hands off to a Design
-            Principal that turns it into interactive mockups.
+            Once the system existed, the risk shifted: AI could
+            generate UI fast, but unconstrained speed is just a
+            new kind of fragmentation &mdash; and a new kind of
+            exposure. I built a small design team inside Claude
+            Code with hard limits on both: pattern research,
+            mockups bound to a strict component contract, and
+            automation that ships straight to a PR without ever
+            touching production data.
           </p>
 
-          <div className="cs-solutions-row" style={{ gridTemplateColumns: '1fr 1fr' }}>
+          <div className="cs-solutions-row cs-solutions-row--four">
             <div className="cs-solution-card">
               <span className="cs-solution-num">1</span>
               <h3>Design Researcher</h3>
               <p>
-                Pulls real app screenshots via MCP. Returns
-                patterns to adopt, anti-patterns to avoid, and
-                where the gap is.
+                Audits real app screenshots via MCP &mdash;
+                patterns to adopt, anti-patterns to avoid.
               </p>
             </div>
             <div className="cs-solution-card">
               <span className="cs-solution-num">2</span>
               <h3>Design Principal</h3>
               <p>
-                Generates design directions as mid-fidelity
-                HTML wireframes grounded in usability
-                heuristics.
+                Generates mockups bound to one component
+                contract &mdash; spacing, typography, radius,
+                light/dark, color, pattern &mdash; from our Figma
+                auto-layout rules. The AI can&apos;t improvise, so
+                trading, cash, and billing stay consistent by
+                construction.
+              </p>
+            </div>
+            <div className="cs-solution-card">
+              <span className="cs-solution-num">3</span>
+              <h3>Security Governance</h3>
+              <p>
+                Every agent runs on synthetic mock data &mdash;
+                never production records. Real data never enters
+                the prompt, the output, or the PR.
+              </p>
+            </div>
+            <div className="cs-solution-card">
+              <span className="cs-solution-num">4</span>
+              <h3>PR Automation</h3>
+              <p>
+                Two commands take a validated mockup to a
+                deployed PR preview link &mdash; no code
+                knowledge required.
               </p>
             </div>
           </div>
 
+          <div className="cs-cmd-flow">
+            <div className="cs-cmd-step">
+              <code>/design-start</code>
+              <p>Creates a branch from the mockup a designer just approved.</p>
+            </div>
+            <span className="cs-cmd-arrow">&darr;</span>
+            <div className="cs-cmd-step">
+              <code>/design-commit</code>
+              <p>Commits the code-ready UI and opens the PR.</p>
+            </div>
+            <span className="cs-cmd-arrow">&darr;</span>
+            <div className="cs-cmd-step">
+              Auto-deploy
+              <p>Builds a temporary preview link, posted on the PR.</p>
+            </div>
+            <span className="cs-cmd-arrow">&darr;</span>
+            <div className="cs-cmd-step">
+              PM review
+              <p>One click on the preview link &mdash; no local setup, no waiting on engineering.</p>
+            </div>
+          </div>
+
           <p>
-            I prototype directly in React and TypeScript,
-            shipping production-quality UI that engineers
-            integrate &mdash; compressing 60-day handoff cycles
-            to 1-day turnarounds across 2,300+ iterations.
+            The result: page-build timelines dropped from
+            roughly 4 months to under 1 month, and any designer
+            on the team can ship a reviewable prototype without
+            writing a line of code.
           </p>
 
           <LaptopScroll
@@ -277,6 +342,25 @@ export default function ApexPage() {
             startPercent={35}
             endPercent={70}
           />
+        </div>
+
+        {/* 03 Leadership */}
+        <div className="section" id="sec-leadership">
+          <p className="cs-label">03 From Practice to Standard</p>
+          <h2 className="cs-heading">
+            From my workflow to the team&apos;s standard
+          </h2>
+          <p>
+            None of this stayed a solo habit. I led and mentored
+            a cross-functional team of designers, PMs, and
+            engineers adopting the component contract and the
+            AI-assisted workflow templates, and ran the sessions
+            deciding which shadcn/Chakra elements to standardize
+            per platform. I presented the rationale and roadmap
+            trade-offs to engineering and product leadership
+            within our Agile cadence &mdash; a shared decision,
+            not a mandate handed down after the fact.
+          </p>
         </div>
 
         <div className="proj-nav-bar">

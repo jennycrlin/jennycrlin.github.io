@@ -473,8 +473,8 @@ export default function EliLillyPage() {
 
           <div className="proj-nav-bar">
             <Link href="/projects/apex">&larr; Apex Fintech</Link>
-            <Link href="/projects/healthcare">
-              Next: Healthcare &rarr;
+            <Link href="/projects/dashboard">
+              Next: AT&amp;T Dashboard &rarr;
             </Link>
           </div>
         </PasswordGate>

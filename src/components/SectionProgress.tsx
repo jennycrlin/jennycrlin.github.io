@@ -55,6 +55,7 @@ export function SectionProgress({
                 href={s.href}
                 onClick={(e) => {
                   e.preventDefault();
+                  e.currentTarget.blur();
                   const el = document.getElementById(s.href.replace("#", ""));
                   if (el) {
                     el.scrollIntoView({ behavior: "smooth", block: "start" });

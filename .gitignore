@@ -2,3 +2,6 @@ node_modules
 .next
 out
 next-env.d.ts
+
+# personal job-search materials — not part of the site
+/JD_Resume_Review/
