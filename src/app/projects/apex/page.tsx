@@ -4,6 +4,7 @@ import Image from "next/image";
 import { PasswordGate } from "@/components/PasswordGate";
 import { SectionProgress } from "@/components/SectionProgress";
 import { LaptopScroll } from "@/components/LaptopScroll";
+import { TerminalDemo } from "@/components/TerminalDemo";
 
 export const metadata: Metadata = {
   title: "Apex Fintech — Jenny Lin",
@@ -13,7 +14,7 @@ const NAV_SECTIONS = [
   { label: "Context", href: "#sec-context" },
   { label: "Impact", href: "#sec-impact" },
   { label: "System", href: "#sec-design", childIds: ["sec-system", "sec-governance"] },
-  { label: "Leadership", href: "#sec-leadership" },
+  { label: "Takeaway", href: "#sec-takeaway" },
 ];
 
 export default function ApexPage() {
@@ -22,7 +23,7 @@ export default function ApexPage() {
       <div className="proj-hero">
         <h1>Governing AI-Generated UI Across 3 Fintech Platforms</h1>
         <p className="desc">
-          Architecting Ascend OS (advisor-facing), Enterprise
+          Architecting Wealth (advisor-facing), Enterprise
           (internal ops), and Investor (client-facing) onto one
           single source of truth &mdash; then building the
           constraints that let AI agents ship consistent, secure
@@ -74,14 +75,14 @@ export default function ApexPage() {
           </h2>
           <p>
             Apex Fintech Solutions is one of the largest clearing
-            and custody firms in the US. Ascend OS, Enterprise,
-            and Investor were each built in isolation &mdash; two
-            different component libraries, no shared architecture,
-            no way to stay consistent as features shipped. And the
+            and custody firms in the US. Wealth and Investor
+            already shared shadcn; my goal was to bring
+            Enterprise&apos;s 30+ apps into that same system too.
+            An API dependency meant Enterprise couldn&apos;t drop
+            Chakra UI, so unification had to happen above the
+            framework, not by rewriting it &mdash; right as the
             team was reaching for AI to move faster, which
-            without constraints would only fragment things more:
-            inventing its own spacing, colors, and assumptions
-            about data it shouldn&apos;t touch.
+            without constraints would only fragment things more.
           </p>
           <blockquote>
             <p>
@@ -116,7 +117,7 @@ export default function ApexPage() {
           <div className="cs-stat-card">
             <div className="cs-stat-number">30+</div>
             <div className="cs-stat-title">Apps Unified</div>
-            <p>Onto one design system across 3 platforms.</p>
+            <p>Enterprise&apos;s apps, brought into the shared system.</p>
           </div>
         </div>
 
@@ -134,10 +135,9 @@ export default function ApexPage() {
             Three layers, zero rewrites
           </h2>
           <p>
-            Enterprise runs on Chakra UI; Wealth and Investor
-            run on shadcn. Rewriting either would take months
-            and break a stable product. Instead, I led design
-            and engineering through working sessions to decide,
+            With the framework question settled &mdash; Chakra
+            stays, shadcn stays &mdash; I led design and
+            engineering through working sessions to decide,
             element by element, which components become the
             shared standard &mdash; balancing each platform&apos;s
             needs so the system could still support customization
@@ -185,7 +185,7 @@ export default function ApexPage() {
               src="/images/projects/apex/architecture-target.svg"
               alt="Target architecture — tokens, chassis, features layers feeding into shadcn and Chakra UI"
               width={900}
-              height={480}
+              height={388}
               sizes="(max-width: 768px) 100vw, 800px"
             />
           </div>
@@ -253,89 +253,106 @@ export default function ApexPage() {
         <div className="section" id="sec-governance">
           <p className="cs-label">02 Governing the Machine</p>
           <h2 className="cs-heading">
-            Constraints, not prompts
+            One file governs every command
           </h2>
           <p>
             Once the system existed, the risk shifted: AI could
             generate UI fast, but unconstrained speed is just a
             new kind of fragmentation &mdash; and a new kind of
-            exposure. I built a small design team inside Claude
-            Code with hard limits on both: pattern research,
-            mockups bound to a strict component contract, and
-            automation that ships straight to a PR without ever
-            touching production data.
+            exposure. I anchored governance in a root{" "}
+            <code>CLAUDE.md</code> &mdash; read on every single
+            run, no matter which command triggers it &mdash; then
+            built a set of <code>/commands</code> on top of it so
+            the whole design team, not just me, works inside the
+            same guardrails.
           </p>
 
-          <div className="cs-solutions-row cs-solutions-row--four">
-            <div className="cs-solution-card">
-              <span className="cs-solution-num">1</span>
-              <h3>Design Researcher</h3>
-              <p>
-                Audits real app screenshots via MCP &mdash;
-                patterns to adopt, anti-patterns to avoid.
-              </p>
-            </div>
-            <div className="cs-solution-card">
-              <span className="cs-solution-num">2</span>
-              <h3>Design Principal</h3>
-              <p>
-                Generates mockups bound to one component
-                contract &mdash; spacing, typography, radius,
-                light/dark, color, pattern &mdash; from our Figma
-                auto-layout rules. The AI can&apos;t improvise, so
-                trading, cash, and billing stay consistent by
-                construction.
-              </p>
-            </div>
-            <div className="cs-solution-card">
-              <span className="cs-solution-num">3</span>
-              <h3>Security Governance</h3>
-              <p>
-                Every agent runs on synthetic mock data &mdash;
-                never production records. Real data never enters
-                the prompt, the output, or the PR.
-              </p>
-            </div>
-            <div className="cs-solution-card">
-              <span className="cs-solution-num">4</span>
-              <h3>PR Automation</h3>
-              <p>
-                Two commands take a validated mockup to a
-                deployed PR preview link &mdash; no code
-                knowledge required.
-              </p>
-            </div>
+          <div className="cs-step-intro" style={{ marginTop: 28 }}>
+            <h3><code>CLAUDE.md</code></h3>
+            <p>
+              Security and the component contract live here, not
+              inside any single command, so neither can be
+              skipped. Every agent is scoped to synthetic mock
+              data &mdash; never production financial or customer
+              records. Every mockup is bound to the same Figma
+              auto-layout rules: spacing, typography, radius,
+              light/dark mode, color, pattern.
+            </p>
           </div>
 
-          <div className="cs-cmd-flow">
-            <div className="cs-cmd-step">
-              <code>/design-start</code>
-              <p>Creates a branch from the mockup a designer just approved.</p>
-            </div>
-            <span className="cs-cmd-arrow">&darr;</span>
-            <div className="cs-cmd-step">
-              <code>/design-commit</code>
-              <p>Commits the code-ready UI and opens the PR.</p>
-            </div>
-            <span className="cs-cmd-arrow">&darr;</span>
-            <div className="cs-cmd-step">
-              Auto-deploy
-              <p>Builds a temporary preview link, posted on the PR.</p>
-            </div>
-            <span className="cs-cmd-arrow">&darr;</span>
-            <div className="cs-cmd-step">
-              PM review
-              <p>One click on the preview link &mdash; no local setup, no waiting on engineering.</p>
-            </div>
-          </div>
-
-          <p>
-            The result: page-build timelines dropped from
-            roughly 4 months to under 1 month, and any designer
-            on the team can ship a reviewable prototype without
-            writing a line of code.
+          <p style={{ marginTop: 20 }}>
+            Status was black-and-white before the contract existed
+            &mdash; no semantic system, styled ad hoc. I defined a
+            5-state cascade, audited every component against{" "}
+            <b>WCAG 2.2</b> with WAVE, and reconciled two color
+            models (Tailwind vs. OKLCH) into one scale.
           </p>
 
+          <p className="cs-color-cascade-note">Checked in order &mdash; first match wins</p>
+          <table className="cs-color-table">
+            <thead>
+              <tr><th></th><th>State</th><th>Light</th><th>Dark</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="cs-color-table-num">1</td>
+                <td className="cs-color-table-name">Needs action right now, and urgent</td>
+                <td><span className="cs-swatch" style={{ background: "#DC2626", color: "#fff" }}>Urgent</span><span className="cs-pass">AA</span></td>
+                <td><span className="cs-swatch" style={{ background: "#fff", color: "#DC2626", border: "1px solid #FCA5A5" }}>Urgent</span><span className="cs-pass">AA</span></td>
+              </tr>
+              <tr>
+                <td className="cs-color-table-num">2</td>
+                <td className="cs-color-table-name">Money didn&apos;t move, negative</td>
+                <td><span className="cs-swatch" style={{ background: "#FEE2E2", color: "#B91C1C" }}>Failed</span><span className="cs-pass">AA</span></td>
+                <td><span className="cs-swatch" style={{ background: "#450A0A", color: "#FCA5A5" }}>Failed</span><span className="cs-pass">AAA</span></td>
+              </tr>
+              <tr>
+                <td className="cs-color-table-num">3</td>
+                <td className="cs-color-table-name">Worth a second look</td>
+                <td><span className="cs-swatch" style={{ background: "#FFEDD5", color: "#9A3412" }}>Warning</span><span className="cs-pass">AA</span></td>
+                <td><span className="cs-swatch" style={{ background: "#431407", color: "#FDBA74" }}>Warning</span><span className="cs-pass">AAA</span></td>
+              </tr>
+              <tr>
+                <td className="cs-color-table-num">4</td>
+                <td className="cs-color-table-name">Completed, posted</td>
+                <td><span className="cs-swatch" style={{ background: "#DCFCE7", color: "#15803D" }}>Approve</span><span className="cs-pass">AA</span></td>
+                <td><span className="cs-swatch" style={{ background: "#052E16", color: "#86EFAC" }}>Approve</span><span className="cs-pass">AAA</span></td>
+              </tr>
+              <tr>
+                <td className="cs-color-table-num" rowSpan={2}>5</td>
+                <td className="cs-color-table-name">Informational - need action</td>
+                <td><span className="cs-swatch" style={{ background: "#111111", color: "#fff" }}>Action Needed</span><span className="cs-pass">AAA</span></td>
+                <td><span className="cs-swatch" style={{ background: "#D4D4D8", color: "#111111", border: "1px solid #A1A1AA" }}>Action Needed</span><span className="cs-pass">AAA</span></td>
+              </tr>
+              <tr>
+                <td className="cs-color-table-name">Informational - no action needed</td>
+                <td><span className="cs-swatch" style={{ background: "transparent", color: "#111111", border: "1.5px solid #111111" }}>Completed</span><span className="cs-pass">AAA</span></td>
+                <td>
+                  <span style={{ display: "inline-block", background: "#1E1D1B", borderRadius: 6, padding: 2 }}>
+                    <span className="cs-swatch" style={{ background: "transparent", color: "#fff", border: "1.5px solid #fff" }}>Completed</span>
+                  </span>
+                  <span className="cs-pass">AAA</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p style={{ marginTop: 24 }}>
+            With the guardrails set, the commands build on top of them:
+          </p>
+
+          <div className="cs-step-intro">
+            <h3><code>/design-researcher</code></h3>
+            <p>
+              Explores the problem through competitive analysis
+              &mdash; pulls real app screenshots and full user
+              flows from Mobbin via MCP and the web, and returns
+              a structured audit: patterns to adopt, anti-patterns
+              to avoid, and where the gap is. Any designer on the
+              team can run it, not just me, so research stays
+              consistent across the whole team.
+            </p>
+          </div>
           <LaptopScroll
             src="/images/projects/apex/ai-research.png"
             alt="AI Design Researcher output — modal vs side sheet competitive analysis with Mobbin screenshots"
@@ -343,24 +360,54 @@ export default function ApexPage() {
             endPercent={70}
           />
           <p className="cs-media-caption">Design Researcher agent output</p>
+
+          <div className="cs-step-intro">
+            <h3><code>/design-principal</code></h3>
+            <p>
+              Turns that research into design directions &mdash;
+              reasoning through Nielsen&apos;s heuristics, the
+              Laws of UX, and Gestalt principles &mdash; and
+              generates interactive, mid-fidelity HTML mockups
+              bound to the contract defined in{" "}
+              <code>CLAUDE.md</code>, each one tagged with a
+              confidence level instead of faking certainty.
+            </p>
+          </div>
+
+          <div className="cs-step-intro">
+            <h3><code>/design-start</code></h3>
+            <p>Creates a branch from the approved mockup.</p>
+          </div>
+
+          <div className="cs-step-intro">
+            <h3><code>/design-commit</code></h3>
+            <p>
+              Commits the code-ready UI and opens the PR
+              &mdash; auto-deploy posts a preview link so the
+              PM can review in one click, no local setup.
+            </p>
+          </div>
+
+          <TerminalDemo />
         </div>
 
-        {/* 03 Leadership */}
-        <div className="section" id="sec-leadership">
-          <p className="cs-label">03 From Practice to Standard</p>
-          <h2 className="cs-heading">
-            From my workflow to the team&apos;s standard
-          </h2>
+        {/* Takeaway */}
+        <div className="section" id="sec-takeaway">
+          <h2>Takeaway</h2>
           <p>
-            None of this stayed a solo habit. I led and mentored
-            a cross-functional team of designers, PMs, and
-            engineers adopting the component contract and the
-            AI-assisted workflow templates, and ran the sessions
-            deciding which shadcn/Chakra elements to standardize
-            per platform. I presented the rationale and roadmap
-            trade-offs to engineering and product leadership
-            within our Agile cadence &mdash; a shared decision,
-            not a mandate handed down after the fact.
+            AI is an efficiency tool, not a design decision-maker.
+            The speed only helps if the contract behind it is
+            well-defined &mdash; and if the team actually adopts
+            it. That&apos;s what I built: a root{" "}
+            <code>CLAUDE.md</code> and the{" "}
+            <code>/commands</code>{" "}on top of it, so faster AI
+            generation meant faster consistency, not faster
+            chaos. Getting the team there took leading the
+            cross-functional sessions where we agreed what
+            to standardize, mentoring designers and PMs into a
+            workflow they&apos;d actually use, and making the
+            case to engineering and product leadership for why
+            it mattered.
           </p>
         </div>
 

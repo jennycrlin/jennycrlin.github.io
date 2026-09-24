@@ -1312,13 +1312,118 @@ body {
   border: 1px solid var(--border); background: var(--bg2);
   text-align: center;
 }
-.cs-cmd-step code {
+.cs-cmd-step code, .cs-cmd-step-title {
   display: inline-block; font-size: 13px; font-weight: 600;
-  color: var(--accent); margin-bottom: 4px;
+  margin-bottom: 4px;
 }
+.cs-cmd-step code { color: var(--accent); }
+.cs-cmd-step-title { color: var(--text); font-family: var(--font-inter), 'Inter', sans-serif; }
 .cs-cmd-step p { font-size: 13px; color: var(--text2); margin: 0; line-height: 1.4; }
 .cs-cmd-arrow {
   color: var(--text3); font-size: 16px; line-height: 1;
+}
+.cs-cmd-flow--horizontal {
+  flex-direction: row; align-items: stretch; max-width: none; gap: 0;
+}
+.cs-cmd-flow--horizontal .cs-cmd-step { flex: 1; width: auto; }
+.cs-cmd-flow--horizontal .cs-cmd-arrow {
+  display: flex; align-items: center; padding: 0 8px; transform: rotate(-90deg);
+}
+@media (max-width: 768px) {
+  .cs-cmd-flow--horizontal { flex-direction: column; }
+  .cs-cmd-flow--horizontal .cs-cmd-arrow { transform: none; padding: 0; }
+}
+
+/* Terminal demo — animated typing effect for the /command pipeline */
+.cs-terminal {
+  max-width: 620px; margin: 32px auto; border-radius: 10px;
+  overflow: hidden; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+}
+.cs-terminal-bar {
+  display: flex; gap: 7px; padding: 11px 14px; background: #2b2a28;
+}
+.cs-terminal-dot { width: 10px; height: 10px; border-radius: 50%; }
+.cs-terminal-dot--red { background: #ff5f56; }
+.cs-terminal-dot--yellow { background: #ffbd2e; }
+.cs-terminal-dot--green { background: #27c93f; }
+.cs-terminal-body {
+  background: #1a1a1a; padding: 20px 22px; min-height: 220px;
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  font-size: 13.5px; line-height: 1.9;
+}
+.cs-terminal-line--input { color: #f2f2f0; }
+.cs-terminal-line--output { color: #8a8a86; padding-left: 18px; }
+.cs-terminal-prompt { color: #D4A574; margin-right: 9px; font-weight: 600; }
+.cs-terminal-spacer { height: 10px; }
+.cs-terminal-cursor {
+  display: inline-block; width: 7px; height: 14px; margin-left: 2px;
+  background: #f2f2f0; vertical-align: middle;
+  animation: cs-terminal-blink 1s step-end infinite;
+}
+@keyframes cs-terminal-blink {
+  0%, 50% { opacity: 1; }
+  50.01%, 100% { opacity: 0; }
+}
+@media (max-width: 640px) {
+  .cs-terminal-body { font-size: 12px; padding: 16px; }
+}
+
+/* Appendix — visually set apart from the main narrative flow */
+.cs-appendix {
+  margin-top: 56px; padding-top: 32px; border-top: 1px dashed var(--border);
+}
+.cs-appendix-label {
+  font-size: 11px; color: var(--text3); text-transform: uppercase;
+  letter-spacing: 0.08em; font-weight: 600; margin: 0 0 6px;
+}
+.cs-appendix h3 { font-size: 18px; color: var(--text2); }
+
+/* Step intro — same type scale as .cs-solution-card, just without the
+   bordered box (matches the Shared Tokens/Chassis/Features cards above) */
+.cs-step-intro {
+  margin: 40px 0 16px; padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+.cs-step-intro h3 { margin: 0 0 6px; }
+.cs-step-intro h3 code {
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  font-size: 17px; font-weight: 600; color: var(--accent);
+}
+.cs-step-intro p { font-size: 14px; color: var(--text2); line-height: 1.6; margin: 0; }
+
+/* Color cascade — compact table, not a stack of cards */
+.cs-color-cascade-note {
+  font-size: 12px; color: var(--text3); margin-bottom: 12px;
+  text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600;
+}
+.cs-color-table { width: 100%; border-collapse: collapse; margin: 4px 0 24px; font-size: 14px; }
+.cs-color-table th {
+  text-align: left; font-size: 12px; text-transform: uppercase;
+  letter-spacing: 0.05em; color: var(--text3); font-weight: 600;
+  padding: 0 12px 10px;
+}
+.cs-color-table th:first-child { width: 20px; padding-left: 0; }
+.cs-color-table td {
+  padding: 13px 12px; border-top: 1px solid var(--border); vertical-align: middle;
+}
+.cs-color-table-num { color: var(--text3); font-size: 14px; padding-left: 0; }
+.cs-color-table-name { font-weight: 600; color: var(--text); white-space: nowrap; }
+.cs-color-table-desc {
+  display: block; font-weight: 400; font-size: 13px;
+  color: var(--text); margin-top: 2px; white-space: normal;
+}
+.cs-swatch {
+  display: inline-flex; align-items: center;
+  padding: 5px 12px; border-radius: 6px; font-size: 13px; font-weight: 600;
+}
+.cs-pass {
+  font-size: 12px; color: var(--text3); margin-left: 8px;
+  font-weight: 600; letter-spacing: 0.02em;
+}
+@media (max-width: 600px) {
+  .cs-color-table { font-size: 13px; }
+  .cs-color-table td { padding: 10px 6px; }
+  .cs-color-table-name { white-space: normal; }
 }
 
 /* Narrow image (for tall mobile screenshots) */
