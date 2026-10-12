@@ -25,6 +25,8 @@ const CONTACT = [
 ];
 
 export default function Home() {
+  const isVercel = process.env.VERCEL === "1";
+
   return (
     <>
       <ScrollToProjects />
@@ -60,8 +62,8 @@ export default function Home() {
           </div>
           <div className="info">
             <h3>
-              Fintech Platform Design{" "}
-              <span className="lock-badge">🔒 NDA</span>
+              Unifying Three Fintech Platforms{" "}
+              {!isVercel && <span className="lock-badge">🔒 NDA</span>}
             </h3>
             <p>
               Designing scalable fintech platforms with AI-driven workflows,
@@ -83,7 +85,7 @@ export default function Home() {
       <section className="home-projects">
         <div className="project-grid">
           <Link href="/projects/eli-lilly" className="proj-card">
-            <div className="lock-icon">🔒</div>
+            {!isVercel && <div className="lock-icon">🔒</div>}
             <div className="card-cover">
               <Image src="/images/projects/eli-lilly/lilly-cover.svg" alt="Eli Lilly Clinical Trial Platform" width={1200} height={600} sizes="(max-width: 768px) 100vw, 50vw" />
             </div>
@@ -104,7 +106,7 @@ export default function Home() {
           </Link>
 
           <Link href="/projects/dashboard" className="proj-card">
-            <div className="lock-icon">🔒</div>
+            {!isVercel && <div className="lock-icon">🔒</div>}
             <div className="card-cover">
               <Image src="/images/projects/dashboard/att-cover.svg" alt="AT&T Portal Dashboard" width={1200} height={600} sizes="(max-width: 768px) 100vw, 50vw" />
             </div>

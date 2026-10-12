@@ -10,11 +10,12 @@ export const metadata: Metadata = {
 };
 
 const NAV_SECTIONS = [
-  { label: "Context", href: "#sec-context" },
+  { label: "Overview", href: "#sec-context" },
   { label: "Impact", href: "#sec-impact" },
-  { label: "Research", href: "#sec-research", childIds: ["sec-persona", "sec-methods"] },
+  { label: "Research", href: "#sec-research" },
   { label: "Design", href: "#sec-design", childIds: ["sec-system", "sec-aging", "sec-multilingual", "sec-interactive"] },
   { label: "Iterations", href: "#sec-iterations" },
+  { label: "Takeaway", href: "#sec-takeaway" },
 ];
 
 export default function HealthcarePage() {
@@ -23,9 +24,9 @@ export default function HealthcarePage() {
       <div className="proj-hero">
         <h1>WCWH Healthcare Mobile App</h1>
         <p className="desc">
-          0-to-1 design transforming complex health research data into an
-          intuitive mobile experience &mdash; improving report readability
-          by 28% and user satisfaction by 40%.
+          Designed a mobile app that helps research participants understand
+          their health data through clearer visuals, simpler language, and
+          flexible ways to explore their results.
         </p>
         <div className="meta-grid">
           <div className="meta-item">
@@ -60,20 +61,17 @@ export default function HealthcarePage() {
         {/* Context */}
         <ScrollReveal>
           <div className="section" id="sec-context">
-            <p className="cs-label">Context</p>
-            <h2 className="cs-heading">
-              Dense PDF reports left participants disengaged from their
-              own health data
-            </h2>
+            <h2>Overview</h2>
+            <h3>Health reports were hard to read</h3>
             <p>
-              The Whole Communities Whole Health (WCWH) initiative
-              focuses on addressing health disparities in underserved
-              communities of eastern Travis County, TX. Participants
-              received dense PDF reports they couldn&apos;t
-              interpret &mdash; leading to low engagement and missed
-              health insights. I designed a mobile app that transforms
-              raw research data into an accessible, culturally
-              responsive health dashboard.
+              Whole Communities Whole Health (WCWH) is a research
+              initiative working with underserved communities in
+              eastern Travis County, Texas. Participants received
+              detailed PDF reports about their health, but scientific
+              language and dense layouts made the information
+              difficult to understand. I helped design a mobile app
+              that presents personal health data in a clearer, more
+              approachable format.
             </p>
           </div>
         </ScrollReveal>
@@ -87,7 +85,7 @@ export default function HealthcarePage() {
         <div className="cs-stats cs-stats--two">
           <ScrollReveal delay={0}>
             <div className="cs-stat-card">
-              <div className="cs-stat-number">28%</div>
+              <div className="cs-stat-number">25%</div>
               <div className="cs-stat-title">Report Readability</div>
               <p>
                 Increase through flexible layered information design.
@@ -109,107 +107,129 @@ export default function HealthcarePage() {
         {/* Research */}
         <ScrollReveal>
           <div className="section" id="sec-research">
-            <p className="cs-label">Research</p>
-            <h2 className="cs-heading">
-              Participants wanted simpler language, visual context,
-              and control over how they consumed data
-            </h2>
-            <p>
-              Through interviews with study participants across diverse
-              backgrounds, I uncovered shared frustrations around report
-              comprehension &mdash; scientific language felt alienating,
-              and static layouts offered no way to explore or compare
-              personal metrics over time.
-            </p>
-            <div className="cs-image-row cs-image-row--two">
-              <ScrollReveal delay={0}>
-                <div className="cs-image-half">
-                  <Image
-                    src="/images/projects/healthcare/people1.png"
-                    alt="User quote about scientific reports"
-                    width={1316}
-                    height={350}
-                    sizes="(max-width: 768px) 100vw, 45vw"
-                  />
-                </div>
-              </ScrollReveal>
-              <ScrollReveal delay={100}>
-                <div className="cs-image-half">
-                  <Image
-                    src="/images/projects/healthcare/people3.png"
-                    alt="User quote about visual learning"
-                    width={1316}
-                    height={349}
-                    sizes="(max-width: 768px) 100vw, 45vw"
-                  />
-                </div>
-              </ScrollReveal>
-            </div>
-          </div>
-        </ScrollReveal>
-
-        {/* Persona */}
-        <ScrollReveal>
-          <div className="section" id="sec-persona">
-            <p className="cs-label">Persona</p>
-            <h2 className="cs-heading">
-              A retiree who values health data but struggles with
-              medical jargon
-            </h2>
-            <div className="cs-image-full cs-image-light-bg" style={{ maxWidth: 900, margin: "0 auto" }}>
-              <Image
-                src="/images/projects/healthcare/persona.png"
-                alt="Primary user persona"
-                width={4803}
-                height={2603}
-                sizes="(max-width: 768px) 100vw, 900px"
-              />
-            </div>
-          </div>
-        </ScrollReveal>
-
-        {/* Methods */}
-        <ScrollReveal>
-          <div className="section" id="sec-methods">
-            <p className="cs-label">Methods</p>
-            <h2 className="cs-heading">
-              Competitor analysis, content inventory, and IA revealed
-              structural gaps
-            </h2>
+            <h2>Research</h2>
             <Carousel
               labels={[
+                "User Interviews",
+                "Persona",
                 "Competitor Analysis",
                 "Content Inventory",
                 "Information Architecture",
               ]}
             >
               {[
-                <div key="competitor" className="cs-image-blend">
-                  <Image
-                    src="/images/projects/healthcare/method1.png"
-                    alt="Competitor analysis matrix"
-                    width={2520}
-                    height={1620}
-                    sizes="(max-width: 768px) 100vw, 800px"
-                  />
+                <div key="interviews" className="carousel-content-panel">
+                  <h3>People wanted clearer explanations</h3>
+                  <p>
+                    I interviewed research participants to understand
+                    how they read and used their health reports. Many
+                    found the scientific language difficult to follow
+                    and wanted visuals that helped explain their
+                    results.
+                  </p>
+                  <p>
+                    These findings shaped three priorities: simpler
+                    content, clearer data visualization, and more
+                    ways to learn.
+                  </p>
+                  <div className="cs-image-row cs-image-row--two">
+                    <div className="cs-image-half">
+                      <Image
+                        src="/images/projects/healthcare/people1.png"
+                        alt="User quote about scientific reports"
+                        width={1316}
+                        height={350}
+                        sizes="(max-width: 768px) 100vw, 45vw"
+                      />
+                    </div>
+                    <div className="cs-image-half">
+                      <Image
+                        src="/images/projects/healthcare/people3.png"
+                        alt="User quote about visual learning"
+                        width={1316}
+                        height={349}
+                        sizes="(max-width: 768px) 100vw, 45vw"
+                      />
+                    </div>
+                  </div>
                 </div>,
-                <div key="inventory" className="cs-image-blend">
-                  <Image
-                    src="/images/projects/healthcare/method2.png"
-                    alt="Content inventory spreadsheet"
-                    width={2520}
-                    height={1620}
-                    sizes="(max-width: 768px) 100vw, 800px"
-                  />
+
+                <div key="persona" className="carousel-content-panel">
+                  <h3>Understanding the people behind the data</h3>
+                  <p>
+                    I created a persona based on participant research
+                    to capture common needs around readability,
+                    health literacy, and confidence when interpreting
+                    personal results.
+                  </p>
+                  <p>
+                    The persona helped guide decisions about
+                    language, information hierarchy, and how much
+                    detail to show at once.
+                  </p>
+                  <div className="cs-image-full cs-image-light-bg" style={{ maxWidth: 900, margin: "0 auto" }}>
+                    <Image
+                      src="/images/projects/healthcare/persona.png"
+                      alt="Primary user persona"
+                      width={4803}
+                      height={2603}
+                      sizes="(max-width: 768px) 100vw, 900px"
+                    />
+                  </div>
                 </div>,
-                <div key="ia" className="cs-image-blend">
-                  <Image
-                    src="/images/projects/healthcare/method3.png"
-                    alt="Information architecture diagram"
-                    width={2520}
-                    height={1620}
-                    sizes="(max-width: 768px) 100vw, 800px"
-                  />
+
+                <div key="competitor" className="carousel-content-panel">
+                  <h3>Learning from existing health apps</h3>
+                  <p>
+                    I reviewed similar health apps to understand
+                    common patterns for presenting personal health
+                    data.
+                  </p>
+                  <div className="cs-image-full cs-image-blend cs-image-no-card">
+                    <Image
+                      src="/images/projects/healthcare/method1.png"
+                      alt="Competitor analysis matrix"
+                      width={2211}
+                      height={1300}
+                      sizes="(max-width: 768px) 100vw, 800px"
+                    />
+                  </div>
+                </div>,
+
+                <div key="inventory" className="carousel-content-panel">
+                  <h3>Auditing what the reports already covered</h3>
+                  <p>
+                    I audited the existing report content to see what
+                    needed to stay, what could be simplified, and
+                    what was repetitive or hard to navigate.
+                  </p>
+                  <div className="cs-image-full cs-image-blend cs-image-no-card">
+                    <Image
+                      src="/images/projects/healthcare/method2.png"
+                      alt="Content inventory spreadsheet"
+                      width={2252}
+                      height={1382}
+                      sizes="(max-width: 768px) 100vw, 800px"
+                    />
+                  </div>
+                </div>,
+
+                <div key="ia" className="carousel-content-panel">
+                  <h3>Mapping a clearer structure</h3>
+                  <p>
+                    I mapped how different health metrics should be
+                    organized, creating a structure participants
+                    could navigate without reading a long PDF.
+                  </p>
+                  <div className="cs-image-full cs-image-blend">
+                    <Image
+                      src="/images/projects/healthcare/method3.png"
+                      alt="Information architecture diagram"
+                      width={2520}
+                      height={1403}
+                      sizes="(max-width: 768px) 100vw, 800px"
+                    />
+                  </div>
                 </div>,
               ]}
             </Carousel>
@@ -225,16 +245,19 @@ export default function HealthcarePage() {
 
         {/* Design System */}
         <ScrollReveal>
-          <div className="section" id="sec-system">
-            <p className="cs-label">01 &middot; Foundation</p>
+          <div className="section section--child" id="sec-system">
+            <p className="cs-label">01 &middot; Design System</p>
             <h2 className="cs-heading">
-              A design system built for health data clarity
+              Keeping the app simple and consistent
             </h2>
             <p>
-              Established a comprehensive design system with consistent
-              color palette, typography, and component patterns &mdash;
-              ensuring visual coherence across all health dashboards and
-              report screens.
+              I created a shared design system for colors, typography,
+              and components so reports followed the same visual
+              patterns.
+            </p>
+            <p>
+              This made it easier to navigate between health metrics
+              and recognize familiar actions across the app.
             </p>
             <div className="cs-image-full">
               <Image
@@ -250,18 +273,20 @@ export default function HealthcarePage() {
 
         {/* Biological Aging */}
         <ScrollReveal>
-          <div className="section" id="sec-aging">
+          <div className="section section--child" id="sec-aging">
             <p className="cs-label">02 &middot; Data Visualization</p>
             <h2 className="cs-heading">
-              Progressive disclosure to reduce anxiety around
-              personal health results
+              Showing the big picture before the details
             </h2>
             <p>
-              Users felt anxious facing unfamiliar jargon or negative
-              results. I applied progressive disclosure &mdash;
-              showing general findings first and revealing personal
-              results gradually to reduce anxiety while maintaining
-              transparency.
+              Personal health results can be difficult to interpret,
+              especially when they include unfamiliar medical terms.
+            </p>
+            <p>
+              I organized reports to show a general explanation first,
+              followed by personal results and more detailed
+              information. This gave participants a clearer starting
+              point without overwhelming them with data.
             </p>
             <div className="phone-frame-pair">
               <div className="phone-frame">
@@ -296,19 +321,19 @@ export default function HealthcarePage() {
 
         {/* Multilingual */}
         <ScrollReveal>
-          <div className="section" id="sec-multilingual">
+          <div className="section section--child" id="sec-multilingual">
             <p className="cs-label">03 &middot; Inclusivity</p>
             <h2 className="cs-heading">
-              Bilingual content adapted for cultural context, not just
-              translated
+              Making health information easier to read in two languages
             </h2>
             <p>
-              Collaborated with a translator to adapt content for
-              English and Spanish readers &mdash; not just translating,
-              but reframing language to reflect cultural values. For
-              example, shifting from individual responsibility framing
-              to collective well-being, which resonated more with the
-              primarily Hispanic participant community.
+              I worked with translators to adapt health content for
+              English and Spanish readers.
+            </p>
+            <p>
+              Beyond translation, we reviewed wording and tone to make
+              explanations more approachable and relevant to the
+              communities participating in the study.
             </p>
             <div className="phone-frame-pair">
               <div className="phone-frame">
@@ -343,18 +368,18 @@ export default function HealthcarePage() {
 
         {/* Interactive Reports */}
         <ScrollReveal>
-          <div className="section" id="sec-interactive">
-            <p className="cs-label">04 &middot; Engagement</p>
+          <div className="section section--child" id="sec-interactive">
+            <p className="cs-label">04 &middot; Video Guides</p>
             <h2 className="cs-heading">
-              Supporting different learning styles with optional
-              video guides
+              Giving people another way to learn
             </h2>
             <p>
-              User interviews revealed most participants relied on
-              visual learning. I integrated an optional video guide
-              within the progressive disclosure model &mdash; giving
-              users flexibility in how they consumed reports without
-              forcing a single format.
+              Interviews showed that some participants preferred
+              visual explanations over reading long reports.
+            </p>
+            <p>
+              I added optional video guides so users could watch an
+              explanation or continue reading at their own pace.
             </p>
             <div className="phone-frame-pair">
               <div className="phone-frame">
@@ -395,16 +420,16 @@ export default function HealthcarePage() {
         {/* Iterations */}
         <ScrollReveal>
           <div className="section" id="sec-iterations">
-            <p className="cs-label">Iterations</p>
-            <h2 className="cs-heading">
-              Multiple rounds refined visualization density and
-              interaction patterns
-            </h2>
+            <h2>Iterations</h2>
+            <h3>Finding the right amount of information</h3>
             <p>
-              Through design explorations, I tested variations of data
-              visualization, layout density, and content structure with
-              users at each stage &mdash; iterating toward the right
-              balance of information richness and visual clarity.
+              I explored different chart styles, layouts, and levels
+              of detail to make health reports easier to read.
+            </p>
+            <p>
+              Through user feedback, I refined the information
+              hierarchy and interactions to balance useful detail with
+              readability.
             </p>
             <div className="cs-iteration-crop cs-iteration-crop--zoom">
               <Image
@@ -415,6 +440,24 @@ export default function HealthcarePage() {
                 sizes="(max-width: 768px) 100vw, 800px"
               />
             </div>
+          </div>
+        </ScrollReveal>
+
+        {/* Takeaway */}
+        <ScrollReveal>
+          <div className="section" id="sec-takeaway">
+            <h2>Takeaway</h2>
+            <h3>Clear information helps people make sense of their health</h3>
+            <p>
+              This project taught me that presenting accurate data
+              isn&apos;t enough. People also need to understand what
+              the information means.
+            </p>
+            <p>
+              By combining clearer visuals, simpler language, and
+              flexible content formats, I designed an experience that
+              made personal health reports easier to explore.
+            </p>
           </div>
         </ScrollReveal>
 

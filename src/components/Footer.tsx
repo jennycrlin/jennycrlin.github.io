@@ -7,7 +7,7 @@ export function Footer() {
       </div>
       <div className="right">
         <a href="https://www.linkedin.com/in/chiehrulin/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a href="/images/resume/Jenny_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+        <a href="/images/resume/chiehru-resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
         <a href="mailto:jennycrlin.work@gmail.com">Email</a>
       </div>
     </footer>

@@ -10,10 +10,10 @@ export const metadata: Metadata = {
 };
 
 const NAV_SECTIONS = [
-  { label: "Problem", href: "#sec-problem", childIds: ["sec-solution"] },
+  { label: "Context", href: "#sec-context", childIds: ["sec-problem", "sec-solution"] },
   { label: "Research", href: "#sec-methodology" },
   { label: "Design", href: "#sec-design", childIds: ["sec-design-1", "sec-design-2", "sec-design-3"] },
-  { label: "Reflection", href: "#sec-reflection", childIds: ["sec-reflection-1", "sec-reflection-2", "sec-reflection-3"] },
+  { label: "Takeaway", href: "#sec-takeaway" },
 ];
 
 export default function MeetEatPage() {
@@ -53,25 +53,36 @@ export default function MeetEatPage() {
 
       <div className="proj-content-full">
         <SectionProgress sections={NAV_SECTIONS} />
+          {/* Context */}
+          <ScrollReveal>
+            <div className="section" id="sec-context">
+              <h2>Context</h2>
+            </div>
+          </ScrollReveal>
+
           {/* Problem */}
           <ScrollReveal>
-            <div className="section" id="sec-problem">
-              <h2>Problem</h2>
-              <h3>Personalization Deficiency &amp; Lack of Community Connection</h3>
+            <div className="section section--child" id="sec-problem">
+              <p className="cs-label">Problem</p>
               <p>
                 Food has become a way to connect, but no platform exists for food
                 lovers to befriend others through shared dining and restaurant
                 recommendations. A market survey revealed demand for a platform
                 enabling meaningful conversations with like-minded individuals.
               </p>
+              <blockquote>
+                <p>How might we help food lovers discover personalized recommendations and connect with like-minded people?</p>
+              </blockquote>
             </div>
           </ScrollReveal>
 
           {/* Solution */}
           <ScrollReveal>
-            <div className="section" id="sec-solution">
-              <h2>Solution</h2>
-              <h3>Prioritize Customized Features &amp; Enhance User Engagement</h3>
+            <div className="section section--child" id="sec-solution">
+              <p className="cs-label">Solution</p>
+              <h2 className="cs-heading">
+                Prioritize Customized Features &amp; Enhance User Engagement
+              </h2>
               <p>
                 Based on surveys, story mapping, and user testing, the app
                 tailors content to individual preferences and behaviors while
@@ -148,20 +159,31 @@ export default function MeetEatPage() {
                       We interviewed 10 users in person. I conducted 3 interviews
                       to assess usability and navigation across 7 tasks.
                     </p>
-                    <p className="cs-metrics-label"><strong>Key Metrics:</strong></p>
-                    <ul className="cs-metrics-list">
-                      <li><strong>Test Success Rate:</strong> Evaluate usability and ensure the design meets user needs and goals.</li>
-                      <li><strong>Time on Task:</strong> Identify usability issues during tasks.</li>
-                      <li><strong>System Usability Scale:</strong> Measure how users find the app valuable.</li>
-                    </ul>
-                    <div className="cs-image-full cs-image-blend cs-image-light-bg">
+                    <div className="cs-image-full cs-image-blend cs-image-light-bg" style={{ maxWidth: 640, margin: "0 auto" }}>
                       <Image
                         src="/images/projects/meeteat/SuS.png"
                         alt="SUS Score: 82.3% — Grade A, Excellent"
-                        width={2697}
-                        height={1577}
-                        sizes="(max-width: 768px) 100vw, 800px"
+                        width={1759}
+                        height={945}
+                        sizes="(max-width: 768px) 100vw, 640px"
                       />
+                    </div>
+                    <div className="cs-info-cards">
+                      <div className="cs-info-card">
+                        <h4>Method</h4>
+                        <ul>
+                          <li>Moderated</li>
+                          <li>In-person</li>
+                        </ul>
+                      </div>
+                      <div className="cs-info-card">
+                        <h4>Measured</h4>
+                        <ul>
+                          <li>Test success rate</li>
+                          <li>Time on task</li>
+                          <li>System Usability Scale</li>
+                        </ul>
+                      </div>
                     </div>
                   </div>,
                 ]}
@@ -183,7 +205,7 @@ export default function MeetEatPage() {
           </ScrollReveal>
 
           <ScrollReveal>
-            <div className="section" id="sec-design-1">
+            <div className="section section--child" id="sec-design-1">
               <h3>01 Navigation Clarity</h3>
               <p>
                 Navigation bar icons lacked clarity. Using the heuristic
@@ -204,7 +226,7 @@ export default function MeetEatPage() {
           </ScrollReveal>
 
           <ScrollReveal>
-            <div className="section" id="sec-design-2">
+            <div className="section section--child" id="sec-design-2">
               <h3>02 Add CTA (Call-To-Action) Feature</h3>
               <p>
                 Two buttons were added to the calendar page: one to invite a
@@ -225,7 +247,7 @@ export default function MeetEatPage() {
           </ScrollReveal>
 
           <ScrollReveal>
-            <div className="section" id="sec-design-3">
+            <div className="section section--child" id="sec-design-3">
               <h3>03 Accessibility Issues</h3>
               <p>
                 The original design failed the WCAG 4.5:1 contrast standard.
@@ -245,42 +267,20 @@ export default function MeetEatPage() {
             </div>
           </ScrollReveal>
 
-          {/* Reflection */}
+          {/* Takeaway */}
           <ScrollReveal>
-            <div className="section" id="sec-reflection">
-              <h2>Reflection</h2>
-            </div>
-          </ScrollReveal>
-
-          <ScrollReveal>
-            <div className="section" id="sec-reflection-1">
-              <h3>01 Embrace Customization</h3>
+            <div className="section" id="sec-takeaway">
+              <h2>Takeaway</h2>
+              <h3>Small details make social experiences easier</h3>
               <p>
-                User feedback showed integrating with Google Calendar or Apple
-                Calendar makes event management easier. Customization is key to
-                improving UX.
+                This project taught me that helping people connect
+                isn&apos;t just about adding social features.
               </p>
-            </div>
-          </ScrollReveal>
-
-          <ScrollReveal>
-            <div className="section" id="sec-reflection-2">
-              <h3>02 Accessibility for All</h3>
               <p>
-                Good design benefits everyone. Clear navigation and easy
-                interactions make information universally accessible.
-                Accessibility should always be part of the design process.
-              </p>
-            </div>
-          </ScrollReveal>
-
-          <ScrollReveal>
-            <div className="section" id="sec-reflection-3">
-              <h3>03 Adapt to Unpredictable Results</h3>
-              <p>
-                Users may deviate from expected paths, producing unexpected
-                outcomes. Understanding these variations aids in redesigning
-                with better user insight.
+                Clear navigation, visible event actions, and
+                accessible layouts also matter. When those basics
+                work well, people can focus more on making plans and
+                connecting with others.
               </p>
             </div>
           </ScrollReveal>

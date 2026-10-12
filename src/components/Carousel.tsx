@@ -42,7 +42,7 @@ export function Carousel({
               className={`carousel-slide${i === index ? " carousel-slide--active" : ""}`}
               key={i}
             >
-              {child}
+              <div className="carousel-slide-inner">{child}</div>
             </div>
           ))}
         </div>

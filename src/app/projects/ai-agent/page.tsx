@@ -10,12 +10,12 @@ export const metadata: Metadata = {
 };
 
 const NAV_SECTIONS = [
-  { label: "Overview", href: "#sec-overview", childIds: ["sec-solution", "sec-challenge"] },
+  { label: "Overview", href: "#sec-overview" },
   { label: "Research", href: "#sec-methodology" },
   { label: "Design", href: "#sec-design", childIds: ["sec-design-1", "sec-design-2"] },
   { label: "Testing", href: "#sec-testing", childIds: ["sec-finding"] },
   { label: "Redesign", href: "#sec-redesign", childIds: ["sec-redesign-1", "sec-redesign-2"] },
-  { label: "Reflection", href: "#sec-reflection", childIds: ["sec-reflection-1", "sec-reflection-2", "sec-reflection-3"] },
+  { label: "Takeaway", href: "#sec-takeaway" },
 ];
 
 export default function AIAgentPage() {
@@ -24,9 +24,9 @@ export default function AIAgentPage() {
       <div className="proj-hero">
         <h1>Teaching AI Agent</h1>
         <p className="desc">
-          Integrating AI feedback, visualization, and tone optimization
-          to support active learning, where students can deepen their
-          understanding by explaining concepts to an AI assistant.
+          Designed an AI learning companion that helps students explain
+          concepts, identify gaps in their understanding, and learn
+          through conversation.
         </p>
         <div className="meta-grid">
           <div className="meta-item">
@@ -66,49 +66,27 @@ export default function AIAgentPage() {
           <ScrollReveal>
             <div className="section" id="sec-overview">
               <h2>Overview</h2>
+              <h3>Learning by explaining, not just reading</h3>
               <p>
-                Research supports <em>Learning by Teaching</em> as a method
-                helping students find knowledge gaps and strengthen
-                understanding. I collaborated with the{" "}
-                <strong>UT Austin HCI Lab</strong> to design an AI-powered
-                learning experience that supports students in teaching and
-                reinforcing what they learn.
+                Teaching someone else is one way to test how well you
+                understand a topic.
               </p>
-            </div>
-          </ScrollReveal>
-
-          {/* Solution */}
-          <ScrollReveal>
-            <div className="section" id="sec-solution">
-              <h2>Solution</h2>
               <p>
-                I created a smoother learning experience by refining
-                conversation flow, reducing repetition, and streamlining
-                interactions. The redesigned layout simplified navigation and
-                reduced cognitive load, achieving a{" "}
-                <strong>12.5% improvement in user understanding</strong>.
+                I worked with the UT Austin HCI Lab to design an AI
+                chatbot that lets students explain what they&apos;ve
+                learned, respond to follow-up questions, and reflect
+                on gaps in their understanding. The chatbot needed to
+                encourage students to think through concepts
+                themselves, without giving away answers or
+                overwhelming them with questions.
               </p>
-            </div>
-          </ScrollReveal>
-
-          {/* Design Challenge */}
-          <ScrollReveal>
-            <div className="section" id="sec-challenge">
-              <h2>Design Challenge</h2>
-              <blockquote>
-                <p>
-                  How might we leverage AI conversation design to make the
-                  &ldquo;Learning by Teaching&rdquo; process more engaging
-                  and intuitive for students?
-                </p>
-              </blockquote>
             </div>
           </ScrollReveal>
 
           {/* Methodology */}
           <ScrollReveal>
             <div className="section" id="sec-methodology">
-              <h2>Methodology</h2>
+              <h2>Research</h2>
               <Carousel
                 labels={[
                   "Competitor Analysis",
@@ -118,7 +96,7 @@ export default function AIAgentPage() {
               >
                 {[
                   <div key="ca" className="carousel-content-panel">
-                    <h3>01 Competitor Analysis</h3>
+                    <h3>Learning from existing AI study tools</h3>
                     <p>
                       The competitive analysis revealed that effective platforms
                       let users upload materials, offer structured summaries,
@@ -137,7 +115,7 @@ export default function AIAgentPage() {
                   </div>,
 
                   <div key="interview" className="carousel-content-panel">
-                    <h3>02 User Interview</h3>
+                    <h3>Understanding how students prefer to learn</h3>
                     <p>
                       Users rely on structured summaries and want better ways to
                       visualize learning progress. They struggle to search
@@ -167,7 +145,7 @@ export default function AIAgentPage() {
                   </div>,
 
                   <div key="storyboard" className="carousel-content-panel">
-                    <h3>03 Storyboard</h3>
+                    <h3>Explore how students might explain concepts to an AI chatbot</h3>
                     <p>
                       Storyboards helped visualize the end-to-end learning
                       experience, mapping how students interact with the AI
@@ -196,8 +174,23 @@ export default function AIAgentPage() {
           </ScrollReveal>
 
           <ScrollReveal>
-            <div className="section" id="sec-design-1">
-              <h3>01 Conversation Flow</h3>
+            <div className="section section--child" id="sec-design-1">
+              <p className="cs-label">01 &middot; Conversation Flow</p>
+              <h2 className="cs-heading">
+                Helping students think through their answers
+              </h2>
+              <p>
+                I designed a conversation flow where students choose a
+                topic, teach the AI what they know, and respond to
+                follow-up questions.
+              </p>
+              <p>
+                The AI can take on a Professor or Student tone, giving
+                learners different ways to practice explaining
+                concepts. At the end, students receive a short
+                wrap-up with follow-up questions and resources to
+                continue learning.
+              </p>
               <div className="cs-image-full cs-image-light-bg">
                 <Image
                   src="/images/projects/ai-agent/voiceflow2.png"
@@ -220,12 +213,19 @@ export default function AIAgentPage() {
           </ScrollReveal>
 
           <ScrollReveal>
-            <div className="section" id="sec-design-2">
-              <h3>02 Interface Design</h3>
+            <div className="section section--child" id="sec-design-2">
+              <p className="cs-label">02 &middot; Interface Design</p>
+              <h2 className="cs-heading">
+                Keeping the conversation easy to follow
+              </h2>
               <p>
-                I combined Voiceflow and Figma for the prototype — Voiceflow
-                for realistic chatbot interaction, Figma for a visual interface
-                supporting reflection and content organization.
+                I used Voiceflow to prototype the chatbot&apos;s
+                responses and Figma to design the interface around it.
+              </p>
+              <p>
+                The home page lets students start a conversation or
+                return to previous sessions. The conversation page
+                keeps the chat, progress, and summary in one place.
               </p>
               <div className="cs-interface-pair">
                 <div className="cs-image-full">
@@ -270,13 +270,17 @@ export default function AIAgentPage() {
           {/* Usability Testing */}
           <ScrollReveal>
             <div className="section" id="sec-testing">
-              <h2>Usability Testing</h2>
+              <h2>Testing</h2>
+              <h3>Testing two ways the AI could respond</h3>
               <p>
-                I conducted <strong>6 user interviews</strong> — 3 participants
-                tested the <strong>Professor tone</strong>, and 3 tested the{" "}
-                <strong>Student tone</strong>. Users rated chatbot usefulness,
-                interface design, and their concept understanding before and
-                after interacting with the chatbot.
+                I conducted usability testing with six participants:
+                three tested the Professor tone and three tested the
+                Student tone.
+              </p>
+              <p>
+                Participants rated the chatbot&apos;s usefulness,
+                interface design, and their understanding of the
+                topic before and after the conversation.
               </p>
               <div className="cs-testing-layout">
                 <div className="cs-metric-cards">
@@ -312,18 +316,23 @@ export default function AIAgentPage() {
 
           {/* Finding */}
           <ScrollReveal>
-            <div className="section" id="sec-finding">
-              <h3>
-                Encouraging Tone Increases Confidence &amp; Reduces Cognitive
-                Load
-              </h3>
+            <div className="section section--child" id="sec-finding">
+              <p className="cs-label">What I Learned</p>
+              <h2 className="cs-heading">
+                Encouraging feedback helped, but repetition got in
+                the way
+              </h2>
               <p>
-                Participants appreciated the AI&rsquo;s comfortable and
-                encouraging tone and found the conversation flow smooth.
-                However, repetitive questioning and rapid back-to-back messages
-                sometimes left users feeling confused.
+                Participants liked the supportive tone and found the
+                conversation easy to follow. However, repeated
+                questions and multiple messages sent too quickly
+                sometimes made the experience confusing.
               </p>
-              <div className="cs-image-full cs-image-light-bg">
+              <p>
+                These findings guided the next round of design
+                changes.
+              </p>
+              <div className="cs-image-full cs-image-light-bg cs-image-full--medium">
                 <Image
                   src="/images/projects/ai-agent/findings.png"
                   alt="Positive: user confidence, smooth flow. Negative: repetitive questioning, lengthy responses"
@@ -343,14 +352,21 @@ export default function AIAgentPage() {
           </ScrollReveal>
 
           <ScrollReveal>
-            <div className="section" id="sec-redesign-1">
-              <h3>01 Limit AI Attempts to Reduce Repetition</h3>
+            <div className="section section--child" id="sec-redesign-1">
+              <p className="cs-label">01 &middot; Conversation Flow</p>
+              <h2 className="cs-heading">
+                Less repetition, more control
+              </h2>
               <p>
-                By prompting the AI to respond only up to three times, the
-                conversation moves forward naturally, reducing repetitive
-                questioning and giving users more control to stop or continue.
+                I updated the conversation flow to limit repeated AI
+                prompts to three attempts before moving forward.
               </p>
-              <div className="cs-image-full cs-image-light-bg">
+              <p>
+                This helped avoid endless questioning and gave
+                students a clearer way to continue or end the
+                conversation.
+              </p>
+              <div className="cs-image-full cs-image-light-bg cs-image-full--medium">
                 <Image
                   src="/images/projects/ai-agent/redesignFlow.png"
                   alt="Redesigned conversation flow with 3-attempt limit"
@@ -363,19 +379,21 @@ export default function AIAgentPage() {
           </ScrollReveal>
 
           <ScrollReveal>
-            <div className="section" id="sec-redesign-2">
-              <h3>02 Improve Clarity and Intuitive Navigation</h3>
+            <div className="section section--child" id="sec-redesign-2">
+              <p className="cs-label">02 &middot; Navigation</p>
+              <h2 className="cs-heading">
+                Making it easier to start and find conversations
+              </h2>
               <p>
-                The original layout had discoverability issues — the
-                &ldquo;Start a new conversation&rdquo; area was difficult to
-                notice, users were unsure how to use folders, and they worried
-                the page might look cluttered as conversations increased.
+                Testing showed that the new conversation entry point
+                was easy to miss, and users weren&apos;t sure how
+                folders worked.
               </p>
               <p>
-                The layout was reorganized using{" "}
-                <strong>familiar design patterns</strong>, such as ChatGPT,
-                improving discoverability and reducing cognitive effort with a
-                cleaner, less overwhelming layout.
+                I redesigned the home page with a more prominent chat
+                input and familiar sidebar navigation, making it
+                easier to start a conversation and find previous
+                sessions.
               </p>
               <div className="cs-design-pair">
                 <figure className="cs-grid-fig">
@@ -402,42 +420,24 @@ export default function AIAgentPage() {
             </div>
           </ScrollReveal>
 
-          {/* Reflection */}
+          {/* Takeaway */}
           <ScrollReveal>
-            <div className="section" id="sec-reflection">
-              <h2>Reflection</h2>
-            </div>
-          </ScrollReveal>
-
-          <ScrollReveal>
-            <div className="section" id="sec-reflection-1">
-              <h3>01 Importance of Clear Communication</h3>
+            <div className="section" id="sec-takeaway">
+              <h2>Takeaway</h2>
+              <h3>Good AI conversations need boundaries</h3>
               <p>
-                Clear communication is critical across all touchpoints.
-                Otherwise, users may interact with the product with different
-                assumptions, resulting in confusion and frustration.
+                This project taught me that a helpful chatbot
+                isn&apos;t just about asking good questions. It also
+                needs to know when to stop, how much information to
+                show, and how to keep users oriented. Designing with
+                Voiceflow also showed me how much small changes in
+                prompts and conversation logic can affect the overall
+                experience.
               </p>
-            </div>
-          </ScrollReveal>
-
-          <ScrollReveal>
-            <div className="section" id="sec-reflection-2">
-              <h3>02 Challenges of Prompt Design in AI Chatbot Development</h3>
               <p>
-                When designing an AI chatbot using VoiceFlow, providing precise
-                and structured prompts at each logic component is crucial. The
-                process involves a lot of trial and error.
-              </p>
-            </div>
-          </ScrollReveal>
-
-          <ScrollReveal>
-            <div className="section" id="sec-reflection-3">
-              <h3>03 Leveraging Familiar UI Patterns for Better Usability</h3>
-              <p>
-                When designing commonly used interfaces like folder systems,
-                designers should follow common user flows and layouts to enhance
-                usability and familiarity.
+                The biggest lesson was to give students room to
+                think, rather than filling every moment with another
+                AI response.
               </p>
             </div>
           </ScrollReveal>

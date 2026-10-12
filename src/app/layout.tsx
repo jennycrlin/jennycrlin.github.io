@@ -4,6 +4,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { ChatBubble } from "@/components/ChatBubble";
+import { PageTransition } from "@/components/PageTransition";
 import "./globals.css";
 
 const inter = Inter({
@@ -38,7 +39,7 @@ export default function RootLayout({
       <body>
         <ThemeProvider>
           <Nav />
-          {children}
+          <PageTransition>{children}</PageTransition>
           <Footer />
           <ChatBubble />
         </ThemeProvider>

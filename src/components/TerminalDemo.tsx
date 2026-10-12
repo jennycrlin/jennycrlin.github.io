@@ -35,8 +35,11 @@ export function TerminalDemo() {
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0]?.isIntersecting) {
+          setLineIndex(0)
+          setCharIndex(0)
           setStarted(true)
-          observer.disconnect()
+        } else {
+          setStarted(false)
         }
       },
       { threshold: 0.3 }

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { AboutHeroPhoto } from "@/components/AboutHeroPhoto";
 
 export const metadata: Metadata = {
   title: "About — Jenny Lin",
@@ -61,15 +62,7 @@ export default function AboutPage() {
             AI integration, and design that truly works for people.
           </p>
         </div>
-        <div className="about-hero-photo">
-          <Image
-            src="/images/about/me.JPG"
-            alt="Jenny Lin"
-            width={560}
-            height={373}
-            priority
-          />
-        </div>
+        <AboutHeroPhoto />
       </section>
 
       <section className="about-journey">
@@ -120,7 +113,7 @@ export default function AboutPage() {
 
       <section className="about-resume">
         <a
-          href="/images/resume/Jenny_Resume.pdf"
+          href="/images/resume/chiehru-resume.pdf"
           className="about-resume-btn"
           target="_blank"
           rel="noopener noreferrer"

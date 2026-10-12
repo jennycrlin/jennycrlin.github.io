@@ -12,7 +12,7 @@ export function Nav() {
       <div className="nav-links">
         <ProjectsLink />
         <Link href="/about">About</Link>
-        <a href="/images/resume/Jenny_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+        <a href="/images/resume/chiehru-resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
       </div>
       <div className="nav-right">
         <ThemeToggle />

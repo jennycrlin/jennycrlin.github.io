@@ -85,9 +85,9 @@ const TREE: Record<string, ConversationNode> = {
   healthcare: {
     label: "Any healthcare projects?",
     answer:
-      "<b>0-to-1 mobile health app</b> for Williamson County Health District:<br>• Transformed dense PDFs into <b>interactive dashboards</b><br>• <b>+28%</b> report readability, <b>+40%</b> user satisfaction<br>• <b>Bilingual</b> — culturally adapted English & Spanish content<br>• Driven by the belief that <b>health information should be accessible to everyone</b>",
+      "<b>0-to-1 mobile health app</b> for Williamson County Health District:<br>• Transformed dense PDFs into <b>interactive dashboards</b><br>• <b>+25%</b> report readability, <b>+40%</b> user satisfaction<br>• <b>Bilingual</b> — culturally adapted English & Spanish content<br>• Driven by the belief that <b>health information should be accessible to everyone</b>",
     answerZh:
-      "為 Williamson County 衛生局<b>從零到一</b>設計行動健康 App：<br>• 將 PDF 報告轉為<b>互動式儀表板</b><br>• 報告可讀性提升 <b>28%</b>，使用者滿意度提升 <b>40%</b><br>• <b>雙語</b>支援 — 英語和西班牙語文化適配<br>• 源自信念：<b>健康資訊應該對每個人都是無障礙的</b>",
+      "為 Williamson County 衛生局<b>從零到一</b>設計行動健康 App：<br>• 將 PDF 報告轉為<b>互動式儀表板</b><br>• 報告可讀性提升 <b>25%</b>，使用者滿意度提升 <b>40%</b><br>• <b>雙語</b>支援 — 英語和西班牙語文化適配<br>• 源自信念：<b>健康資訊應該對每個人都是無障礙的</b>",
     followUps: ["healthai", "passion", "contact"],
   },
   travel: {

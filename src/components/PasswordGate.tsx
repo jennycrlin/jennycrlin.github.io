@@ -5,9 +5,11 @@ import { useState, type ReactNode } from "react";
 export function PasswordGate({
   children,
   code,
+  popup = false,
 }: {
   children: ReactNode;
   code?: string;
+  popup?: boolean;
 }) {
   const [unlocked, setUnlocked] = useState(false);
   const [password, setPassword] = useState("");
@@ -26,7 +28,7 @@ export function PasswordGate({
     return <>{children}</>;
   }
 
-  return (
+  const gate = (
     <div className="password-gate">
       <div className="lock-icon-large">
         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -47,6 +49,7 @@ export function PasswordGate({
             setError(false);
           }}
           onKeyDown={(e) => e.key === "Enter" && handleUnlock()}
+          autoFocus={popup}
         />
         <button className="pw-submit" onClick={handleUnlock}>
           Unlock
@@ -55,4 +58,10 @@ export function PasswordGate({
       {error && <p className="pw-error">Incorrect password. Please try again.</p>}
     </div>
   );
+
+  if (popup) {
+    return <div className="password-modal-overlay">{gate}</div>;
+  }
+
+  return gate;
 }

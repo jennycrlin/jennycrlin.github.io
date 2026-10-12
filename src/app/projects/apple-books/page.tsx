@@ -10,10 +10,10 @@ export const metadata: Metadata = {
 };
 
 const NAV_SECTIONS = [
-  { label: "Problem", href: "#sec-problem", childIds: ["sec-solution"] },
+  { label: "Context", href: "#sec-context", childIds: ["sec-problem", "sec-solution"] },
   { label: "Research", href: "#sec-methodology" },
   { label: "Design", href: "#sec-design", childIds: ["sec-design-1", "sec-design-2", "sec-design-3"] },
-  { label: "Reflection", href: "#sec-reflection", childIds: ["sec-reflection-1", "sec-reflection-2", "sec-reflection-3"] },
+  { label: "Takeaway", href: "#sec-takeaway" },
 ];
 
 export default function AppleBooksPage() {
@@ -42,27 +42,36 @@ export default function AppleBooksPage() {
 
       <div className="proj-content-full">
         <SectionProgress sections={NAV_SECTIONS} />
+          {/* Context */}
+          <ScrollReveal>
+            <div className="section" id="sec-context">
+              <h2>Context</h2>
+            </div>
+          </ScrollReveal>
+
           {/* Problem */}
           <ScrollReveal>
-            <div className="section" id="sec-problem">
-              <h2>Problem</h2>
-              <blockquote>
-                <p>How might we enhance the functionality and make it more intuitive for users?</p>
-              </blockquote>
+            <div className="section section--child" id="sec-problem">
+              <p className="cs-label">Problem</p>
               <p>
                 The original Apple Books app had confusing navigation due to
                 overly complex categories and disorganized content. Unnecessary
                 components further complicated things, hurting user satisfaction
                 and ease of use.
               </p>
+              <blockquote>
+                <p>How might we enhance the functionality and make it more intuitive for users?</p>
+              </blockquote>
             </div>
           </ScrollReveal>
 
           {/* Solution */}
           <ScrollReveal>
-            <div className="section" id="sec-solution">
-              <h2>Solution</h2>
-              <h3>Clear Navigation Structure &amp; Remove Unnecessary Pages</h3>
+            <div className="section section--child" id="sec-solution">
+              <p className="cs-label">Solution</p>
+              <h2 className="cs-heading">
+                Clear Navigation Structure &amp; Remove Unnecessary Pages
+              </h2>
               <p>
                 I led the team in removing redundant content, reorganizing the
                 layout, and building a more intuitive information architecture.
@@ -188,7 +197,7 @@ export default function AppleBooksPage() {
           </ScrollReveal>
 
           <ScrollReveal>
-            <div className="section" id="sec-design-1">
+            <div className="section section--child" id="sec-design-1">
               <h3>01 Simplify Navigation and Clarify Labels</h3>
               <p>
                 Based on survey responses and competitor features, the
@@ -208,7 +217,7 @@ export default function AppleBooksPage() {
           </ScrollReveal>
 
           <ScrollReveal>
-            <div className="section" id="sec-design-2">
+            <div className="section section--child" id="sec-design-2">
               <h3>02 Eliminate Redundant Content</h3>
               <p>
                 The search page was streamlined by removing redundant categories
@@ -228,7 +237,7 @@ export default function AppleBooksPage() {
           </ScrollReveal>
 
           <ScrollReveal>
-            <div className="section" id="sec-design-3">
+            <div className="section section--child" id="sec-design-3">
               <h3>03 Prioritize Features and Enhance Engagement</h3>
               <p>
                 The Community page is a new addition. Card sorting helped
@@ -249,39 +258,21 @@ export default function AppleBooksPage() {
             </div>
           </ScrollReveal>
 
-          {/* Reflection */}
+          {/* Takeaway */}
           <ScrollReveal>
-            <div className="section" id="sec-reflection">
-              <h2>Reflection</h2>
-            </div>
-          </ScrollReveal>
-
-          <ScrollReveal>
-            <div className="section" id="sec-reflection-1">
-              <h3>01 Leverage Information Architecture Structure</h3>
+            <div className="section" id="sec-takeaway">
+              <h2>Takeaway</h2>
+              <h3>Making room for what matters</h3>
               <p>
-                Intuitive interfaces reduce cognitive effort, making it easier
-                for users to find information and navigate the interface.
+                This project taught me that simplifying an app
+                isn&apos;t always about removing features. It&apos;s
+                about making the important ones easier to find.
               </p>
-            </div>
-          </ScrollReveal>
-
-          <ScrollReveal>
-            <div className="section" id="sec-reflection-2">
-              <h3>02 Enhance Visual Design Consistency and Scalability</h3>
               <p>
-                A comprehensive design system and style guide ensured
-                consistency across various screens and interactions.
-              </p>
-            </div>
-          </ScrollReveal>
-
-          <ScrollReveal>
-            <div className="section" id="sec-reflection-3">
-              <h3>03 Improve Collaboration Efficiency</h3>
-              <p>
-                Consistent font styles and alignment hierarchy enhanced
-                communication and collaboration with designers.
+                We reduced overlapping content while exploring a new
+                Community space, which pushed me to think more
+                carefully about how new features fit into an existing
+                product.
               </p>
             </div>
           </ScrollReveal>
