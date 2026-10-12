@@ -4,6 +4,7 @@ import Image from "next/image";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { Carousel } from "@/components/Carousel";
 import { SectionProgress } from "@/components/SectionProgress";
+import { PasswordGate } from "@/components/PasswordGate";
 
 export const metadata: Metadata = {
   title: "Meet & Eat — Jenny Lin",
@@ -17,6 +18,8 @@ const NAV_SECTIONS = [
 ];
 
 export default function MeetEatPage() {
+  const isVercel = process.env.VERCEL === "1";
+
   return (
     <>
       <div className="proj-hero">
@@ -90,6 +93,8 @@ export default function MeetEatPage() {
               </p>
             </div>
           </ScrollReveal>
+
+          <PasswordGate active={isVercel} code="we1come" popup={isVercel}>
 
           {/* Methodology — tabs */}
           <ScrollReveal>
@@ -284,6 +289,8 @@ export default function MeetEatPage() {
               </p>
             </div>
           </ScrollReveal>
+
+          </PasswordGate>
 
           <div className="proj-nav-bar">
             <Link href="/projects/apple-books">&larr; Apple Books</Link>

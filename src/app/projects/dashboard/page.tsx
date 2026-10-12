@@ -117,7 +117,7 @@ export default function DashboardPage() {
           </ScrollReveal>
         </div>
 
-        <PasswordGate code={isVercel ? "nice2meetyou" : "we1come"} popup={isVercel}>
+        <PasswordGate code="we1come" popup={isVercel}>
         {/* Research */}
         <ScrollReveal>
           <div className="section" id="sec-research">

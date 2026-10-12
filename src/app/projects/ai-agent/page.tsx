@@ -4,6 +4,7 @@ import Image from "next/image";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { Carousel } from "@/components/Carousel";
 import { SectionProgress } from "@/components/SectionProgress";
+import { PasswordGate } from "@/components/PasswordGate";
 
 export const metadata: Metadata = {
   title: "Teaching AI Agent — Jenny Lin",
@@ -19,6 +20,8 @@ const NAV_SECTIONS = [
 ];
 
 export default function AIAgentPage() {
+  const isVercel = process.env.VERCEL === "1";
+
   return (
     <>
       <div className="proj-hero">
@@ -82,6 +85,8 @@ export default function AIAgentPage() {
               </p>
             </div>
           </ScrollReveal>
+
+          <PasswordGate active={isVercel} code="we1come" popup={isVercel}>
 
           {/* Methodology */}
           <ScrollReveal>
@@ -441,6 +446,8 @@ export default function AIAgentPage() {
               </p>
             </div>
           </ScrollReveal>
+
+          </PasswordGate>
 
           <div className="proj-nav-bar">
             <Link href="/projects/healthcare">&larr; Healthcare App</Link>

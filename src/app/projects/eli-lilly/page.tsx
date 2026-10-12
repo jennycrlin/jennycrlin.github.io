@@ -135,7 +135,7 @@ export default function EliLillyPage() {
         </div>
 
         {/* Password-protected content */}
-        <PasswordGate code={isVercel ? "nice2meetyou" : "we1come"} popup={isVercel}>
+        <PasswordGate code="we1come" popup={isVercel}>
             {/* Research — tabbed */}
             <ScrollReveal>
               <div className="section" id="sec-research">

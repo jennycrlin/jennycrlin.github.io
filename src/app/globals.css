@@ -1015,12 +1015,20 @@ body {
 
 /* Password Gate */
 .password-gate {
+  position: relative;
   background: var(--bg2); border: 1px solid var(--border); border-radius: 14px;
   padding: 40px; text-align: center; margin: 32px 48px;
 }
+.password-gate .pw-close {
+  position: absolute; top: 14px; right: 14px;
+  display: flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px; border-radius: 50%;
+  color: var(--text2); transition: background 0.2s, color 0.2s;
+}
+.password-gate .pw-close:hover { background: var(--bg); color: var(--text); }
 .password-gate .lock-icon-large { font-size: 32px; margin-bottom: 12px; color: var(--text3); }
 .password-gate h3 {
-  font-family: var(--font-lora), 'Lora', serif; font-size: 22px; font-weight: 500; margin-bottom: 10px;
+  font-family: var(--font-lora), 'Lora', serif; font-size: 22px; font-weight: 500; margin-bottom: 20px;
 }
 .password-gate p { font-size: 16px; color: var(--text2); margin-bottom: 20px; }
 .password-gate .pw-form { display: flex; gap: 8px; justify-content: center; max-width: 320px; margin: 0 auto; }

@@ -21,17 +21,17 @@ const TREE: Record<string, ConversationNode> = {
   "recent-work": {
     label: "What's Jenny working on?",
     answer:
-      "Currently <b>Product Design Engineer</b> at Apex Fintech Solutions:<br>• Architected <b>3 platforms</b> — Ascend OS, Enterprise, Investor<br>• Used <b>AI workflows</b> (Claude Code) to bridge design-engineering communication<br>• Cut design-to-dev handoff by <b>98%</b> with code-ready UI delivery<br>• Drove <b>$1.2M+</b> annual savings via AI workflow automation<br>• Governed <b>2,300+</b> component iterations across platforms",
+      "Currently <b>Product Design Engineer</b> at Apex Fintech:<br>• Unified <b>3 platforms</b> — Wealth, Enterprise, Investor — onto one shared design system<br>• Built an <b>AI-governed workflow</b> in Claude Code (a CLAUDE.md contract + custom commands) so AI-generated UI stays consistent and secure<br>• Cut platform integration from <b>~4 months to under 1 month</b><br>• <b>30+</b> apps migrated into the shared design system<br>• Saved an est. <b>~25 hrs/month</b> of PM setup time via automated PR previews",
     answerZh:
-      "目前在 Apex Fintech Solutions 擔任 <b>Product Design Engineer</b>：<br>• 設計了 <b>3 個平台</b> — Ascend OS、Enterprise、Investor<br>• 用 <b>AI 工作流</b>（Claude Code）促進設計與工程團隊的溝通<br>• 設計到開發交付效率提升 <b>98%</b>，實現 code-ready UI 交付<br>• AI 工作流程自動化，年省 <b>$1.2M+</b><br>• 管理跨平台 <b>2,300+</b> 組件迭代",
+      "目前在 Apex Fintech 擔任 <b>Product Design Engineer</b>：<br>• 統一 <b>3 個平台</b> — Wealth、Enterprise、Investor — 整合成單一設計系統<br>• 在 Claude Code 中建立 <b>AI 治理工作流</b>（CLAUDE.md 規範 + 自訂指令），確保 AI 生成的 UI 保持一致且安全<br>• 平台整合時間從約 <b>4 個月縮短到 1 個月以內</b><br>• <b>30+</b> 個應用整合進共用設計系統<br>• 透過自動化 PR 預覽，估計每月節省 <b>~25 小時</b> PM 設置時間",
     followUps: ["eli-lilly", "healthai", "ai-approach"],
   },
   "ai-approach": {
     label: "How does Jenny use AI in design?",
     answer:
-      "AI is woven into <b>every stage</b> of Jenny's workflow:<br>• <b>Apex:</b> AI workflow (Claude Code) for team communication & code-ready prototypes<br>• <b>Eli Lilly:</b> Human-in-the-loop AI for clinical protocol authoring<br>• <b>HealthAI Lab:</b> Designed an AI conversation agent for mental health support<br>• <b>AT&T:</b> Proposed AI chatbot to automate test-case lookup for 500+ engineers<br>• Philosophy: AI should <b>amplify human judgment</b>, not replace it",
+      "AI is woven into <b>every stage</b> of Jenny's workflow:<br>• <b>Apex:</b> Built an AI governance system in Claude Code — a CLAUDE.md contract plus custom commands that keep AI-generated UI consistent & secure<br>• <b>Eli Lilly:</b> Human-in-the-loop AI for clinical protocol authoring — AI suggests, writers decide<br>• <b>HealthAI Lab:</b> Designed an AI conversation agent for mental health support<br>• <b>AT&T:</b> Proposed AI chatbot to automate test-case lookup for 500+ engineers<br>• Philosophy: AI should <b>amplify human judgment</b>, not replace it",
     answerZh:
-      "AI 融入 Jenny 工作流程的<b>每個階段</b>：<br>• <b>Apex：</b>AI 工作流（Claude Code）促進團隊溝通與 code-ready 原型<br>• <b>Eli Lilly：</b>Human-in-the-loop AI 用於臨床協議撰寫<br>• <b>HealthAI Lab：</b>設計 AI 對話代理，支援心理健康<br>• <b>AT&T：</b>提出 AI 聊天機器人自動化測試案例查詢<br>• 理念：AI 應該<b>增強人的判斷力</b>，而非取代",
+      "AI 融入 Jenny 工作流程的<b>每個階段</b>：<br>• <b>Apex：</b>在 Claude Code 中建立 AI 治理系統 — CLAUDE.md 規範加上自訂指令，確保 AI 生成的 UI 保持一致且安全<br>• <b>Eli Lilly：</b>Human-in-the-loop AI 用於臨床協議撰寫 — AI 提出建議，撰寫者決定<br>• <b>HealthAI Lab：</b>設計 AI 對話代理，支援心理健康<br>• <b>AT&T：</b>提出 AI 聊天機器人自動化測試案例查詢<br>• 理念：AI 應該<b>增強人的判斷力</b>，而非取代",
     followUps: ["recent-work", "healthai", "passion"],
   },
   passion: {
@@ -61,9 +61,9 @@ const TREE: Record<string, ConversationNode> = {
   "eli-lilly": {
     label: "Tell me about her pharma work",
     answer:
-      "<b>UX Designer</b> at Eli Lilly — designed an <b>AI-first</b> clinical trial platform:<br>• Led design of <b>Collab Studio</b> for FDA-regulated clinical workflows<br>• <b>-38%</b> manual data entry via AI-assisted protocol authoring<br>• <b>+43%</b> protocol adherence improvement<br>• Unified <b>7+ handoff points</b> into a single source of truth<br>• <b>Human-in-the-loop AI</b> — the system suggests, humans decide",
+      "<b>UX Researcher & Designer</b> at Eli Lilly — designed <b>Collab Studio</b>, a shared workspace for clinical trial protocol authoring:<br>• Replaced a fragmented Design Studio → Excel → Word workflow with one shared source of truth<br>• <b>-38%</b> manual data entry<br>• <b>+43%</b> protocol adherence<br>• <b>+70%</b> faster workflow completion<br>• <b>Human-in-the-loop AI</b> — &ldquo;AI suggests, writers decide&rdquo;",
     answerZh:
-      "在 Eli Lilly 擔任 <b>UX Designer</b> — 設計了一個 <b>AI 優先</b>的臨床試驗平台：<br>• 主導設計 <b>Collab Studio</b>，用於 FDA 規範的臨床工作流程<br>• AI 輔助協議撰寫，手動資料輸入減少 <b>38%</b><br>• 協議遵循率提升 <b>43%</b><br>• 統一 <b>7+ 個交接點</b>為單一數據來源<br>• <b>Human-in-the-loop AI</b> — 系統建議，人類決定",
+      "在 Eli Lilly 擔任 <b>UX Researcher & Designer</b> — 設計了 <b>Collab Studio</b>，一個供臨床試驗協議撰寫的共用工作空間：<br>• 取代原本 Design Studio → Excel → Word 的破碎流程，整合為單一數據來源<br>• 手動資料輸入減少 <b>38%</b><br>• 協議遵循率提升 <b>43%</b><br>• 工作流程速度提升 <b>70%</b><br>• <b>Human-in-the-loop AI</b> — 「AI 提出建議，撰寫者決定」",
     followUps: ["healthai", "att", "ai-approach"],
   },
   healthai: {
@@ -85,9 +85,9 @@ const TREE: Record<string, ConversationNode> = {
   healthcare: {
     label: "Any healthcare projects?",
     answer:
-      "<b>0-to-1 mobile health app</b> for Williamson County Health District:<br>• Transformed dense PDFs into <b>interactive dashboards</b><br>• <b>+25%</b> report readability, <b>+40%</b> user satisfaction<br>• <b>Bilingual</b> — culturally adapted English & Spanish content<br>• Driven by the belief that <b>health information should be accessible to everyone</b>",
+      "<b>0-to-1 mobile health app</b> for Whole Communities Whole Health (WCWH), a research initiative in eastern Travis County, Texas:<br>• Transformed dense PDFs into <b>interactive dashboards</b><br>• <b>+25%</b> report readability, <b>+40%</b> user satisfaction<br>• <b>Bilingual</b> — culturally adapted English & Spanish content<br>• Driven by the belief that <b>health information should be accessible to everyone</b>",
     answerZh:
-      "為 Williamson County 衛生局<b>從零到一</b>設計行動健康 App：<br>• 將 PDF 報告轉為<b>互動式儀表板</b><br>• 報告可讀性提升 <b>25%</b>，使用者滿意度提升 <b>40%</b><br>• <b>雙語</b>支援 — 英語和西班牙語文化適配<br>• 源自信念：<b>健康資訊應該對每個人都是無障礙的</b>",
+      "為 Whole Communities Whole Health（WCWH）—— 一個位於德州 Travis County 東部的研究計畫 —— <b>從零到一</b>設計行動健康 App：<br>• 將 PDF 報告轉為<b>互動式儀表板</b><br>• 報告可讀性提升 <b>25%</b>，使用者滿意度提升 <b>40%</b><br>• <b>雙語</b>支援 — 英語和西班牙語文化適配<br>• 源自信念：<b>健康資訊應該對每個人都是無障礙的</b>",
     followUps: ["healthai", "passion", "contact"],
   },
   travel: {
@@ -144,7 +144,7 @@ const KEYWORDS: Record<string, string[]> = {
   "eli-lilly": ["lilly", "pharma", "clinical", "trial", "protocol", "medicine", "drug", "藥", "臨床"],
   healthai: ["healthai", "health ai", "conversation agent", "mental health", "diary study", "ut austin lab", "心理健康", "對話代理", "日記研究", "健康AI"],
   att: ["att", "at&t", "dashboard", "internship", "portal", "telecom", "實習"],
-  healthcare: ["health app", "mobile health", "mobile app", "wcwh", "williamson", "bilingual", "醫療App", "健康App", "雙語"],
+  healthcare: ["health app", "mobile health", "mobile app", "wcwh", "travis county", "bilingual", "醫療App", "健康App", "雙語"],
   travel: ["travel", "countries", "hobby", "outside", "fun", "personal", "free time", "curious", "explore", "旅行", "國家", "興趣", "旅遊", "好奇"],
   research: ["research", "publish", "paper", "journal", "academic", "scholar", "publication", "study", "研究", "論文", "發表", "學術", "期刊"],
   contact: ["contact", "reach", "email", "hire", "linkedin", "resume", "connect", "聯絡", "聯繫", "信箱", "履歷", "怎麼找"],
@@ -191,14 +191,6 @@ type Message = { role: "bot" | "user"; text: string };
 
 export function ChatBubble() {
   const [isOpen, setIsOpen] = useState(false);
-
-  useEffect(() => {
-    const key = "chatbot-opened";
-    if (!sessionStorage.getItem(key) && window.innerWidth > 768) {
-      sessionStorage.setItem(key, "1");
-      setIsOpen(true);
-    }
-  }, []);
   const [messages, setMessages] = useState<Message[]>([]);
   const [followUps, setFollowUps] = useState<string[]>(INITIAL_FOLLOW_UPS);
   const [isTyping, setIsTyping] = useState(false);

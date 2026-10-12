@@ -116,7 +116,7 @@ export default function ApexPage() {
           </ScrollReveal>
         </div>
 
-        <PasswordGate code={isVercel ? "nice2meetyou" : "we1come"} popup={isVercel}>
+        <PasswordGate code="we1come" popup={isVercel}>
 
         {/* Design */}
         <ScrollReveal>

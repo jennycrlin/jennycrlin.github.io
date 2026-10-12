@@ -4,6 +4,7 @@ import Image from "next/image";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { Carousel } from "@/components/Carousel";
 import { SectionProgress } from "@/components/SectionProgress";
+import { PasswordGate } from "@/components/PasswordGate";
 
 export const metadata: Metadata = {
   title: "Healthcare Mobile App — Jenny Lin",
@@ -19,6 +20,8 @@ const NAV_SECTIONS = [
 ];
 
 export default function HealthcarePage() {
+  const isVercel = process.env.VERCEL === "1";
+
   return (
     <>
       <div className="proj-hero">
@@ -103,6 +106,8 @@ export default function HealthcarePage() {
             </div>
           </ScrollReveal>
         </div>
+
+        <PasswordGate active={isVercel} code="we1come" popup={isVercel}>
 
         {/* Research */}
         <ScrollReveal>
@@ -460,6 +465,8 @@ export default function HealthcarePage() {
             </p>
           </div>
         </ScrollReveal>
+
+        </PasswordGate>
 
         <div className="proj-nav-bar">
           <Link href="/">← All Projects</Link>

@@ -4,6 +4,7 @@ import Image from "next/image";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { Carousel } from "@/components/Carousel";
 import { SectionProgress } from "@/components/SectionProgress";
+import { PasswordGate } from "@/components/PasswordGate";
 
 export const metadata: Metadata = {
   title: "Apple Books Redesign — Jenny Lin",
@@ -17,6 +18,8 @@ const NAV_SECTIONS = [
 ];
 
 export default function AppleBooksPage() {
+  const isVercel = process.env.VERCEL === "1";
+
   return (
     <>
       <div className="proj-hero">
@@ -80,6 +83,8 @@ export default function AppleBooksPage() {
               </p>
             </div>
           </ScrollReveal>
+
+          <PasswordGate active={isVercel} code="we1come" popup={isVercel}>
 
           {/* Methodology — tabs */}
           <ScrollReveal>
@@ -276,6 +281,8 @@ export default function AppleBooksPage() {
               </p>
             </div>
           </ScrollReveal>
+
+          </PasswordGate>
 
           <div className="proj-nav-bar">
             <Link href="/projects/ai-agent">&larr; Teaching AI</Link>
