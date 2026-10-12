@@ -5,6 +5,7 @@ import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { ChatBubble } from "@/components/ChatBubble";
 import { PageTransition } from "@/components/PageTransition";
+import { UnlockProvider } from "@/components/UnlockContext";
 import "./globals.css";
 
 const inter = Inter({
@@ -38,10 +39,12 @@ export default function RootLayout({
     >
       <body>
         <ThemeProvider>
-          <Nav />
-          <PageTransition>{children}</PageTransition>
-          <Footer />
-          <ChatBubble />
+          <UnlockProvider>
+            <Nav />
+            <PageTransition>{children}</PageTransition>
+            <Footer />
+            <ChatBubble />
+          </UnlockProvider>
         </ThemeProvider>
       </body>
     </html>

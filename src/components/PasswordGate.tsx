@@ -1,9 +1,8 @@
 "use client";
 
-import { useEffect, useState, type ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 import Link from "next/link";
-
-const STORAGE_KEY = "cs-unlocked";
+import { useUnlock } from "./UnlockContext";
 
 export function PasswordGate({
   children,
@@ -16,24 +15,14 @@ export function PasswordGate({
   popup?: boolean;
   active?: boolean;
 }) {
-  const [unlocked, setUnlocked] = useState(false);
+  const { unlocked, unlock } = useUnlock();
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
 
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    if (window.localStorage.getItem(STORAGE_KEY) === "1") {
-      setUnlocked(true);
-    }
-  }, []);
-
   const handleUnlock = () => {
     if (!code || password === code) {
-      setUnlocked(true);
+      unlock();
       setError(false);
-      if (typeof window !== "undefined") {
-        window.localStorage.setItem(STORAGE_KEY, "1");
-      }
     } else {
       setError(true);
     }
