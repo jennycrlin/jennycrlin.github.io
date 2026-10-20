@@ -297,25 +297,27 @@ export default function EliLillyPage() {
             </ScrollReveal>
 
             {/* 01 One Platform, Role-Adapted Interfaces */}
-            <ScrollReveal>
-              <div className="section section--child" id="sec-source">
-                <p className="cs-label">01 Collaboration</p>
-                <h2 className="cs-heading">
-                  One place to edit, review, and approve
-                </h2>
-                <p>
-                  Instead of moving files between Word, Excel, and
-                  Design Studio, writers could edit protocols directly
-                  in Collab Studio.
-                </p>
-                <p>
-                  Designers could review changes in a familiar
-                  interface, while study teams could comment and
-                  approve without losing context.
-                </p>
+            <div className="section section--child" id="sec-source">
+              <p className="cs-label">01 Collaboration</p>
+              <h2 className="cs-heading">
+                One place to edit, review, and approve
+              </h2>
+              <p>
+                Instead of moving files between Word, Excel, and
+                Design Studio, writers could edit protocols directly
+                in Collab Studio.
+              </p>
+              <p>
+                Designers could review changes in a familiar
+                interface, while study teams could comment and
+                approve without losing context.
+              </p>
 
-                <div className="cs-collab-flow-grid">
-                  {/* Row 1 */}
+              <div className="cs-collab-flow-grid">
+                {/* Row 1 — its own reveal, so it appears as the user
+                    actually scrolls to it rather than all six cards
+                    firing together when the section first comes into view. */}
+                <ScrollReveal className="cs-flow-row">
                   <div className="cs-flow-card">
                     <div className="cs-flow-card-img">
                       <Image src="/images/projects/eli-lilly/soa-email.png" alt="Writer receives email notification for assigned protocol" width={6048} height={3780} sizes="(max-width: 768px) 50vw, 420px" />
@@ -340,13 +342,14 @@ export default function EliLillyPage() {
                       </div>
                     </div>
                   </div>
+                </ScrollReveal>
 
-                  <div className="cs-flow-arrow-row">&darr;</div>
+                <div className="cs-flow-arrow-row">&darr;</div>
 
-                  {/* Row 2 */}
+                <ScrollReveal className="cs-flow-row">
                   <div className="cs-flow-card">
                     <div className="cs-flow-card-img">
-                      <Image src="/images/projects/eli-lilly/teams.png" alt="Writer and designer coordinate on Teams" width={5760} height={3240} sizes="(max-width: 768px) 50vw, 420px" />
+                      <Image src="/images/projects/eli-lilly/teams.png" alt="Writer and designer coordinate on Teams" width={3000} height={1687} sizes="(max-width: 768px) 50vw, 420px" />
                     </div>
                     <div className="cs-flow-card-caption">
                       <span className="cs-flow-card-num">3</span>
@@ -358,7 +361,7 @@ export default function EliLillyPage() {
                   </div>
                   <div className="cs-flow-card">
                     <div className="cs-flow-card-img">
-                      <Image src="/images/projects/eli-lilly/soa-designer-reply.png" alt="Designer reviews SoA using familiar Design Studio interface" width={6048} height={4120} sizes="(max-width: 768px) 50vw, 420px" />
+                      <Image src="/images/projects/eli-lilly/soa-designer-reply.png" alt="Designer reviews SoA using familiar Design Studio interface" width={3000} height={2043} sizes="(max-width: 768px) 50vw, 420px" />
                     </div>
                     <div className="cs-flow-card-caption">
                       <span className="cs-flow-card-num">4</span>
@@ -368,13 +371,14 @@ export default function EliLillyPage() {
                       </div>
                     </div>
                   </div>
+                </ScrollReveal>
 
-                  <div className="cs-flow-arrow-row">&darr;</div>
+                <div className="cs-flow-arrow-row">&darr;</div>
 
-                  {/* Row 3 */}
+                <ScrollReveal className="cs-flow-row">
                   <div className="cs-flow-card">
                     <div className="cs-flow-card-img">
-                      <Image src="/images/projects/eli-lilly/soa-studyteam-approve.png" alt="Study team approves or replies inline" width={6048} height={4120} sizes="(max-width: 768px) 50vw, 420px" />
+                      <Image src="/images/projects/eli-lilly/soa-studyteam-approve.png" alt="Study team approves or replies inline" width={3000} height={2043} sizes="(max-width: 768px) 50vw, 420px" />
                     </div>
                     <div className="cs-flow-card-caption">
                       <span className="cs-flow-card-num">5</span>
@@ -396,14 +400,13 @@ export default function EliLillyPage() {
                       </div>
                     </div>
                   </div>
-                </div>
+                </ScrollReveal>
               </div>
-            </ScrollReveal>
+            </div>
 
             {/* 02 AI-Assisted Workflows */}
-            <ScrollReveal>
-              <div className="section section--child" id="sec-ai">
-                <p className="cs-label">02 AI &amp; Trust</p>
+            <div className="section section--child" id="sec-ai">
+              <p className="cs-label">02 AI &amp; Trust</p>
                 <h2 className="cs-heading">
                   AI suggests. Writers decide.
                 </h2>
@@ -416,7 +419,7 @@ export default function EliLillyPage() {
                   preview also allowed writers to check the layout
                   without exporting the document.
                 </p>
-                <div className="cs-solutions-row" style={{ gridTemplateColumns: '1fr 1fr' }}>
+                <div className="cs-solutions-row cs-solutions-row--two">
                   <div className="cs-solution-card">
                     <span className="cs-solution-num">1</span>
                     <h3>AI Auto-Crop</h3>
@@ -429,49 +432,52 @@ export default function EliLillyPage() {
                   </div>
                 </div>
                 <div className="cs-image-grid-2x2">
-                  <figure className="cs-grid-fig">
-                    <Image
-                      src="/images/projects/eli-lilly/ai-suggest.png"
-                      alt="AI Auto-Crop — suggested split points"
-                      width={6048}
-                      height={4120}
-                      sizes="(max-width: 768px) 100vw, 400px"
-                    />
-                    <figcaption>AI Auto-Crop &mdash; split point suggestions</figcaption>
-                  </figure>
-                  <figure className="cs-grid-fig">
-                    <Image
-                      src="/images/projects/eli-lilly/ai-suggest2.png"
-                      alt="AI Auto-Crop — suggestion detail"
-                      width={6048}
-                      height={4120}
-                      sizes="(max-width: 768px) 100vw, 400px"
-                    />
-                    <figcaption>AI Auto-Crop &mdash; accepted suggestion</figcaption>
-                  </figure>
-                  <figure className="cs-grid-fig">
-                    <Image
-                      src="/images/projects/eli-lilly/inline-protocol.png"
-                      alt="Inline Protocol View — formatted preview"
-                      width={6048}
-                      height={4120}
-                      sizes="(max-width: 768px) 100vw, 400px"
-                    />
-                    <figcaption>Inline Protocol View &mdash; formatted preview</figcaption>
-                  </figure>
-                  <figure className="cs-grid-fig">
-                    <Image
-                      src="/images/projects/eli-lilly/inline-protocol2.png"
-                      alt="Inline Protocol View — detail"
-                      width={6048}
-                      height={4120}
-                      sizes="(max-width: 768px) 100vw, 400px"
-                    />
-                    <figcaption>Inline Protocol View &mdash; section detail</figcaption>
-                  </figure>
-                </div>
+                  <ScrollReveal className="cs-image-grid-2x2-row">
+                    <figure className="cs-grid-fig">
+                      <Image
+                        src="/images/projects/eli-lilly/ai-suggest.png"
+                        alt="AI Auto-Crop — suggested split points"
+                        width={6048}
+                        height={4120}
+                        sizes="(max-width: 768px) 100vw, 400px"
+                      />
+                      <figcaption>AI Auto-Crop &mdash; split point suggestions</figcaption>
+                    </figure>
+                    <figure className="cs-grid-fig">
+                      <Image
+                        src="/images/projects/eli-lilly/ai-suggest2.png"
+                        alt="AI Auto-Crop — suggestion detail"
+                        width={6048}
+                        height={4120}
+                        sizes="(max-width: 768px) 100vw, 400px"
+                      />
+                      <figcaption>AI Auto-Crop &mdash; accepted suggestion</figcaption>
+                    </figure>
+                  </ScrollReveal>
+                  <ScrollReveal className="cs-image-grid-2x2-row">
+                    <figure className="cs-grid-fig">
+                      <Image
+                        src="/images/projects/eli-lilly/inline-protocol.png"
+                        alt="Inline Protocol View — formatted preview"
+                        width={6048}
+                        height={4120}
+                        sizes="(max-width: 768px) 100vw, 400px"
+                      />
+                      <figcaption>Inline Protocol View &mdash; formatted preview</figcaption>
+                    </figure>
+                    <figure className="cs-grid-fig">
+                      <Image
+                        src="/images/projects/eli-lilly/inline-protocol2.png"
+                        alt="Inline Protocol View — detail"
+                        width={6048}
+                        height={4120}
+                        sizes="(max-width: 768px) 100vw, 400px"
+                      />
+                      <figcaption>Inline Protocol View &mdash; section detail</figcaption>
+                    </figure>
+                </ScrollReveal>
               </div>
-            </ScrollReveal>
+            </div>
 
             {/* 03 Real-Time Co-Authoring */}
             <ScrollReveal>

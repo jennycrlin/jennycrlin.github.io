@@ -176,8 +176,8 @@ export default function HealthcarePage() {
                     <Image
                       src="/images/projects/healthcare/persona.png"
                       alt="Primary user persona"
-                      width={4803}
-                      height={2603}
+                      width={3000}
+                      height={1626}
                       sizes="(max-width: 768px) 100vw, 900px"
                     />
                   </div>
@@ -268,8 +268,8 @@ export default function HealthcarePage() {
               <Image
                 src="/images/projects/healthcare/design system.png"
                 alt="WCWH app design system — colors, typography, components"
-                width={13443}
-                height={9701}
+                width={3000}
+                height={2165}
                 sizes="(max-width: 768px) 100vw, 800px"
               />
             </div>
@@ -440,8 +440,8 @@ export default function HealthcarePage() {
               <Image
                 src="/images/projects/healthcare/design3-cropped.png"
                 alt="Design iteration explorations across multiple screens"
-                width={11000}
-                height={7200}
+                width={3000}
+                height={1963}
                 sizes="(max-width: 768px) 100vw, 800px"
               />
             </div>

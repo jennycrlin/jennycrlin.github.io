@@ -1,6 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import { NavRevealText } from "./NavRevealText";
 
 export function ProjectsLink() {
   const pathname = usePathname();
@@ -17,7 +18,7 @@ export function ProjectsLink() {
 
   return (
     <a href="/#projects" onClick={handleClick}>
-      Projects
+      <NavRevealText>Projects</NavRevealText>
     </a>
   );
 }

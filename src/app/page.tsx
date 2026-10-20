@@ -2,6 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { Marquee } from "@/components/Marquee";
 import { ScrollToProjects } from "@/components/ScrollToProjects";
+import { HeroBubbleField } from "@/components/HeroBubbleField";
+import { CardCursor } from "@/components/CardCursor";
 
 const SKILLS = [
   "User Research",
@@ -30,8 +32,9 @@ export default function Home() {
   return (
     <>
       <ScrollToProjects />
+      <CardCursor />
 
-      <section className="home-hero">
+      <HeroBubbleField className="home-hero">
         <div className="left">
           <h1>
             I design for
@@ -50,24 +53,23 @@ export default function Home() {
             deliver data-driven, human-centered solutions.
           </p>
         </div>
-      </section>
+      </HeroBubbleField>
 
       <Marquee items={SKILLS} />
 
       <section className="home-featured" id="projectsSection">
         <div className="section-label">Featured Work</div>
         <Link href="/projects/apex" className="featured-card">
+          {!isVercel && <div className="lock-icon">🔒</div>}
           <div className="card-cover">
             <Image src="/images/projects/apex/apex-cover.svg" alt="Fintech Platform Design" width={1200} height={600} sizes="(max-width: 768px) 100vw, 1100px" />
           </div>
           <div className="info">
-            <h3>
-              Unifying Three Fintech Platforms{" "}
-              {!isVercel && <span className="lock-badge">🔒 NDA</span>}
-            </h3>
+            <h3>Unifying Three Fintech Platforms</h3>
             <p>
-              Designing scalable fintech platforms with AI-driven workflows,
-              serving one of the largest clearing and custody firms in the US.
+              Designing scalable fintech platforms with AI-driven
+              workflows, serving one of the largest clearing and custody
+              firms in the US.
             </p>
             <div className="tags">
               <span className="tag">B2B</span>

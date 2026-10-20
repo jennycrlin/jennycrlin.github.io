@@ -110,8 +110,8 @@ export default function AppleBooksPage() {
                       <Image
                         src="/images/projects/apple-books/Journey map.png"
                         alt="User journey map"
-                        width={26368}
-                        height={13268}
+                        width={4000}
+                        height={2012}
                         sizes="(max-width: 768px) 100vw, 800px"
                       />
                     </div>
@@ -213,8 +213,8 @@ export default function AppleBooksPage() {
                 <Image
                   src="/images/projects/apple-books/design1.png"
                   alt="Before & After: Reading Now → Home with Reading Goals"
-                  width={3760}
-                  height={2116}
+                  width={3000}
+                  height={1688}
                   sizes="(max-width: 768px) 100vw, 800px"
                 />
               </div>
@@ -233,8 +233,8 @@ export default function AppleBooksPage() {
                 <Image
                   src="/images/projects/apple-books/design2.png"
                   alt="Before & After: Book Store with personalized recommendations"
-                  width={3760}
-                  height={2115}
+                  width={3000}
+                  height={1687}
                   sizes="(max-width: 768px) 100vw, 800px"
                 />
               </div>

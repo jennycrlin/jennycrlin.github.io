@@ -34,12 +34,48 @@ body {
   font-family: var(--font-lora), 'Lora', serif; font-size: 20px; font-weight: 600;
   color: var(--text); text-decoration: none;
 }
-.site-nav .nav-links { display: flex; gap: 28px; align-items: center; }
+.site-nav .nav-links { display: flex; gap: 6px; align-items: center; }
 .site-nav .nav-links a {
+  position: relative;
   text-decoration: none; color: var(--text2); font-size: 15px;
-  transition: color 0.2s; letter-spacing: 0.3px;
+  letter-spacing: 0.3px;
+  padding: 7px 16px; border-radius: 999px;
+  transition: color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.site-nav .nav-links a:hover { color: var(--text); }
+/* White "button" pill grows in behind the link on hover, with the label
+   switching to dark text so it stays readable against it in both themes. */
+.site-nav .nav-links a::before {
+  content: ''; position: absolute; inset: 0; z-index: -1;
+  background: #fff; border-radius: 999px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  opacity: 0; scale: 0.82;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), scale 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.site-nav .nav-links a:hover { color: #1a1a1a; }
+.site-nav .nav-links a:hover::before { opacity: 1; scale: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .site-nav .nav-links a::before { transition: opacity 0.2s; }
+}
+/* Text-reveal hover: the label rolls up out of view while an identical
+   copy rolls up into its place from below, like a slot reel. */
+.nav-reveal {
+  display: inline-block; overflow: hidden; position: relative;
+  height: 1.3em; vertical-align: bottom;
+}
+.nav-reveal-text {
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.33, 1);
+}
+.nav-reveal-text::after {
+  content: attr(data-text);
+  position: absolute; top: 100%; left: 0;
+}
+.site-nav .nav-links a:hover .nav-reveal-text {
+  transform: translateY(-100%);
+}
+@media (prefers-reduced-motion: reduce) {
+  .nav-reveal-text { transition: none; }
+}
 .site-nav .nav-right { display: flex; justify-content: flex-end; gap: 12px; align-items: center; }
 
 /* Mobile menu button — hidden on desktop */
@@ -165,6 +201,65 @@ body {
   color: var(--text); font-weight: 500;
 }
 
+/* Hero bubble field (keyword trail on mouse move) */
+.hero-bubble-field { position: relative; }
+.hero-bubble {
+  position: absolute; left: 0; top: 0; transform: translate(-50%, -50%);
+  pointer-events: none; white-space: nowrap; z-index: 3;
+  padding: 12px 26px; border-radius: 999px;
+  background: var(--card-bg); border: 1px solid var(--border);
+  color: var(--text2); font-size: 15px; font-weight: 500; letter-spacing: 0.2px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  animation: heroBubbleFloat 1.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes heroBubbleFloat {
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(0.6) rotate(0deg); }
+  18% { opacity: 1; transform: translate(-50%, -50%) scale(1) rotate(var(--rotate)); }
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + var(--drift)), -180%) scale(0.9) rotate(var(--rotate));
+  }
+}
+@media (hover: none), (pointer: coarse) {
+  .hero-bubble { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-bubble { display: none; }
+}
+
+/* Custom cursor ring over case study cards */
+.custom-cursor {
+  position: fixed; top: 0; left: 0; z-index: 2000;
+  width: 0; height: 0;
+  pointer-events: none; opacity: 0; scale: 0.4;
+  transition: opacity 0.3s cubic-bezier(0.16,1,0.3,1), scale 0.4s cubic-bezier(0.16,1,0.3,1);
+}
+.custom-cursor.cc-active { opacity: 1; scale: 1; }
+.custom-cursor .cc-bubble {
+  position: absolute; top: 0; left: 0; transform: translate(-50%, -50%);
+  width: 56px; height: 56px; border-radius: 50%;
+  background: color-mix(in srgb, var(--accent) 40%, transparent);
+  backdrop-filter: blur(6px) saturate(140%);
+  -webkit-backdrop-filter: blur(6px) saturate(140%);
+  color: #fff;
+  display: flex; align-items: center; justify-content: center;
+}
+.custom-cursor .cc-arrow {
+  width: 22px; height: 22px; flex-shrink: 0;
+}
+.custom-cursor .cc-label {
+  position: absolute; top: 34px; left: 0; transform: translateX(-50%);
+  white-space: nowrap;
+  font-size: 9px; letter-spacing: 0.5px; text-transform: uppercase; font-weight: 600;
+  color: var(--text); text-shadow: 0 1px 3px rgba(0,0,0,0.25);
+}
+@media (hover: hover) and (pointer: fine) {
+  .proj-card, .featured-card, .class-card { cursor: none; }
+}
+@media (hover: none), (pointer: coarse) {
+  .custom-cursor { display: none; }
+}
+
 /* Featured Project */
 .home-featured {
   padding: 48px; max-width: 1200px; margin: 0 auto;
@@ -178,11 +273,23 @@ body {
   background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px;
   overflow: hidden; cursor: pointer; text-decoration: none; color: inherit;
   transition: transform 0.5s cubic-bezier(0.16,1,0.3,1), box-shadow 0.5s;
+  position: relative;
 }
 .featured-card:hover {
   transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,0.06);
 }
-.featured-card .img-placeholder { height: 280px; border-radius: 0; }
+.featured-card .lock-icon {
+  position: absolute; top: 16px; right: 16px; width: 28px; height: 28px;
+  border-radius: 50%; background: var(--bg); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; color: var(--text3); z-index: 2;
+}
+.featured-card .card-cover { height: 280px; overflow: hidden; position: relative; }
+.featured-card .card-cover img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.featured-card:hover .card-cover img { transform: scale(1.04); }
 .featured-card .info {
   padding: 36px; display: flex; flex-direction: column; justify-content: center;
 }
@@ -321,6 +428,25 @@ body {
   letter-spacing: 1.5px; color: var(--text3); margin-bottom: 4px; font-weight: 500;
 }
 .proj-hero .meta-item span { font-size: 15px; color: var(--text); }
+
+/* Hero images are above the fold, so they fade in on mount rather than
+   on scroll — layered on top of the page's own fade so the image keeps
+   visibly emerging after the rest of the hero has settled. Opacity-only
+   so it never fights an element's own static transform (e.g. the
+   hero-blurred-bg zoom, or the showcase cards' translateY centering). */
+@keyframes csHeroImageIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.proj-hero img, .proj-hero video {
+  animation: csHeroImageIn 1.8s ease-out 0.15s both;
+}
+.hero-showcase-cards .hero-showcase-float:nth-of-type(1) img { animation-delay: 0.35s; }
+.hero-showcase-cards .hero-showcase-float:nth-of-type(2) img { animation-delay: 0.5s; }
+@media (prefers-reduced-motion: reduce) {
+  .proj-hero img, .proj-hero video { animation: none; opacity: 1; }
+}
+
 .proj-hero-video {
   margin-top: 40px; border-radius: 12px; overflow: hidden;
   border: 1px solid var(--border);
@@ -922,6 +1048,23 @@ body {
 }
 .about-journey-decoration .orbit-ring .inner { inset: 32px; }
 
+/* Unlike case study content, this section sits directly below the hero
+   and should feel like a continuation of its entrance, not something the
+   visitor has to scroll to trigger — so it animates in on page mount via
+   CSS animation-delay, not the IntersectionObserver-driven .scroll-reveal
+   used everywhere else. */
+.about-journey-mount {
+  opacity: 0;
+  animation: aboutJourneyIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes aboutJourneyIn {
+  from { opacity: 0; transform: translateY(32px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .about-journey-mount { animation: none; opacity: 1; }
+}
+
 /* Travel */
 .about-travel {
   max-width: 1200px; margin: 0 auto; padding: 64px 48px 48px;
@@ -1092,11 +1235,106 @@ body {
 /* Scroll Reveal */
 .scroll-reveal {
   opacity: 0; transform: translateY(32px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.95s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.95s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .scroll-reveal.revealed {
   opacity: 1; transform: none;
+}
+/* Case studies: the text itself shouldn't animate — only images should
+   (see the image-reveal rules below). The .revealed class still toggles
+   at the same scroll point; it just no longer moves/fades the section,
+   so it keeps driving the image transitions without affecting text. */
+.proj-content-full .scroll-reveal {
+  opacity: 1; transform: none; transition: none;
+}
+/* ...except card-shaped content (quote cards, stat cards) — these are
+   visual elements in their own right, not body copy, and their staggered
+   cascade-in is part of the design, so restore the normal reveal here. */
+.proj-content-full .scroll-reveal:has(> .cs-quote-card),
+.proj-content-full .scroll-reveal:has(> .cs-stat-card) {
+  opacity: 0; transform: translateY(32px);
+  transition: opacity 0.95s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.95s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.proj-content-full .scroll-reveal.revealed:has(> .cs-quote-card),
+.proj-content-full .scroll-reveal.revealed:has(> .cs-stat-card) {
+  opacity: 1; transform: none;
+}
+
+/* Case-study content images get their own slower, slightly delayed
+   "arrive" transition distinct from the surrounding text's fade/slide.
+   Opacity-only — matching the hero images exactly — because several of
+   these wrappers (e.g. .cs-flow-card-img) crop to a fixed aspect-ratio
+   with overflow:hidden, and animating transform:scale on an image inside
+   a cropped box reveals/hides different parts of it mid-transition,
+   reading as an inconsistent "zoom in then back out" instead of a clean
+   fade. A plain opacity fade looks the same everywhere regardless of
+   each wrapper's cropping. */
+.cs-image-full img, .cs-image-full video,
+.cs-grid-fig img, .cs-grid-fig video,
+.cs-image-half img, .cs-image-half video,
+.laptop-viewport img,
+.cs-flow-card-img img,
+.phone-frame__screen img,
+.cs-iteration-crop img {
+  transition: opacity 1.8s cubic-bezier(0.16, 1, 0.3, 1) 0.15s;
+}
+/* Accordion images are a different situation: the user just clicked and
+   is actively waiting, and the accordion is already playing its own
+   ~1.1s expand animation at the same time — stacking the full 1.8s/0.15s
+   scroll-reveal timing on top of that made the image feel like it was
+   arriving late. Snappier timing here instead. */
+.cs-accordion-item .cs-image-full img, .cs-accordion-item .cs-image-full video,
+.cs-accordion-item .cs-grid-fig img, .cs-accordion-item .cs-grid-fig video,
+.cs-accordion-item .cs-image-half img, .cs-accordion-item .cs-image-half video,
+.cs-accordion-item .laptop-viewport img {
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.1s;
+}
+.scroll-reveal .cs-image-full img, .scroll-reveal .cs-image-full video,
+.scroll-reveal .cs-grid-fig img, .scroll-reveal .cs-grid-fig video,
+.scroll-reveal .cs-image-half img, .scroll-reveal .cs-image-half video,
+.scroll-reveal .laptop-viewport img,
+.scroll-reveal .cs-flow-card-img img,
+.scroll-reveal .phone-frame__screen img,
+.scroll-reveal .cs-iteration-crop img {
+  opacity: 0;
+}
+.scroll-reveal.revealed .cs-image-full img, .scroll-reveal.revealed .cs-image-full video,
+.scroll-reveal.revealed .cs-grid-fig img, .scroll-reveal.revealed .cs-grid-fig video,
+.scroll-reveal.revealed .cs-image-half img, .scroll-reveal.revealed .cs-image-half video,
+.scroll-reveal.revealed .laptop-viewport img,
+.scroll-reveal.revealed .cs-flow-card-img img,
+.scroll-reveal.revealed .phone-frame__screen img,
+.scroll-reveal.revealed .cs-iteration-crop img {
+  opacity: 1;
+}
+
+/* Accordion sections (e.g. the numbered "04 · Design System" items) hide
+   their images via collapsed height, not scroll position — the ancestor
+   .scroll-reveal is usually already revealed long before the item is
+   opened, so key the image reveal off the accordion's own open state
+   instead, replaying the fade/settle each time a section is expanded.
+   (Specificity is matched to the .scroll-reveal.revealed rules above and
+   placed after them, so it wins the tie regardless of nesting.) */
+.scroll-reveal .cs-accordion-item .cs-image-full img, .scroll-reveal .cs-accordion-item .cs-image-full video,
+.scroll-reveal .cs-accordion-item .cs-grid-fig img, .scroll-reveal .cs-accordion-item .cs-grid-fig video,
+.scroll-reveal .cs-accordion-item .cs-image-half img, .scroll-reveal .cs-accordion-item .cs-image-half video,
+.scroll-reveal .cs-accordion-item .laptop-viewport img {
+  opacity: 0;
+}
+.scroll-reveal .cs-accordion-item--open .cs-image-full img, .scroll-reveal .cs-accordion-item--open .cs-image-full video,
+.scroll-reveal .cs-accordion-item--open .cs-grid-fig img, .scroll-reveal .cs-accordion-item--open .cs-grid-fig video,
+.scroll-reveal .cs-accordion-item--open .cs-image-half img, .scroll-reveal .cs-accordion-item--open .cs-image-half video,
+.scroll-reveal .cs-accordion-item--open .laptop-viewport img {
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .cs-image-full img, .cs-image-full video, .cs-grid-fig img, .cs-grid-fig video,
+  .cs-image-half img, .cs-image-half video, .laptop-viewport img,
+  .cs-flow-card-img img, .phone-frame__screen img, .cs-iteration-crop img {
+    opacity: 1 !important; transition: none !important;
+  }
 }
 
 /* Body */
@@ -1115,6 +1353,17 @@ body {
 .cs-text {
   font-size: 17px; color: var(--text2); line-height: 1.7; margin-bottom: 24px;
 }
+
+/* Case-study CTA link (e.g. "Try the Interactive Prototype") */
+.cs-cta-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 28px; border: 1px solid var(--accent);
+  border-radius: 10px; background: var(--accent); color: var(--bg);
+  font-size: 14px; font-family: var(--font-inter), 'Inter', sans-serif;
+  text-decoration: none; transition: opacity 0.3s;
+  font-weight: 500; letter-spacing: 0.3px; margin: 8px 0 24px;
+}
+.cs-cta-btn:hover { opacity: 0.85; }
 
 /* Video */
 .cs-video-wrap {
@@ -1333,9 +1582,15 @@ body {
 .cs-finding p { font-size: 14px; line-height: 1.6; color: var(--text2); margin: 0; }
 
 /* 2x2 Image Grid */
+/* Two rows, each its own ScrollReveal — so the second pair appears as
+   the user actually scrolls to it rather than firing together with the
+   first pair the moment the section comes into view. */
 .cs-image-grid-2x2 {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+  display: flex; flex-direction: column; gap: 12px;
   margin-top: 24px; background: var(--img-bg); border-radius: 12px; padding: 12px;
+}
+.cs-image-grid-2x2-row {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
 }
 .cs-image-grid-2x2 img { border-radius: 8px; }
 .cs-grid-fig { margin: 0; }
@@ -1350,6 +1605,31 @@ body {
    Position .cs-annotate-box and .cs-annotate-tag with % left/top/width/height
    matching the underlying image's own coordinate space. */
 .cs-annotate-wrap { position: relative; }
+/* The callout badges didn't have their own appear transition — they used
+   to just snap into place instantly while the photo underneath was still
+   fading/scaling in. Fade them in too, slightly after the image, so they
+   read as "labels landing on a photo that's already visible" rather than
+   popping in ahead of it. */
+.cs-annotate-box, .cs-annotate-tag, .cs-annotate-num, .cs-annotate-label {
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.8s;
+}
+.scroll-reveal .cs-annotate-wrap .cs-annotate-box,
+.scroll-reveal .cs-annotate-wrap .cs-annotate-tag,
+.scroll-reveal .cs-annotate-wrap .cs-annotate-num,
+.scroll-reveal .cs-annotate-wrap .cs-annotate-label {
+  opacity: 0;
+}
+.scroll-reveal.revealed .cs-annotate-wrap .cs-annotate-box,
+.scroll-reveal.revealed .cs-annotate-wrap .cs-annotate-tag,
+.scroll-reveal.revealed .cs-annotate-wrap .cs-annotate-num,
+.scroll-reveal.revealed .cs-annotate-wrap .cs-annotate-label {
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .cs-annotate-box, .cs-annotate-tag, .cs-annotate-num, .cs-annotate-label {
+    opacity: 1 !important; transition: none !important;
+  }
+}
 .cs-annotate-box {
   position: absolute;
   border-radius: 8px;
@@ -1495,6 +1775,185 @@ body {
 }
 .cs-appendix h3 { font-size: 18px; color: var(--text2); }
 
+/* Sticky Stepper — pinned "scrollytelling" panel. The wrapper is tall
+   (steps.length * 120vh) so there's scroll room to walk through; the pin
+   sticks below the site nav + section-progress bar (74px + 57px). Steps
+   crossfade based on scroll position (3 dots, one per step); within the
+   active step, full-width media frames (e.g. Before → After) crossfade
+   on top of that same scroll, using the step's own local progress.
+   Images are full-width, uncropped, at their natural height. The active
+   step/frame stays in normal flow (sizing its container) while inactive
+   ones are absolutely overlaid on top, invisible, not affecting layout —
+   that's what avoids both cropping and an internal scrollbar.
+   Each step's optional intro/description sits directly in that same flow
+   (no separate height-capped region, no collapse-on-scroll) — it simply
+   crossfades with the rest of the step. */
+.sticky-stepper {
+  position: relative;
+}
+.sticky-stepper-pin {
+  position: sticky;
+  top: 120px;
+  display: flex;
+  flex-direction: column;
+  padding: 8px 0;
+}
+.sticky-stepper-label { display: none; }
+.sticky-stepper-step-intro { margin-bottom: 16px; }
+.sticky-stepper-panel {
+  position: relative;
+}
+.sticky-stepper-step {
+  opacity: 0; pointer-events: none; z-index: 0;
+  position: absolute; top: 0; left: 0; width: 100%;
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.sticky-stepper-step.is-active {
+  opacity: 1; pointer-events: auto; z-index: 1;
+  position: relative;
+}
+.sticky-stepper-frames {
+  position: relative; width: 100%; margin-top: 8px;
+}
+.sticky-stepper-frame {
+  opacity: 0; z-index: 0;
+  position: absolute; top: 0; left: 0; width: 100%;
+  display: flex; flex-direction: column; align-items: center;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.sticky-stepper-frame.is-active {
+  opacity: 1; z-index: 1;
+  position: relative;
+}
+/* Desktop: pill + title share one row at top-left, reflecting whichever
+   frame is currently active — kept outside the per-frame blocks so the
+   title doesn't get duplicated or crossfade along with them. Left-aligned
+   full width, same left edge as every other label in the case study —
+   the image/caption below are centered independently of this row. */
+.sticky-stepper-frame-header {
+  display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px;
+}
+.sticky-stepper-frame-label {
+  margin: 0;
+}
+/* Matches the Before/After pill's actual rendered style (.cs-label here
+   inherits font-size/color/line-height from .proj-content-full .section p,
+   which wins by specificity — see that rule for why this isn't just
+   .cs-label's own 12px/accent-color values) so the two halves of the row
+   read as one consistent kicker, not two different weights. */
+.sticky-stepper-step-title {
+  margin: 0; font-size: 17px; font-weight: 600; color: var(--text2);
+  text-transform: uppercase; letter-spacing: 2px;
+}
+/* Mobile fallback only (see media query below) — hidden on desktop. */
+.sticky-stepper-step-title-mobile,
+.sticky-stepper-frame-label-mobile {
+  display: none;
+}
+/* Slightly narrower than the full content column (same width as every
+   other section on the page, e.g. "01 · Navigation Audit") — independent
+   of the pill/title row above, which stays flush left regardless. */
+.sticky-stepper-frame-media {
+  width: 100%; max-width: 880px; margin: 0 auto; display: flex; justify-content: center;
+}
+/* Two-up (side-by-side) pairs get the full content column instead — at
+   960px split in half, each image was too small to read comfortably. */
+.sticky-stepper-frame-media--wide {
+  max-width: none;
+}
+/* Two images side by side within a --wide frame — stacks on mobile like
+   every other paired image/video in the case studies (never side by side
+   on a phone). Each cell locks its own height via the `aspectRatio`
+   inline style passed from the page — both cells in a pair are given the
+   SAME ratio, so they render at exactly the same height regardless of
+   each image's actual native proportions, with object-fit:cover filling
+   the cell without distortion. */
+.sticky-stepper-two-up {
+  display: flex; gap: 16px; width: 100%;
+}
+.sticky-stepper-two-up-cell {
+  flex: 1; min-width: 0; overflow: hidden; border-radius: 12px;
+}
+.sticky-stepper-frame-media img, .sticky-stepper-frame-media video {
+  width: 100%; height: auto;
+  border-radius: 12px; display: block;
+}
+/* Higher specificity than the rule above (which sets height:auto) so this
+   reliably wins regardless of source order. */
+.sticky-stepper-frame-media .sticky-stepper-two-up-cell img {
+  height: 100%; object-fit: cover; border-radius: 0;
+}
+/* Short, static caption below the frames — same text whether Before or
+   After is showing, so it doesn't compete with the image for attention
+   or animate on its own. Styled like .cs-color-cascade-note (the "Checked
+   in order" note) — small and muted, a caption rather than body copy.
+   Qualified with the element type to match that rule's specificity —
+   .proj-content-full .section p otherwise wins on font-size/color since
+   this is a <p> too (see that rule, defined earlier in this file). */
+.proj-content-full .section p.sticky-stepper-description {
+  margin: 6px auto 0; max-width: 700px; text-align: center;
+  font-size: 12px; color: var(--text3);
+}
+/* Normal-flow row below the image/caption — not absolutely floated over
+   the image, since that assumed the pin's bottom edge was the image's
+   bottom edge, which broke once a caption was added below the image
+   (the dots ended up overlapping the caption text). Styled to match
+   .carousel-dots/.carousel-dot exactly, for consistency with the other
+   dot indicator already used elsewhere on the site. */
+.sticky-stepper-dots {
+  display: flex; justify-content: center; align-items: center; gap: 8px;
+  margin-top: 16px;
+}
+.sticky-stepper-dot {
+  width: 8px; height: 8px; border-radius: 50%; padding: 0;
+  border: 1px solid var(--border); background: transparent; cursor: pointer;
+  transition: all 0.3s;
+}
+.sticky-stepper-dot.is-active {
+  background: var(--accent); border-color: var(--accent); transform: scale(1.3);
+}
+@media (prefers-reduced-motion: reduce), (max-width: 768px) {
+  /* No scroll-jacking here — every step, and every frame within it
+     (e.g. Before + After), stacks statically so nothing is lost. The
+     persistent label only gave way to the image because the pin was
+     height-constrained — on the stacked fallback there's no such limit,
+     so bring it back too. */
+  .sticky-stepper { height: auto !important; }
+  .sticky-stepper-pin { position: static !important; padding: 0; }
+  .sticky-stepper-label { display: block !important; }
+  .sticky-stepper-step {
+    position: static !important; opacity: 1 !important; pointer-events: auto !important;
+    transition: none !important; margin-bottom: 48px;
+  }
+  .sticky-stepper-frames {
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  /* The combined desktop header (pill + title, reflecting only the
+     currently-scrubbed frame) doesn't make sense once every frame is
+     stacked and visible at once — swap it for a title once up top plus
+     each frame's own pill, same as before this row existed. */
+  .sticky-stepper-frame-header { display: none; }
+  .sticky-stepper-step-title-mobile {
+    display: block; margin: 0 0 12px; font-size: 17px; font-weight: 600; color: var(--text2);
+    text-transform: uppercase; letter-spacing: 2px;
+  }
+  .sticky-stepper-frame-label-mobile {
+    display: block; margin: 0 0 8px;
+  }
+  .sticky-stepper-frame {
+    position: static !important; opacity: 1 !important; transition: none !important;
+  }
+  .sticky-stepper-frame-media img, .sticky-stepper-frame-media video {
+    width: 100%;
+  }
+  /* Two-up pairs stack instead of squeezing side by side on a phone (same
+     rule every other paired image on the site follows). */
+  .sticky-stepper-two-up {
+    flex-direction: column;
+  }
+  .sticky-stepper-dots { display: none; }
+}
+
 /* Step intro — same type scale as .cs-solution-card, just without the
    bordered box (matches the Shared Tokens/Chassis/Features cards above) */
 .cs-step-intro {
@@ -1540,6 +1999,25 @@ body {
   .cs-color-table { font-size: 13px; }
   .cs-color-table td { padding: 10px 6px; }
   .cs-color-table-name { white-space: normal; }
+}
+
+/* Generic spec table (e.g. motion timing/easing) — same rhythm as .cs-color-table, no swatch column */
+.cs-specs-table { width: 100%; border-collapse: collapse; margin: 4px 0 8px; font-size: 14px; }
+.cs-specs-table th {
+  text-align: left; font-size: 12px; text-transform: uppercase;
+  letter-spacing: 0.05em; color: var(--text3); font-weight: 600;
+  padding: 0 12px 10px;
+}
+.cs-specs-table th:first-child { padding-left: 0; }
+.cs-specs-table td {
+  padding: 13px 12px; border-top: 1px solid var(--border); vertical-align: middle;
+  color: var(--text2);
+}
+.cs-specs-table td:first-child { padding-left: 0; color: var(--text); font-weight: 500; }
+.cs-specs-table td:nth-child(2) { color: var(--text3); white-space: nowrap; }
+@media (max-width: 600px) {
+  .cs-specs-table { font-size: 13px; }
+  .cs-specs-table td { padding: 10px 6px; }
 }
 
 /* Narrow image (for tall mobile screenshots) */
@@ -2486,6 +2964,9 @@ body {
 .cs-solutions-row--four {
   grid-template-columns: repeat(2, 1fr);
 }
+.cs-solutions-row--two {
+  grid-template-columns: repeat(2, 1fr);
+}
 .cs-solution-card {
   padding: 24px; border-radius: 12px;
   border: 1px solid var(--border);
@@ -2700,6 +3181,22 @@ body {
   display: block;
   opacity: 0;
   animation: slidefade 12s infinite;
+  animation-play-state: paused;
+}
+/* The slideshow used to start its 12s cycle the instant the page loaded,
+   whether or not this section was even on screen yet — so by the time
+   the user scrolled to it, it had already been running for a while and
+   never had its own "appear" moment. Pausing it until the section
+   actually scrolls into view gives it the same scroll-triggered appear
+   as everything else (the loop's own 0%→5% opacity ramp becomes that
+   entrance). */
+.scroll-reveal.revealed .monitor-slideshow img {
+  animation-play-state: running;
+}
+@media (prefers-reduced-motion: reduce) {
+  .monitor-slideshow img { animation-play-state: paused !important; opacity: 1; }
+  .monitor-slideshow img:nth-child(1) { opacity: 1; }
+  .monitor-slideshow img:nth-child(n+2) { opacity: 0; }
 }
 .monitor-slideshow img:nth-child(1) { animation-delay: 0s; }
 .monitor-slideshow img:nth-child(2) { animation-delay: 4s; }
@@ -2775,13 +3272,21 @@ body {
   background: #666;
 }
 
-/* Collaboration flow — compact grid with arrows */
+/* Collaboration flow — compact grid with arrows. Each row is its own
+   ScrollReveal so the three pairs appear progressively as the user
+   actually scrolls to them, instead of all six cards revealing at once
+   when the section first comes into view. */
 .cs-collab-flow-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 36px;
+}
+.cs-flow-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px 20px;
   align-items: start;
-  margin-top: 36px;
 }
 .cs-flow-card {
   display: flex;
@@ -2872,7 +3377,8 @@ body {
   .cs-flow-step { flex: none; }
   .cs-interface-pair { grid-template-columns: 1fr; }
   .cs-testing-layout { grid-template-columns: 1fr; }
-  .cs-collab-flow-grid { gap: 10px 6px; }
+  .cs-collab-flow-grid { gap: 10px; }
+  .cs-flow-row { gap: 10px 6px; }
   .cs-testing-layout .cs-metric-cards { grid-template-columns: 1fr 1fr; }
   .carousel-nav { width: 32px; height: 32px; font-size: 16px; }
   .cs-showcase { grid-template-columns: 1fr; gap: 32px; }
@@ -2917,13 +3423,13 @@ body {
   .cs-figma-embed { padding-bottom: 100%; }
   .figjam-board { grid-template-columns: 1fr; padding: 24px; }
   .cs-key-findings { grid-template-columns: 1fr; }
-  .cs-image-grid-2x2 { grid-template-columns: 1fr; }
+  .cs-image-grid-2x2-row { grid-template-columns: 1fr; }
   .cs-stat-number { font-size: 36px; }
   .cs-quotes-grid { grid-template-columns: 1fr; padding: 0 32px; }
   .cs-quotes-grid--inline { padding: 0; }
   .cs-image-row { grid-template-columns: 1fr; }
   .cs-image-row--two { grid-template-columns: 1fr; }
-  .cs-solutions-row, .cs-solutions-row--four { grid-template-columns: 1fr; }
+  .cs-solutions-row, .cs-solutions-row--four, .cs-solutions-row--two { grid-template-columns: 1fr; }
   .cs-lilly-benefits { grid-template-columns: 1fr 1fr; }
   .cs-lilly-collab-flow { flex-direction: column; }
   .cs-collab-arrow { justify-content: center; transform: rotate(90deg); }
@@ -2937,6 +3443,7 @@ body {
    ═══════════════════════════════════════════ */
 @media (max-width: 768px) {
   .container { padding: 0 20px; }
+  .phone-frame-pair { flex-direction: column; align-items: center; }
   .site-nav { padding: 16px 20px; grid-template-columns: 1fr 1fr; }
   .site-nav .logo { font-size: 17px; }
   .site-nav .nav-links { display: none; }
@@ -2951,7 +3458,7 @@ body {
   .marquee .m-item span { font-size: 14px; }
   .home-featured { padding: 28px 20px; }
   .featured-card { grid-template-columns: 1fr; }
-  .featured-card .img-placeholder { height: 200px; }
+  .featured-card .card-cover { height: 200px; }
   .featured-card .info { padding: 24px; }
   .featured-card .info h3 { font-size: 22px; }
   .featured-card .info p { font-size: 15px; }
@@ -3034,11 +3541,12 @@ body {
   .cs-info-cards { flex-direction: column; }
   .cs-solution-number { font-size: 22px; }
   .cs-solution-item h3 { font-size: 17px; }
-  .cs-solutions-row, .cs-solutions-row--four { grid-template-columns: 1fr; gap: 12px; }
+  .cs-solutions-row, .cs-solutions-row--four, .cs-solutions-row--two { grid-template-columns: 1fr; gap: 12px; }
   .cs-solution-card { padding: 16px; }
   .cs-solution-card h3 { font-size: 15px; margin: 4px 0 4px; }
   .cs-solution-card p { font-size: 13px; }
-  .cs-collab-flow-grid { grid-template-columns: 1fr; margin-top: 24px; gap: 8px; }
+  .cs-collab-flow-grid { margin-top: 24px; gap: 8px; }
+  .cs-flow-row { grid-template-columns: 1fr; }
   .cs-flow-arrow-row { padding: 0; }
   .cs-flow-card-caption h4 { font-size: 12px; }
   .cs-accordion-title { font-size: 14px; }

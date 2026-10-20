@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { StickyStepper } from "@/components/StickyStepper";
 import { PasswordGate } from "@/components/PasswordGate";
 import { SectionProgress } from "@/components/SectionProgress";
 import { LaptopScroll } from "@/components/LaptopScroll";
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
 const NAV_SECTIONS = [
   { label: "Overview", href: "#sec-context" },
   { label: "Impact", href: "#sec-impact" },
-  { label: "The System", href: "#sec-design", childIds: ["sec-navigation", "sec-interaction", "sec-engineering"] },
+  { label: "Design", href: "#sec-design", childIds: ["sec-navigation", "sec-interaction", "sec-standards", "sec-engineering"] },
   { label: "Takeaway", href: "#sec-takeaway" },
 ];
 
@@ -43,7 +44,7 @@ export default function ApexPage() {
           </div>
           <div className="meta-item">
             <label>Timeline</label>
-            <span>Feb 2026 &ndash; Present</span>
+            <span>~3 months</span>
           </div>
         </div>
 
@@ -121,7 +122,7 @@ export default function ApexPage() {
         {/* Design */}
         <ScrollReveal>
         <div className="section" id="sec-design">
-          <h2>The System</h2>
+          <h2>Design</h2>
         </div>
         </ScrollReveal>
 
@@ -204,114 +205,123 @@ export default function ApexPage() {
         <ScrollReveal>
         <div className="section section--child" id="sec-interaction">
           <p className="cs-label">02 &middot; Interaction Design</p>
+          <StickyStepper
+            stepLabels={[
+              "Side sheet to full-page form",
+              "Separate tabs to unified search",
+            ]}
+            steps={[
+              {
+                title: "(Side sheet → Full-page form)",
+                description: (
+                  <>
+                    The side sheet was too narrow for a multi-step form
+                    &mdash; a full page gives each step room to breathe.
+                  </>
+                ),
+                frames: [
+                  {
+                    label: "Before",
+                    media: (
+                      <LoopingVideo
+                        src="/images/projects/apex/sheet-video.mov"
+                        mp4Src="/images/projects/apex/sheet-video.mp4"
+                        poster="/images/projects/apex/sheet_video_poster.png"
+                        pauseMs={1800}
+                        style={{ width: "100%", maxWidth: 700, height: "auto", display: "block" }}
+                      />
+                    ),
+                  },
+                  {
+                    label: "After",
+                    wide: true,
+                    media: (
+                      <div className="sticky-stepper-two-up">
+                        <div className="sticky-stepper-two-up-cell" style={{ aspectRatio: "1600 / 1113" }}>
+                          <Image
+                            src="/images/projects/apex/fullpage_after1.png"
+                            alt="Initiate Cash Transfer as a full page, step 2 of 3: Transfer Details"
+                            width={1600}
+                            height={1113}
+                            sizes="(max-width: 768px) 100vw, 1000px"
+                          />
+                        </div>
+                        <div className="sticky-stepper-two-up-cell" style={{ aspectRatio: "1600 / 1113" }}>
+                          <Image
+                            src="/images/projects/apex/fullpage_after2.png"
+                            alt="Initiate Cash Transfer as a full page, step 3 of 3: Review"
+                            width={1600}
+                            height={1113}
+                            sizes="(max-width: 768px) 100vw, 1000px"
+                          />
+                        </div>
+                      </div>
+                    ),
+                  },
+                ],
+              },
+              {
+                title: "(Separate tabs → Unified search)",
+                description: (
+                  <>
+                    Activity and Consent Requests shared similar data. I
+                    combined them into one searchable table with status
+                    filters.
+                  </>
+                ),
+                frames: [
+                  {
+                    label: "Before",
+                    wide: true,
+                    media: (
+                      <div className="sticky-stepper-two-up">
+                        <div className="sticky-stepper-two-up-cell" style={{ aspectRatio: "1600 / 1079" }}>
+                          <Image
+                            src="/images/projects/apex/seperatetab_before1.png"
+                            alt="Cash Transfers — separate Transfer Activity tab"
+                            width={1600}
+                            height={1079}
+                            sizes="(max-width: 768px) 100vw, 1000px"
+                          />
+                        </div>
+                        <div className="sticky-stepper-two-up-cell" style={{ aspectRatio: "1600 / 1079" }}>
+                          <Image
+                            src="/images/projects/apex/seperatetab_before2.png"
+                            alt="Cash Transfers — separate Consent Requests tab"
+                            width={1600}
+                            height={1079}
+                            sizes="(max-width: 768px) 100vw, 1000px"
+                          />
+                        </div>
+                      </div>
+                    ),
+                  },
+                  {
+                    label: "After",
+                    media: (
+                      <Image
+                        src="/images/projects/apex/seperatetab_after.png"
+                        alt="Search Transfers — unified table combining activity and consent data, with status filters"
+                        width={1600}
+                        height={1079}
+                        sizes="(max-width: 768px) 100vw, 1100px"
+                      />
+                    ),
+                  },
+                ],
+              },
+            ]}
+          />
+        </div>
+        </ScrollReveal>
 
-          <div className="cs-step-intro" style={{ marginTop: 28 }}>
-            <h2 className="cs-heading">Side sheet &rarr; Full-page form</h2>
-            <p>
-              The side sheet was too narrow for a multi-step
-              form, crowding fields and forcing extra scrolling
-              between steps. A full page gave each step room to
-              lay out clearly.
-            </p>
-          </div>
-
-          <p className="cs-label" style={{ marginTop: 24 }}>Before</p>
-          <figure className="cs-grid-fig" style={{ marginTop: 12, maxWidth: 600, marginLeft: 'auto', marginRight: 'auto' }}>
-            <div className="cs-video-embed" style={{ margin: 0, position: 'relative', aspectRatio: '2038 / 1370' }}>
-              <LoopingVideo
-                src="/images/projects/apex/sheet_video.mov"
-                mp4Src="/images/projects/apex/sheet_video.mp4"
-                poster="/images/projects/apex/sheet_video_poster.png"
-                pauseMs={1800}
-                style={{ position: 'absolute', top: 0, right: 0, width: '118%', height: '100%', objectFit: 'cover' }}
-              />
-            </div>
-            <figcaption>Side sheet &mdash; too narrow for a multi-step form</figcaption>
-          </figure>
-
-          <p className="cs-label" style={{ marginTop: 24 }}>After</p>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginTop: 12 }}>
-            <figure className="cs-grid-fig">
-              <Image
-                src="/images/projects/apex/fullpage_after1.png"
-                alt="Initiate Cash Transfer as a full page, step 2 of 3: Transfer Details"
-                width={1600}
-                height={1113}
-                sizes="(max-width: 768px) 100vw, 550px"
-                style={{ borderRadius: 8, border: '1px solid var(--border)' }}
-              />
-              <figcaption>Full page &mdash; step 2: Transfer Details</figcaption>
-            </figure>
-            <figure className="cs-grid-fig">
-              <Image
-                src="/images/projects/apex/fullpage_after2.png"
-                alt="Initiate Cash Transfer as a full page, step 3 of 3: Review"
-                width={1600}
-                height={1113}
-                sizes="(max-width: 768px) 100vw, 550px"
-                style={{ borderRadius: 8, border: '1px solid var(--border)' }}
-              />
-              <figcaption>Full page &mdash; step 3: Review</figcaption>
-            </figure>
-          </div>
-
-          <div className="cs-step-intro" style={{ marginTop: 40 }}>
-            <h2 className="cs-heading">Separate tabs &rarr; Unified search</h2>
-            <p>
-              Activity and Consent Requests shared similar data.
-              I combined them into one searchable table with
-              status filters.
-            </p>
-          </div>
-
-          <p className="cs-label" style={{ marginTop: 24 }}>Before</p>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginTop: 12 }}>
-            <figure className="cs-grid-fig">
-              <Image
-                src="/images/projects/apex/seperatetab_before1.png"
-                alt="Cash Transfers — separate Transfer Activity tab"
-                width={1600}
-                height={1079}
-                sizes="(max-width: 768px) 100vw, 550px"
-                style={{ borderRadius: 8, border: '1px solid var(--border)' }}
-              />
-              <figcaption>Transfer Activity tab</figcaption>
-            </figure>
-            <figure className="cs-grid-fig">
-              <Image
-                src="/images/projects/apex/seperatetab_before2.png"
-                alt="Cash Transfers — separate Consent Requests tab"
-                width={1600}
-                height={1079}
-                sizes="(max-width: 768px) 100vw, 550px"
-                style={{ borderRadius: 8, border: '1px solid var(--border)' }}
-              />
-              <figcaption>Consent Requests tab</figcaption>
-            </figure>
-          </div>
-
-          <p className="cs-label" style={{ marginTop: 24 }}>After</p>
-          <figure className="cs-grid-fig" style={{ marginTop: 12 }}>
-            <Image
-              src="/images/projects/apex/seperatetab_after.png"
-              alt="Search Transfers — unified table combining activity and consent data, with status filters"
-              width={1600}
-              height={1079}
-              sizes="(max-width: 768px) 100vw, 1100px"
-              style={{ borderRadius: 8, border: '1px solid var(--border)' }}
-            />
-            <figcaption>Unified search &mdash; one table, status filters replace the tabs</figcaption>
-          </figure>
-
-          <div className="cs-step-intro" style={{ marginTop: 40 }}>
-            <h2 className="cs-heading">Inconsistent styles &rarr; Shared standards</h2>
-            <p>
-              I unified colors, component styling, and semantic
-              statuses, validating light and dark mode contrast
-              against WCAG 2.2.
-            </p>
-          </div>
-
+        {/* 03 Color & Accessibility */}
+        <ScrollReveal>
+        <div className="section section--child" id="sec-standards">
+          <p className="cs-label">03 &middot; Color &amp; Accessibility</p>
+          <h2 className="cs-heading">
+            Inconsistent styles &rarr; Shared standards
+          </h2>
           <p>
             Status was black-and-white before a shared contract
             existed &mdash; no semantic system, styled ad hoc. I
@@ -371,10 +381,10 @@ export default function ApexPage() {
         </div>
         </ScrollReveal>
 
-        {/* 03 Design Engineering */}
+        {/* 04 Design Engineering */}
         <ScrollReveal>
         <div className="section section--child" id="sec-engineering">
-          <p className="cs-label">03 &middot; Design Engineering</p>
+          <p className="cs-label">04 &middot; Design Engineering</p>
           <h2 className="cs-heading">
             One system, two frameworks
           </h2>

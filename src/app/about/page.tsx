@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { AboutHeroPhoto } from "@/components/AboutHeroPhoto";
+import { ScrollReveal } from "@/components/ScrollReveal";
+import { CountUp } from "@/components/CountUp";
 
 export const metadata: Metadata = {
   title: "About — Jenny Lin",
@@ -53,22 +55,31 @@ export default function AboutPage() {
     <>
       <section className="about-hero">
         <div className="about-hero-text">
-          <p className="about-greeting">Hi, I am</p>
-          <h1>Jenny Lin</h1>
-          <p className="about-subtitle">
-            A UX Research Designer passionate about creating inclusive,
-            human-centered digital experiences. With over five years of
-            research-driven work spanning B2B services, I focus on accessibility,
-            AI integration, and design that truly works for people.
-          </p>
+          <ScrollReveal duration={1200}>
+            <p className="about-greeting">Hi, I am</p>
+            <h1>Jenny Lin</h1>
+          </ScrollReveal>
+          <ScrollReveal delay={300} duration={1200}>
+            <p className="about-subtitle">
+              A UX Research Designer passionate about creating inclusive,
+              human-centered digital experiences. With over five years of
+              research-driven work spanning B2B services, I focus on accessibility,
+              AI integration, and design that truly works for people.
+            </p>
+          </ScrollReveal>
         </div>
         <AboutHeroPhoto />
       </section>
 
       <section className="about-journey">
         <div className="about-journey-inner">
-          <h2>Accessibility Sparked My Passion</h2>
-          <div className="about-journey-content">
+          <div className="about-journey-mount" style={{ animationDelay: "600ms" }}>
+            <h2>Accessibility Sparked My Passion</h2>
+          </div>
+          <div
+            className="about-journey-mount about-journey-content"
+            style={{ animationDelay: "900ms" }}
+          >
             <p>
               My journey into UX began at a medical library, where I watched
               elderly patients struggle with newly introduced technology
@@ -93,18 +104,23 @@ export default function AboutPage() {
       </section>
 
       <section className="about-travel">
-        <div className="about-travel-header">
+        <ScrollReveal className="about-travel-header" duration={1200}>
           <h2>Beyond the Screen</h2>
           <p className="about-travel-stat">
-            <span className="stat-number">40+</span> countries and counting
+            <span className="stat-number">
+              <CountUp end={40} suffix="+" />
+            </span>{" "}
+            countries and counting
           </p>
-        </div>
-        <p className="about-travel-desc">
-          Each country has deepened my understanding of how differently people
-          interact with technology, information, and each other. Travel
-          isn&apos;t just a hobby &mdash; it&apos;s cross-cultural UX research
-          that shapes how I approach inclusive design.
-        </p>
+        </ScrollReveal>
+        <ScrollReveal delay={300} duration={1200}>
+          <p className="about-travel-desc">
+            Each country has deepened my understanding of how differently people
+            interact with technology, information, and each other. Travel
+            isn&apos;t just a hobby &mdash; it&apos;s cross-cultural UX research
+            that shapes how I approach inclusive design.
+          </p>
+        </ScrollReveal>
         <div className="about-photo-carousel">
           <PhotoRow photos={portraitPhotos} direction="left" orient="portrait" />
           <PhotoRow photos={landscapePhotos} direction="right" orient="landscape" />

@@ -112,8 +112,8 @@ export default function AIAgentPage() {
                       <Image
                         src="/images/projects/ai-agent/ca.png"
                         alt="Competitor analysis of AI learning tools"
-                        width={12948}
-                        height={9108}
+                        width={3000}
+                        height={2110}
                         sizes="(max-width: 768px) 100vw, 800px"
                       />
                     </div>
@@ -160,8 +160,8 @@ export default function AIAgentPage() {
                       <Image
                         src="/images/projects/ai-agent/storyboard.png"
                         alt="Storyboard showing user scenarios with the AI teaching assistant"
-                        width={4012}
-                        height={2929}
+                        width={3000}
+                        height={2190}
                         sizes="(max-width: 768px) 100vw, 800px"
                       />
                     </div>
@@ -209,8 +209,8 @@ export default function AIAgentPage() {
                 <Image
                   src="/images/projects/ai-agent/flow2.png"
                   alt="Annotated chat interface showing brief wrap-up messages, additional resources, follow-up questions, and prompts for personal experiences"
-                  width={6786}
-                  height={2339}
+                  width={3000}
+                  height={1034}
                   sizes="(max-width: 768px) 100vw, 800px"
                 />
               </div>
@@ -406,8 +406,8 @@ export default function AIAgentPage() {
                   <Image
                     src="/images/projects/ai-agent/before.png"
                     alt="Before: cluttered home with rigid categories"
-                    width={3243}
-                    height={4479}
+                    width={2172}
+                    height={3000}
                     sizes="(max-width: 768px) 100vw, 400px"
                   />
                 </figure>

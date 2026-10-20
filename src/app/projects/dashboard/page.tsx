@@ -253,8 +253,8 @@ export default function DashboardPage() {
               <Image
                 src="/images/projects/dashboard/solution.png"
                 alt="Redesigned AT&T portal — single-surface solution"
-                width={2000}
-                height={2340}
+                width={2564}
+                height={3000}
                 sizes="(max-width: 768px) 100vw, 800px"
               />
             </div>
@@ -295,8 +295,8 @@ export default function DashboardPage() {
                   <Image
                     src="/images/projects/dashboard/iteration3.png"
                     alt="Before and after: navigation from 3 steps to 1"
-                    width={2000}
-                    height={1200}
+                    width={3000}
+                    height={1687}
                     sizes="(max-width: 768px) 100vw, 800px"
                   />
                 </div>
@@ -386,7 +386,7 @@ export default function DashboardPage() {
         </ScrollReveal>
 
         <div className="proj-nav-bar">
-          <Link href="/">← All Projects</Link>
+          <Link href="/projects/eli-lilly">← Eli Lilly</Link>
           <Link href="/projects/healthcare">Next: Healthcare →</Link>
         </div>
         </PasswordGate>

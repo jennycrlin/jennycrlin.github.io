@@ -138,8 +138,8 @@ export default function MeetEatPage() {
                       <Image
                         src="/images/projects/meeteat/StoryMap.png"
                         alt="User story map"
-                        width={16900}
-                        height={13228}
+                        width={3000}
+                        height={2348}
                         sizes="(max-width: 768px) 100vw, 800px"
                       />
                     </div>
@@ -151,8 +151,8 @@ export default function MeetEatPage() {
                       <Image
                         src="/images/projects/meeteat/low-fi.png"
                         alt="Low-fidelity wireframes"
-                        width={21184}
-                        height={13512}
+                        width={3000}
+                        height={1913}
                         sizes="(max-width: 768px) 100vw, 800px"
                       />
                     </div>
@@ -222,8 +222,8 @@ export default function MeetEatPage() {
                 <Image
                   src="/images/projects/meeteat/DESIGN1.png"
                   alt="Before & After: Navigation clarity improvements"
-                  width={7680}
-                  height={4320}
+                  width={3000}
+                  height={1687}
                   sizes="(max-width: 768px) 100vw, 800px"
                 />
               </div>
@@ -243,8 +243,8 @@ export default function MeetEatPage() {
                 <Image
                   src="/images/projects/meeteat/DESIGN2.png"
                   alt="Before & After: CTA buttons on calendar page"
-                  width={7680}
-                  height={4320}
+                  width={3000}
+                  height={1687}
                   sizes="(max-width: 768px) 100vw, 800px"
                 />
               </div>
@@ -264,8 +264,8 @@ export default function MeetEatPage() {
                 <Image
                   src="/images/projects/meeteat/DESIGN3.png"
                   alt="Before & After: Accessibility improvements"
-                  width={7680}
-                  height={4320}
+                  width={3000}
+                  height={1687}
                   sizes="(max-width: 768px) 100vw, 800px"
                 />
               </div>
