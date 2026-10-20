@@ -1597,7 +1597,8 @@ body {
 .cs-grid-fig figcaption {
   font-size: 12px; color: var(--text3); margin-top: 6px; text-align: center;
 }
-.cs-media-caption {
+.cs-media-caption,
+.proj-content-full .section p.cs-media-caption {
   font-size: 12px; color: var(--text3); margin-top: 10px; text-align: center;
 }
 
@@ -2112,6 +2113,11 @@ body {
 }
 .cs-image-full--phone {
   max-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.cs-image-full--ca-table {
+  max-width: 92%;
   margin-left: auto;
   margin-right: auto;
 }

@@ -108,7 +108,7 @@ export default function AIAgentPage() {
                       and provide personalized AI support for different learning
                       styles.
                     </p>
-                    <div className="cs-image-full">
+                    <div className="cs-image-full cs-image-full--ca-table">
                       <Image
                         src="/images/projects/ai-agent/ca.png"
                         alt="Competitor analysis of AI learning tools"
