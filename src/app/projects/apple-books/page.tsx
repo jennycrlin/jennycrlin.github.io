@@ -285,7 +285,7 @@ export default function AppleBooksPage() {
           </PasswordGate>
 
           <div className="proj-nav-bar">
-            <Link href="/projects/ai-agent">&larr; Echo Learn</Link>
+            <Link href="/projects/ai-agent">&larr; Teaching AI</Link>
             <Link href="/projects/meeteat">Next: MeetEat &rarr;</Link>
           </div>
       </div>

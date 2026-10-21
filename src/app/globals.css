@@ -438,111 +438,13 @@ body {
   from { opacity: 0; }
   to { opacity: 1; }
 }
-.proj-hero img, .proj-hero video, .proj-hero .pocket-prototype-embed {
+.proj-hero img, .proj-hero video {
   animation: csHeroImageIn 1.8s ease-out 0.15s both;
 }
 .hero-showcase-cards .hero-showcase-float:nth-of-type(1) img { animation-delay: 0.35s; }
 .hero-showcase-cards .hero-showcase-float:nth-of-type(2) img { animation-delay: 0.5s; }
 @media (prefers-reduced-motion: reduce) {
-  .proj-hero img, .proj-hero video, .proj-hero .pocket-prototype-embed { animation: none; opacity: 1; }
-}
-
-/* Embedded interactive prototype (pocket-world hero) — the iframe's own
-   content already looks like a phone screen (status bar, rounded corners),
-   so this is just a single rounded/shadowed frame, not phone-frame's
-   bezel+notch nested on top of that. Centered rather than left-aligned
-   with the rest of the (left-aligned) hero text.
-   The prototype's own page has a "Prototype built with Claude Code · not
-   part of the in-app UI" footer baked into its content — it's cross-origin,
-   so it can't be targeted with CSS from here. Instead the iframe is
-   rendered taller than its visible container (607px tall, the prototype's
-   natural height at this width) and the container crops it at 540px,
-   just above where that footer starts. */
-.pocket-prototype-embed {
-  position: absolute; top: 30px; left: 290px;
-  width: 280px; height: 540px; border-radius: 28px;
-  overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-}
-.pocket-prototype-embed iframe {
-  width: 100%; height: 607px; border: none; display: block;
-}
-/* Gift/boba/flower/note icons wired to the phone by thin, continuously
-   recoloring lines (à la a "connected features" diagram) — matches the
-   project's own theme (gifting, the social gardening game, the Matcha
-   Boba reward in the prototype itself) rather than generic decoration.
-   Fixed pixel coordinates (not percentages) so the SVG's line endpoints
-   and the icons' anchor points share one predictable coordinate system —
-   simpler than keeping a responsive layout in sync with hand-placed line
-   geometry, and this only ever renders above the 1050px breakpoint below
-   where it's hidden entirely in favor of the plain centered phone. */
-.pocket-hero-stage {
-  position: relative; width: 860px; height: 600px; margin: 32px auto 0;
-}
-.pocket-lines {
-  position: absolute; top: 0; left: 0; pointer-events: none;
-}
-/* Thin, faint gold base line (always visible) plus a brighter gold
-   streak layered on top that travels along the same path on a loop —
-   a moving shimmer rather than the line itself changing color. The
-   dash/gap ratio (36 visible, 380 hidden) keeps only one short streak
-   in view at a time, regardless of this particular line's own length. */
-.pocket-line {
-  fill: none; stroke: rgba(212, 165, 116, 0.35); stroke-width: 1.2;
-}
-.pocket-line-shimmer {
-  fill: none; stroke: #ffe9b8; stroke-width: 1.6;
-  stroke-dasharray: 36 380;
-  filter: drop-shadow(0 0 3px rgba(255, 210, 130, 0.85));
-  animation: pocketShimmer 3.2s linear infinite;
-}
-.pocket-line-shimmer.pocket-line--boba { animation-delay: -0.8s; }
-.pocket-line-shimmer.pocket-line--flower { animation-delay: -1.6s; }
-.pocket-line-shimmer.pocket-line--note { animation-delay: -2.4s; }
-@keyframes pocketShimmer {
-  to { stroke-dashoffset: -416; }
-}
-.pocket-line-dot {
-  fill: #d4a574;
-}
-.pocket-float {
-  position: absolute; line-height: 1;
-  animation: pocketFloat 5s ease-in-out infinite;
-  pointer-events: none; user-select: none;
-}
-.pocket-float--gift { top: 75px; left: 95px; transform: translate(-50%, -50%); animation-duration: 5.2s; }
-.pocket-float--boba { top: 95px; left: 765px; transform: translate(-50%, -50%); animation-duration: 4.4s; animation-delay: 0.6s; }
-.pocket-float--flower { top: 510px; left: 85px; transform: translate(-50%, -50%); animation-duration: 5.6s; animation-delay: 1.1s; }
-.pocket-float--note { top: 530px; left: 775px; transform: translate(-50%, -50%); animation-duration: 4.8s; animation-delay: 0.3s; }
-@keyframes pocketFloat {
-  0%, 100% { transform: translate(-50%, -50%) translateY(0) rotate(-4deg); }
-  50% { transform: translate(-50%, -50%) translateY(-16px) rotate(4deg); }
-}
-/* The visible circle + emoji, nested inside .pocket-float — kept separate
-   so hover-scale (its own transform) doesn't fight the outer element's
-   continuous floating-animation transform; each applies to its own box
-   and they compose naturally through the nesting. Re-enables pointer
-   events (the outer stays pointer-events:none) since hover needs them. */
-.pocket-bubble {
-  display: flex; align-items: center; justify-content: center;
-  width: 110px; height: 110px; border-radius: 50%; font-size: 52px;
-  background: var(--card-bg); border: 1px solid var(--border);
-  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
-  pointer-events: auto;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.pocket-bubble--sm { width: 98px; height: 98px; font-size: 46px; }
-.pocket-bubble--xs { width: 86px; height: 86px; font-size: 40px; }
-.pocket-bubble:hover {
-  transform: scale(1.18);
-}
-@media (max-width: 1050px) {
-  .pocket-hero-stage { width: 100%; height: auto; }
-  .pocket-lines, .pocket-float { display: none; }
-  .pocket-prototype-embed { position: static; width: 280px; margin: 0 auto; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .pocket-float { animation: none; }
-  .pocket-line-shimmer { animation: none; opacity: 0; }
+  .proj-hero img, .proj-hero video { animation: none; opacity: 1; }
 }
 
 .proj-hero-video {
@@ -744,7 +646,7 @@ body {
   overflow: hidden;
   background: #fff;
 }
-.phone-frame__screen img, .phone-frame__screen iframe {
+.phone-frame__screen img {
   width: 100%;
   display: block;
 }
@@ -1375,9 +1277,7 @@ body {
 .laptop-viewport img,
 .cs-flow-card-img img,
 .phone-frame__screen img,
-.cs-iteration-crop img,
-.cs-component-grid-palette img,
-.cs-component-grid-right img {
+.cs-iteration-crop img {
   transition: opacity 1.8s cubic-bezier(0.16, 1, 0.3, 1) 0.15s;
 }
 /* Accordion images are a different situation: the user just clicked and
@@ -1388,9 +1288,7 @@ body {
 .cs-accordion-item .cs-image-full img, .cs-accordion-item .cs-image-full video,
 .cs-accordion-item .cs-grid-fig img, .cs-accordion-item .cs-grid-fig video,
 .cs-accordion-item .cs-image-half img, .cs-accordion-item .cs-image-half video,
-.cs-accordion-item .laptop-viewport img,
-.cs-accordion-item .cs-component-grid-palette img,
-.cs-accordion-item .cs-component-grid-right img {
+.cs-accordion-item .laptop-viewport img {
   transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.1s;
 }
 .scroll-reveal .cs-image-full img, .scroll-reveal .cs-image-full video,
@@ -1399,9 +1297,7 @@ body {
 .scroll-reveal .laptop-viewport img,
 .scroll-reveal .cs-flow-card-img img,
 .scroll-reveal .phone-frame__screen img,
-.scroll-reveal .cs-iteration-crop img,
-.scroll-reveal .cs-component-grid-palette img,
-.scroll-reveal .cs-component-grid-right img {
+.scroll-reveal .cs-iteration-crop img {
   opacity: 0;
 }
 .scroll-reveal.revealed .cs-image-full img, .scroll-reveal.revealed .cs-image-full video,
@@ -1410,9 +1306,7 @@ body {
 .scroll-reveal.revealed .laptop-viewport img,
 .scroll-reveal.revealed .cs-flow-card-img img,
 .scroll-reveal.revealed .phone-frame__screen img,
-.scroll-reveal.revealed .cs-iteration-crop img,
-.scroll-reveal.revealed .cs-component-grid-palette img,
-.scroll-reveal.revealed .cs-component-grid-right img {
+.scroll-reveal.revealed .cs-iteration-crop img {
   opacity: 1;
 }
 
@@ -1426,24 +1320,19 @@ body {
 .scroll-reveal .cs-accordion-item .cs-image-full img, .scroll-reveal .cs-accordion-item .cs-image-full video,
 .scroll-reveal .cs-accordion-item .cs-grid-fig img, .scroll-reveal .cs-accordion-item .cs-grid-fig video,
 .scroll-reveal .cs-accordion-item .cs-image-half img, .scroll-reveal .cs-accordion-item .cs-image-half video,
-.scroll-reveal .cs-accordion-item .laptop-viewport img,
-.scroll-reveal .cs-accordion-item .cs-component-grid-palette img,
-.scroll-reveal .cs-accordion-item .cs-component-grid-right img {
+.scroll-reveal .cs-accordion-item .laptop-viewport img {
   opacity: 0;
 }
 .scroll-reveal .cs-accordion-item--open .cs-image-full img, .scroll-reveal .cs-accordion-item--open .cs-image-full video,
 .scroll-reveal .cs-accordion-item--open .cs-grid-fig img, .scroll-reveal .cs-accordion-item--open .cs-grid-fig video,
 .scroll-reveal .cs-accordion-item--open .cs-image-half img, .scroll-reveal .cs-accordion-item--open .cs-image-half video,
-.scroll-reveal .cs-accordion-item--open .laptop-viewport img,
-.scroll-reveal .cs-accordion-item--open .cs-component-grid-palette img,
-.scroll-reveal .cs-accordion-item--open .cs-component-grid-right img {
+.scroll-reveal .cs-accordion-item--open .laptop-viewport img {
   opacity: 1;
 }
 @media (prefers-reduced-motion: reduce) {
   .cs-image-full img, .cs-image-full video, .cs-grid-fig img, .cs-grid-fig video,
   .cs-image-half img, .cs-image-half video, .laptop-viewport img,
-  .cs-flow-card-img img, .phone-frame__screen img, .cs-iteration-crop img,
-  .cs-component-grid-palette img, .cs-component-grid-right img {
+  .cs-flow-card-img img, .phone-frame__screen img, .cs-iteration-crop img {
     opacity: 1 !important; transition: none !important;
   }
 }
@@ -1555,26 +1444,6 @@ body {
 }
 .cs-image-row {
   display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
-}
-/* Pocket World component library — color palette on the left, game UI +
-   icon set stacked on the right. Both columns keep each image's own full,
-   uncropped aspect ratio (align-items:start) rather than stretching the
-   palette to match the right column's height, which would otherwise crop
-   real content off a flat screenshot via object-fit. */
-.cs-component-grid {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start;
-}
-.cs-component-grid-palette img {
-  width: 100%; height: auto; border-radius: 12px; display: block;
-}
-.cs-component-grid-right {
-  display: flex; flex-direction: column; gap: 20px;
-}
-.cs-component-grid-right img {
-  width: 100%; height: auto; border-radius: 12px; display: block;
-}
-@media (max-width: 768px) {
-  .cs-component-grid { grid-template-columns: 1fr; }
 }
 .cs-image-half {
   border-radius: 12px; overflow: hidden;

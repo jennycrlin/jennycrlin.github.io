@@ -51,11 +51,6 @@ function PhotoRow({ photos, direction, orient }: {
 }
 
 export default function AboutPage() {
-  const isVercel = process.env.VERCEL === "1";
-  const resumeHref = isVercel
-    ? "/images/resume/chiehru_resume_vercel.pdf"
-    : "/images/resume/chiehru-resume.pdf";
-
   return (
     <>
       <section className="about-hero">
@@ -134,7 +129,7 @@ export default function AboutPage() {
 
       <section className="about-resume">
         <a
-          href={resumeHref}
+          href="/images/resume/chiehru-resume.pdf"
           className="about-resume-btn"
           target="_blank"
           rel="noopener noreferrer"

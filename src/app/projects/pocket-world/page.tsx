@@ -4,7 +4,6 @@ import Image from "next/image";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { PasswordGate } from "@/components/PasswordGate";
 import { SectionProgress } from "@/components/SectionProgress";
-import { Accordion, AccordionItem } from "@/components/Accordion";
 
 export const metadata: Metadata = {
   title: "Pocket Worlds Gifting — Jenny Lin",
@@ -12,8 +11,10 @@ export const metadata: Metadata = {
 
 const NAV_SECTIONS = [
   { label: "Overview", href: "#sec-overview" },
-  { label: "Wireframe & Prototype", href: "#sec-interaction", childIds: ["sec-exploration", "sec-initial-design"] },
-  { label: "Motion Design", href: "#sec-motion" },
+  { label: "Interaction Design", href: "#sec-interaction", childIds: ["sec-exploration", "sec-initial-design"] },
+  { label: "Design System & AI", href: "#sec-design", childIds: ["sec-components", "sec-ai-workflow"] },
+  { label: "Motion Design", href: "#sec-motion", childIds: ["sec-storytelling", "sec-principles", "sec-prototype"] },
+  { label: "Iteration", href: "#sec-iteration" },
   { label: "Takeaway", href: "#sec-takeaway" },
 ];
 
@@ -33,61 +34,23 @@ export default function PocketWorldPage() {
         </p>
         <div className="meta-grid">
           <div className="meta-item">
-            <label>Role</label>
-            <span>UX Designer</span>
+            <label>Company</label>
+            <span>Pocket Worlds</span>
           </div>
           <div className="meta-item">
-            <label>Project Type</label>
-            <span>Design Exercise</span>
-          </div>
-          <div className="meta-item">
-            <label>Timeline</label>
-            <span>4 days</span>
+            <label>Project</label>
+            <span>Product Design Exercise</span>
           </div>
         </div>
 
-        <div className="pocket-hero-stage">
-          <svg className="pocket-lines" viewBox="0 0 860 600" width="860" height="600" aria-hidden="true">
-            <polyline className="pocket-line" points="300,130 175,105 95,75" />
-            <polyline className="pocket-line-shimmer pocket-line--gift" points="300,130 175,105 95,75" />
-            <circle className="pocket-line-dot" cx="175" cy="105" r="4" />
-            <circle className="pocket-line-dot" cx="95" cy="75" r="4" />
-
-            <polyline className="pocket-line" points="560,150 685,120 765,95" />
-            <polyline className="pocket-line-shimmer pocket-line--boba" points="560,150 685,120 765,95" />
-            <circle className="pocket-line-dot" cx="685" cy="120" r="4" />
-            <circle className="pocket-line-dot" cx="765" cy="95" r="4" />
-
-            <polyline className="pocket-line" points="300,460 175,485 85,510" />
-            <polyline className="pocket-line-shimmer pocket-line--flower" points="300,460 175,485 85,510" />
-            <circle className="pocket-line-dot" cx="175" cy="485" r="4" />
-            <circle className="pocket-line-dot" cx="85" cy="510" r="4" />
-
-            <polyline className="pocket-line" points="560,480 685,505 775,530" />
-            <polyline className="pocket-line-shimmer pocket-line--note" points="560,480 685,505 775,530" />
-            <circle className="pocket-line-dot" cx="685" cy="505" r="4" />
-            <circle className="pocket-line-dot" cx="775" cy="530" r="4" />
-          </svg>
-          <span className="pocket-float pocket-float--gift" aria-hidden="true">
-            <span className="pocket-bubble">🎁</span>
-          </span>
-          <span className="pocket-float pocket-float--boba" aria-hidden="true">
-            <span className="pocket-bubble pocket-bubble--sm">🧋</span>
-          </span>
-          <span className="pocket-float pocket-float--flower" aria-hidden="true">
-            <span className="pocket-bubble pocket-bubble--xs">🌸</span>
-          </span>
-          <span className="pocket-float pocket-float--note" aria-hidden="true">
-            <span className="pocket-bubble pocket-bubble--sm">💌</span>
-          </span>
-          <div className="pocket-prototype-embed">
-            <iframe
-              src={PROTOTYPE_URL}
-              title="Interactive gift-opening prototype — tap to open the gift"
-              loading="lazy"
-            />
-          </div>
-        </div>
+        <a
+          href={PROTOTYPE_URL}
+          className="cs-cta-btn"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Try the Interactive Prototype &rarr;
+        </a>
       </div>
 
       <div className="proj-content-full">
@@ -111,16 +74,16 @@ export default function PocketWorldPage() {
         </ScrollReveal>
 
         <PasswordGate active={isVercel} code="we1come" popup={isVercel}>
-          {/* Wireframe & Prototype */}
+          {/* Interaction Design */}
           <ScrollReveal>
             <div className="section" id="sec-interaction">
-              <h2>Wireframe &amp; Prototype</h2>
+              <h2>Interaction Design</h2>
             </div>
           </ScrollReveal>
 
           <ScrollReveal>
             <div className="section section--child" id="sec-exploration">
-              <p className="cs-label">01 &middot; Wireframe</p>
+              <p className="cs-label">01 &middot; Exploration</p>
               <h2 className="cs-heading">Finding the right flow for gifting</h2>
               <p>
                 I explored three approaches: a single scrolling screen, a
@@ -144,7 +107,7 @@ export default function PocketWorldPage() {
 
           <ScrollReveal>
             <div className="section section--child" id="sec-initial-design">
-              <p className="cs-label">02 &middot; High-Fi Prototype</p>
+              <p className="cs-label">02 &middot; Initial Design</p>
               <h2 className="cs-heading">From customization to checkout</h2>
               <p>I designed three connected steps:</p>
               <ul className="cs-list">
@@ -177,24 +140,232 @@ export default function PocketWorldPage() {
             </div>
           </ScrollReveal>
 
+          {/* Design System & AI */}
+          <ScrollReveal>
+            <div className="section" id="sec-design">
+              <h2>Design System &amp; AI</h2>
+              <h3>Building within the game&apos;s visual language</h3>
+              <p>
+                The Gift Shop and reception screen were already designed. I
+                audited their existing components, colors, typography, and
+                spacing before extending the system to the new gifting
+                screens.
+              </p>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal>
+            <div className="section section--child" id="sec-components">
+              <p className="cs-label">01 &middot; Component Library</p>
+              <h2 className="cs-heading">Making the design reusable</h2>
+              <p>
+                I reused the provided components and defined additional
+                patterns needed for gifting.
+              </p>
+              <ul className="cs-list">
+                <li>
+                  <strong>Design tokens:</strong> Colors, typography,
+                  spacing, and corner radius.
+                </li>
+                <li>
+                  <strong>Reusable components:</strong> Buttons, wallet,
+                  gift cards, topping options, and navigation.
+                </li>
+                <li>
+                  <strong>Component states:</strong> Selected, unselected,
+                  and relevant interaction states.
+                </li>
+                <li>
+                  <strong>Layout rules:</strong> Consistent padding,
+                  alignment, and container structure.
+                </li>
+              </ul>
+              <p>
+                This kept the new screens visually consistent and made
+                future changes easier to manage.
+              </p>
+              <div className="cs-image-full">
+                <Image
+                  src="/images/projects/pocket-world/component.png"
+                  alt="Component library showing design tokens, variants, and component anatomy"
+                  width={9964}
+                  height={5840}
+                  sizes="(max-width: 768px) 100vw, 800px"
+                />
+              </div>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal>
+            <div className="section section--child" id="sec-ai-workflow">
+              <p className="cs-label">02 &middot; AI Workflow</p>
+              <h2 className="cs-heading">Giving Claude clear design rules</h2>
+              <p>
+                I documented the game&apos;s existing design language in{" "}
+                <code>CLAUDE.md</code> before generating new screens.
+              </p>
+              <p>
+                Rather than asking AI to invent a visual style, I defined the
+                components, tokens, and layout rules it needed to follow.
+              </p>
+              <ul className="cs-list">
+                <li>
+                  <strong>
+                    <code>CLAUDE.md</code>:
+                  </strong>{" "}
+                  Colors, typography, spacing, components, and Figma
+                  references.
+                </li>
+                <li>
+                  <strong>Workflow documentation:</strong> Design directions,
+                  build order, and iteration notes.
+                </li>
+                <li>
+                  <strong>Motion specifications:</strong> Animation states,
+                  timing, easing, and interaction behavior.
+                </li>
+              </ul>
+              <p>
+                Claude Code and Figma MCP helped build the screens and
+                prototype. I reviewed the output, corrected component usage
+                and spacing, and made the final design decisions.
+              </p>
+            </div>
+          </ScrollReveal>
+
           {/* Motion Design */}
           <ScrollReveal>
             <div className="section" id="sec-motion">
               <h2>Motion Design</h2>
               <h3>Making the gift-opening moment feel special</h3>
               <p>
-                I wanted receiving a gift to feel personal, not just
-                another reward notification. Feedback from three regular
-                players &mdash; some wanted it fast, one always skipped
-                animations &mdash; shaped a short, skippable sequence that
-                still gives the personal message room.
+                I wanted receiving a gift to feel like a small moment
+                between friends, not just another reward notification.
               </p>
               <p>
-                The biggest challenge was keeping the motion connected
-                &mdash; the note moves off-screen as the gift shifts into
-                the corner, then both return to center without jumping
-                between screens. I refined position, scale, opacity, and
-                timing until it read as one continuous interaction.
+                I spoke with three friends who regularly play games. Two
+                preferred seeing the gift quickly, while one usually
+                skipped animations. That feedback helped me balance the
+                personal message with a short, skippable opening sequence.
+              </p>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal>
+            <div className="section section--child" id="sec-storytelling">
+              <p className="cs-label">01 &middot; Storytelling</p>
+              <h2 className="cs-heading">The note comes before the gift</h2>
+              <p>
+                The opening starts with two objects: a note and a wrapped
+                present.
+              </p>
+              <p>
+                When players tap Open, the objects separate. The note
+                reveals the sender&apos;s message, then the gift moves into
+                focus and opens to reveal the reward. Afterward, players
+                can send a thank-you or visit the sender&apos;s garden. I
+                chose this order to give the personal message its own
+                moment before the reward reveal.
+              </p>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal>
+            <div className="section section--child" id="sec-principles">
+              <p className="cs-label">02 &middot; Motion Principles</p>
+              <h2 className="cs-heading">Designing movement with a purpose</h2>
+              <p>
+                Before building the prototype, I defined how each object
+                should move and respond.
+              </p>
+              <ul className="cs-list">
+                <li>
+                  <strong>Spatial Continuity:</strong> The same gift moves
+                  across states instead of disappearing and reappearing.
+                </li>
+                <li>
+                  <strong>Timing &amp; Easing:</strong> Slower movement
+                  builds anticipation; quicker transitions keep the
+                  experience responsive.
+                </li>
+                <li>
+                  <strong>Interaction Feedback:</strong> Subtle motion and
+                  contextual hints make the gift&apos;s next action
+                  discoverable.
+                </li>
+                <li>
+                  <strong>Player Control:</strong> Skip lets players reach
+                  the reward without watching the entire sequence.
+                </li>
+                <li>
+                  <strong>Emotional Pacing:</strong> The note comes first to
+                  preserve the personal message before the reward reveal.
+                </li>
+              </ul>
+
+              <table className="cs-specs-table">
+                <thead>
+                  <tr>
+                    <th>Transition</th>
+                    <th>Duration</th>
+                    <th>Design Intention</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Note and gift separate</td>
+                    <td>~1,200ms</td>
+                    <td>Let players follow both objects</td>
+                  </tr>
+                  <tr>
+                    <td>Message appears</td>
+                    <td>~750ms</td>
+                    <td>Gentle entrance</td>
+                  </tr>
+                  <tr>
+                    <td>Gift moves to center</td>
+                    <td>~900ms</td>
+                    <td>Maintain spatial continuity</td>
+                  </tr>
+                  <tr>
+                    <td>Gift squash &amp; twist</td>
+                    <td>~600ms</td>
+                    <td>Build anticipation</td>
+                  </tr>
+                  <tr>
+                    <td>Reward reveal</td>
+                    <td>~700ms</td>
+                    <td>Make the reveal feel rewarding</td>
+                  </tr>
+                  <tr>
+                    <td>Skip transition</td>
+                    <td>~300ms</td>
+                    <td>Respect player control</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal>
+            <div className="section section--child" id="sec-prototype">
+              <p className="cs-label">03 &middot; Interactive Prototype</p>
+              <h2 className="cs-heading">
+                From static frames to continuous motion
+              </h2>
+              <p>
+                I mapped the animation states in Figma, then used Claude
+                Code to build an interactive prototype.
+              </p>
+              <p>
+                The biggest challenge was keeping the motion connected. The
+                note needed to move off-screen while the gift moved into
+                the corner, then return to the center without jumping
+                between screens.
+              </p>
+              <p>
+                I refined the position, scale, opacity, and timing to make
+                the sequence feel like one continuous interaction.
               </p>
               <div className="cs-image-full">
                 <Image
@@ -213,117 +384,24 @@ export default function PocketWorldPage() {
               >
                 Try the Interactive Prototype &rarr;
               </a>
+            </div>
+          </ScrollReveal>
 
-              <h2 style={{ marginTop: 48 }}>How I Use AI</h2>
-              <Accordion>
-                <AccordionItem num="01" title="CLAUDE.md">
-                  <p>
-                    I documented the game&apos;s existing design language in{" "}
-                    <code>CLAUDE.md</code> before generating new screens,
-                    rather than asking AI to invent its own visual style. I
-                    reused the provided components and defined additional
-                    patterns needed for gifting.
-                  </p>
-                  <ul className="cs-list">
-                    <li>
-                      <strong>Design tokens:</strong> Colors, typography,
-                      spacing, radius.
-                    </li>
-                    <li>
-                      <strong>Components:</strong> Buttons, wallet, gift
-                      cards, toppings, navigation.
-                    </li>
-                    <li>
-                      <strong>States:</strong> Selected, unselected,
-                      interaction.
-                    </li>
-                    <li>
-                      <strong>Layout:</strong> Consistent padding, alignment,
-                      structure.
-                    </li>
-                  </ul>
-                  <p>
-                    This kept the new screens visually consistent and made
-                    future changes easier to manage.
-                  </p>
-                  <div className="cs-component-grid">
-                    <div className="cs-component-grid-palette">
-                      <Image
-                        src="/images/projects/pocket-world/Color Palette.png"
-                        alt="Color palette — Nighttime Garden"
-                        width={2590}
-                        height={3000}
-                        sizes="(max-width: 768px) 100vw, 400px"
-                      />
-                    </div>
-                    <div className="cs-component-grid-right">
-                      <Image
-                        src="/images/projects/pocket-world/Components-icon.png"
-                        alt="Shared components and icon set used across the gifting flow"
-                        width={3000}
-                        height={2734}
-                        sizes="(max-width: 768px) 100vw, 400px"
-                      />
-                    </div>
-                  </div>
-                </AccordionItem>
-                <AccordionItem num="02" title="Workflow & Motion Specs">
-                  <p>
-                    Motion only earns its place if it&apos;s telling a
-                    story, not just moving for its own sake. The note and
-                    gift separate on open &mdash; the note reveals the
-                    message first, then the gift reveals the reward.
-                  </p>
-                  <table className="cs-specs-table">
-                    <thead>
-                      <tr>
-                        <th>Transition</th>
-                        <th>Duration</th>
-                        <th>Design Intention</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>Note and gift separate</td>
-                        <td>~1,200ms</td>
-                        <td>Let players follow both objects</td>
-                      </tr>
-                      <tr>
-                        <td>Message appears</td>
-                        <td>~750ms</td>
-                        <td>Gentle entrance</td>
-                      </tr>
-                      <tr>
-                        <td>Gift moves to center</td>
-                        <td>~900ms</td>
-                        <td>Maintain spatial continuity</td>
-                      </tr>
-                      <tr>
-                        <td>Gift squash &amp; twist</td>
-                        <td>~600ms</td>
-                        <td>Build anticipation</td>
-                      </tr>
-                      <tr>
-                        <td>Reward reveal</td>
-                        <td>~700ms</td>
-                        <td>Make the reveal feel rewarding</td>
-                      </tr>
-                      <tr>
-                        <td>Skip transition</td>
-                        <td>~300ms</td>
-                        <td>Respect player control</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </AccordionItem>
-                <AccordionItem num="03" title="Build & Review">
-                  <p>
-                    Claude Code and Figma MCP helped build the screens and
-                    prototype. I reviewed the output, corrected component
-                    usage and spacing, and made the final design decisions.
-                  </p>
-                </AccordionItem>
-              </Accordion>
+          {/* Iteration */}
+          <ScrollReveal>
+            <div className="section" id="sec-iteration">
+              <h2>Iteration</h2>
+              <h3>Giving players more room to explore</h3>
+              <p>
+                Feedback showed that the pop-up made customization feel
+                cramped, hid add-ons behind extra swipes, and gave players
+                little sense of progress.
+              </p>
+              <p>
+                I revisited the gift-focused direction with a full-screen
+                layout, scrollable options, clearer progress, and more
+                descriptive actions.
+              </p>
             </div>
           </ScrollReveal>
 
@@ -350,8 +428,8 @@ export default function PocketWorldPage() {
         </PasswordGate>
 
         <div className="proj-nav-bar">
-          <Link href="/projects/healthcare">&larr; Healthcare</Link>
-          <Link href="/projects/ai-agent">Next: Echo Learn &rarr;</Link>
+          <Link href="/projects/eli-lilly">&larr; Eli Lilly</Link>
+          <Link href="/projects/dashboard">Next: AT&amp;T Dashboard &rarr;</Link>
         </div>
       </div>
     </>

@@ -24,8 +24,6 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npx next build
-      - name: Remove Pocket World (Vercel-only project)
-        run: rm -rf out/projects/pocket-world out/projects/pocket-world.html out/projects/pocket-world.txt
       - uses: actions/upload-pages-artifact@v3
         with:
           path: out

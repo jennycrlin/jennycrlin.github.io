@@ -1,9 +1,4 @@
 export function Footer() {
-  const isVercel = process.env.VERCEL === "1";
-  const resumeHref = isVercel
-    ? "/images/resume/chiehru_resume_vercel.pdf"
-    : "/images/resume/chiehru-resume.pdf";
-
   return (
     <footer className="site-footer">
       <div className="left">
@@ -12,7 +7,7 @@ export function Footer() {
       </div>
       <div className="right">
         <a href="https://www.linkedin.com/in/chiehrulin/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a href={resumeHref} target="_blank" rel="noopener noreferrer">Resume</a>
+        <a href="/images/resume/chiehru-resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
         <a href="mailto:jennycrlin.work@gmail.com">Email</a>
       </div>
     </footer>
