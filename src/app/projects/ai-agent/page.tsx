@@ -7,7 +7,7 @@ import { SectionProgress } from "@/components/SectionProgress";
 import { PasswordGate } from "@/components/PasswordGate";
 
 export const metadata: Metadata = {
-  title: "Teaching AI Agent — Jenny Lin",
+  title: "Echo Learn — Jenny Lin",
 };
 
 const NAV_SECTIONS = [
@@ -25,7 +25,7 @@ export default function AIAgentPage() {
   return (
     <>
       <div className="proj-hero">
-        <h1>Teaching AI Agent</h1>
+        <h1>Echo Learn</h1>
         <p className="desc">
           Designed an AI learning companion that helps students explain
           concepts, identify gaps in their understanding, and learn
@@ -450,7 +450,7 @@ export default function AIAgentPage() {
           </PasswordGate>
 
           <div className="proj-nav-bar">
-            <Link href="/projects/healthcare">&larr; Healthcare App</Link>
+            <Link href="/projects/pocket-world">&larr; Pocket World</Link>
             <Link href="/projects/apple-books">Next: Apple Books &rarr;</Link>
           </div>
       </div>

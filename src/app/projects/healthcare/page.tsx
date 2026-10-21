@@ -470,7 +470,7 @@ export default function HealthcarePage() {
 
         <div className="proj-nav-bar">
           <Link href="/">← All Projects</Link>
-          <Link href="/projects/ai-agent">Next: Teaching AI →</Link>
+          <Link href="/projects/pocket-world">Next: Pocket World →</Link>
         </div>
       </div>
     </>

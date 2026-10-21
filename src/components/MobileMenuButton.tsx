@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 
-export function MobileMenuButton() {
+export function MobileMenuButton({ resumeHref }: { resumeHref: string }) {
   const [open, setOpen] = useState(false)
 
   useEffect(() => {
@@ -33,7 +33,7 @@ export function MobileMenuButton() {
           <div className="mobile-menu-drawer" onClick={e => e.stopPropagation()}>
             <a href="/#projects" onClick={() => setOpen(false)}>Projects</a>
             <a href="/about" onClick={() => setOpen(false)}>About</a>
-            <a href="/images/resume/chiehru-resume.pdf" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>Resume</a>
+            <a href={resumeHref} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>Resume</a>
           </div>
         </div>
       )}

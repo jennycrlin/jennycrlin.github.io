@@ -57,35 +57,32 @@ export default function Home() {
 
       <Marquee items={SKILLS} />
 
-      <section className="home-featured" id="projectsSection">
+      <section className="home-projects" id="projectsSection">
         <div className="section-label">Featured Work</div>
-        <Link href="/projects/apex" className="featured-card">
-          {!isVercel && <div className="lock-icon">🔒</div>}
-          <div className="card-cover">
-            <Image src="/images/projects/apex/apex-cover.svg" alt="Fintech Platform Design" width={1200} height={600} sizes="(max-width: 768px) 100vw, 1100px" />
-          </div>
-          <div className="info">
-            <h3>Unifying Three Fintech Platforms</h3>
-            <p>
-              Designing scalable fintech platforms with AI-driven
-              workflows, serving one of the largest clearing and custody
-              firms in the US.
-            </p>
-            <div className="tags">
-              <span className="tag">B2B</span>
-              <span className="tag">Fintech</span>
-              <span className="tag">AI Integration</span>
-            </div>
-            <div className="read-more">
-              View case study <span>→</span>
-            </div>
-          </div>
-        </Link>
-        <div className="gradient-accent" />
-      </section>
-
-      <section className="home-projects">
         <div className="project-grid">
+          <Link href="/projects/apex" className="proj-card">
+            {!isVercel && <div className="lock-icon">🔒</div>}
+            <div className="card-cover">
+              <Image src="/images/projects/apex/apex-cover.svg" alt="Fintech Platform Design" width={1200} height={600} sizes="(max-width: 768px) 100vw, 50vw" />
+            </div>
+            <div className="card-info">
+              <h4>Unifying Three Fintech Platforms</h4>
+              <p>
+                Designing scalable fintech platforms with AI-driven
+                workflows, serving one of the largest clearing and custody
+                firms in the US.
+              </p>
+              <div className="tags">
+                <span className="tag">B2B</span>
+                <span className="tag">Fintech</span>
+                <span className="tag">AI Integration</span>
+              </div>
+            </div>
+            <div className="card-arrow">
+              <div className="arrow-circle">→</div>
+            </div>
+          </Link>
+
           <Link href="/projects/eli-lilly" className="proj-card">
             {!isVercel && <div className="lock-icon">🔒</div>}
             <div className="card-cover">
@@ -148,12 +145,34 @@ export default function Home() {
             </div>
           </Link>
 
-          <Link href="/projects/ai-agent" className="proj-card">
+          <Link href="/projects/pocket-world" className="proj-card">
             <div className="card-cover">
-              <Image src="/images/projects/ai-agent/ai-agent-cover.svg" alt="Teaching AI Agent" width={1200} height={600} sizes="(max-width: 768px) 100vw, 50vw" />
+              <Image src="/images/projects/pocket-world/pocket-world-cover.svg" alt="Pocket Worlds — Playful Gifting Experience" width={1200} height={600} sizes="(max-width: 768px) 100vw, 50vw" />
             </div>
             <div className="card-info">
-              <h4>Teaching AI Agent</h4>
+              <h4>Designing a Playful Gifting Experience</h4>
+              <p>
+                Gaming motion design for a social gardening app &mdash; an
+                animated gift-opening experience built from reusable UI
+                components.
+              </p>
+              <div className="tags">
+                <span className="tag">Game UI</span>
+                <span className="tag">Motion Design</span>
+                <span className="tag">AI Workflow</span>
+              </div>
+            </div>
+            <div className="card-arrow">
+              <div className="arrow-circle">→</div>
+            </div>
+          </Link>
+
+          <Link href="/projects/ai-agent" className="proj-card">
+            <div className="card-cover">
+              <Image src="/images/projects/ai-agent/ai-agent-cover.svg" alt="Echo Learn" width={1200} height={600} sizes="(max-width: 768px) 100vw, 50vw" />
+            </div>
+            <div className="card-info">
+              <h4>Echo Learn</h4>
               <p>AI-driven feedback and visualization for active learning.</p>
               <div className="tags">
                 <span className="tag">Web</span>
